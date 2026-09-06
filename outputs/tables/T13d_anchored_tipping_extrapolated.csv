@@ -1,0 +1,4 @@
+"pct_assumed_true","observed_candidates_used","extrapolated_events_added","hr","lo","hi","crosses_null"
+0,0,0,3.4,2.36,4.91,FALSE
+50,20,75,1.25,0.92,1.7,TRUE
+100,40,151,0.76,0.57,1.01,TRUE

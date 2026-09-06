@@ -45,9 +45,13 @@ stratified model discards every set with no event. Both are reported; they agree
 
 Ranked by how much they could move the estimate.
 
-1. **Differential outcome under-ascertainment in controls.** ~1% of censored controls
-   with a hidden seizure erases the association. This is the dominant vulnerability
-   and follows from 83 events among 9,742 controls.
+1. **Differential outcome under-ascertainment in controls.** Now partly measured
+   rather than assumed. 63 of 2,821 controls with medication data (2.23%) received
+   an unambiguous ASM without ever being coded with epilepsy. Treating **all** of
+   them as true missed seizures still leaves HR 1.98 (1.42–2.75). But extrapolating
+   that rate to the 71% of controls with no medication data reaches the null at
+   about half. Both scenarios add events only to controls, because no case
+   medications exist — see decision #11.
 2. **Asymmetric outcome window (found in the data, not the protocol text).** The
    180-day presenting-seizure rule was applied to cases only. Earliest case event
    day 183; earliest control event day 16; 14 control events in a window cases
@@ -148,8 +152,12 @@ Run: `Rscript run_all.R`. Outputs to `outputs/{tables,figures,diagnostics,logs}`
    correct source for both arms.
 4. **Follow-up for controls cannot be verified.** They carry no date fields. Please
    supply last-encounter and death dates, or confirm the derivation rule was identical.
-5. **2,087 cases have last-encounter dates after the data freeze** (to 2038). These
-   need fixing before any full-follow-up estimate is quotable.
+5. ~~2,087 cases have last-encounter dates after the data freeze.~~ **Resolved.**
+   All person-time is now administratively censored at 31 August 2026. This removes
+   0.2% of case and 0.8% of control person-time and leaves the 3-year primary
+   estimate unchanged. Note the correction: projected end-of-follow-up ran past the
+   freeze in **both** arms, and proportionally more in controls (12.1%) than cases
+   (6.0%) — it was not a case-only problem.
 6. **This export does not reproduce protocol §6** (2,215 cases / 4,337 controls there;
    2,732 / 9,742 here). Which extract is the study of record?
 7. **Death ascertainment**: is the HR of 0.23 real, or differential capture?
@@ -157,5 +165,13 @@ Run: `Rscript run_all.R`. Outputs to `outputs/{tables,figures,diagnostics,logs}`
    IIH. Confirm; its impact is untestable without per-drug data.
 9. **Race was a matching variable but is blank for every case.** Confirm the match
    was actually executed on race.
+11. **Extract medications for the 2,732 matched IIH cases.** Highest-value single
+    addition to the study. It converts the largest remaining uncertainty — whether
+    ASM-without-diagnosis is commoner in controls than cases — from an untestable
+    assumption into a measurement. Extending control coverage beyond the current
+    29% is second.
+12. **Confirm the medication extracts are final.** You said you would revise and
+    filter them; everything in `R/15` is marked provisional until you do.
+    Note acetazolamide appears **nowhere** in the extract (0 rows).
 10. **Extract the `outcome_criterion` flag for cases** if you want the stricter
     outcome definition. It is currently controls-only and unusable.

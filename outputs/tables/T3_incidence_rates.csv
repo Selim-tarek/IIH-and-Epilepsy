@@ -1,7 +1,7 @@
 "horizon","cohort","n","events","person_years","rate_per_1000py","lo","hi","irr","irr_lo","irr_hi","irr_p"
-"3 years (primary)","Non-IIH control",9742,70,24209.2,2.89,2.25,3.65,NA,NA,NA,NA
-"3 years (primary)","IIH",2732,56,7126.5,7.86,5.94,10.2,2.72,1.88,3.92,8.86e-08
-"5 years","Non-IIH control",9742,80,32603.2,2.45,1.95,3.05,NA,NA,NA,NA
-"5 years","IIH",2732,76,10252.9,7.41,5.84,9.28,3.02,2.18,4.19,2.2e-11
-"full follow-up","Non-IIH control",9742,83,41459.6,2,1.59,2.48,NA,NA,NA,NA
-"full follow-up","IIH",2732,102,15951.7,6.39,5.21,7.76,3.19,2.37,4.32,6.23e-15
+"3 years (primary)","Non-IIH control",9742,70,24016.4,2.91,2.27,3.68,NA,NA,NA,NA
+"3 years (primary)","IIH",2732,56,7118.1,7.87,5.94,10.22,2.7,1.86,3.89,9.68e-08
+"5 years","Non-IIH control",9742,80,32348.9,2.47,1.96,3.08,NA,NA,NA,NA
+"5 years","IIH",2732,76,10242.1,7.42,5.85,9.29,3,2.16,4.16,2.57e-11
+"full follow-up","Non-IIH control",9742,83,41130.8,2.02,1.61,2.5,NA,NA,NA,NA
+"full follow-up","IIH",2732,102,15925.1,6.4,5.22,7.78,3.17,2.35,4.29,1.19e-14

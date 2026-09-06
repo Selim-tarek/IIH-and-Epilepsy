@@ -1,3 +1,3 @@
 "outcome","n","ev","hr","lo","hi","p","estimate","interpretation"
-"Incident seizure/epilepsy (positive outcome)",10684,103,2.40814474121904,1.63186186241739,3.55370833047733,"<0.001","2.41 (1.63 to 3.55)","Elevated as hypothesised"
-"Incident carpal tunnel syndrome (NEGATIVE CONTROL)",10684,32,0.885336614963392,0.378623380759143,2.07018626325524,"0.779","0.89 (0.38 to 2.07)","NULL, as required. Surveillance/healthcare contact alone does not produce an elevated hazard in this design, which materially strengthens the primary result."
+"Incident seizure/epilepsy (positive outcome)",10684,103,2.39286446588343,1.62137774178971,3.53144131963189,"<0.001","2.39 (1.62 to 3.53)","Elevated as hypothesised"
+"Incident carpal tunnel syndrome (NEGATIVE CONTROL)",10684,34,0.813119869544081,0.35018900199826,1.88802023614285,"0.630","0.81 (0.35 to 1.89)","NULL, as required. Surveillance/healthcare contact alone does not produce an elevated hazard in this design, which materially strengthens the primary result."

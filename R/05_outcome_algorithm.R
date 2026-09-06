@@ -33,14 +33,36 @@ d$died <- ifelse(is.na(d$died_fu), 0, d$died_fu)
 
 ## ---- follow-up time --------------------------------------------------------
 ## followup_years is the ONLY time variable available for controls (they carry
-## no dates at all). For cases it is reproducible from last_encounter_date, but
-## that field contains impossible future values (to 2038) in 2,087 cases. Using
-## the supplied followup_years for BOTH arms is the only way to apply one rule
-## to both; the resulting differential-follow-up problem is handled by the
-## truncated estimands, not by patching the denominator.
-d$time_years <- d$followup_years
+## no dates at all). For cases it is NOT simply last_encounter_date - index
+## (median absolute difference 44 days), so it already reflects censoring at
+## death or event.
+##
+## It does, however, run past the end of the data. Projecting each patient's
+## end of follow-up as index_date + followup_years puts 6.0% of cases and
+## 12.1% of controls beyond any plausible freeze, out to 2031 and 2034
+## respectively. Person-time after the freeze is not observation, so every
+## patient is administratively censored at FREEZE_DATE.
+##
+## This rule is applied identically in both arms, which matters: the excess
+## sits in BOTH cohorts and is proportionally larger in controls, so leaving it
+## in would inflate control person-time and bias the hazard ratio upward.
+d$fu_max      <- as.numeric(FREEZE_DATE - d$index_date) / 365.25
+d$fu_raw      <- d$followup_years
+d$time_years  <- pmin(d$fu_raw, d$fu_max)
+d$fu_censored_at_freeze <- !is.na(d$fu_raw) & d$fu_raw > d$fu_max
+
+## An event or death recorded after the freeze would have to be censored too.
+## There are none, so no outcome is lost by this rule -- assert it rather than
+## assume it.
+assert(sum(d$seizure_date > FREEZE_DATE, na.rm = TRUE) == 0,
+       "seizure recorded after the data-freeze date")
+assert(sum(d$death_date > FREEZE_DATE, na.rm = TRUE) == 0,
+       "death recorded after the data-freeze date")
+assert(all(d$time_years > 0 | is.na(d$time_years)),
+       "non-positive follow-up after applying the freeze")
 
 ## Rebuilt competing-risk status: 0 censored, 1 seizure, 2 death before seizure.
+## The supplied `status` column is discarded for the reason given in the header.
 d$status_cr <- ifelse(!is.na(d$event_seizure) & d$event_seizure == 1, 1L,
                ifelse(d$died == 1, 2L, 0L))
 d$status_cr <- factor(d$status_cr, levels = 0:2,
@@ -66,6 +88,20 @@ assert(all(a$time_years > 0), "non-positive follow-up in matched set")
 tab_sets <- table(a$match_set, a$iih)
 informative <- rownames(tab_sets)[tab_sets[, "0"] > 0 & tab_sets[, "1"] > 0]
 a$set_informative <- a$match_set %in% informative
+
+## Impact of the freeze, reported so the reader can see what it cost.
+freeze_tab <- do.call(rbind, lapply(c(1, 0), function(g) {
+  ss <- d[d$in_matched & d$iih == g & !is.na(d$fu_raw), ]
+  data.frame(cohort = ifelse(g == 1, "IIH", "Non-IIH control"),
+             n = nrow(ss),
+             n_censored_at_freeze = sum(ss$fu_censored_at_freeze),
+             pct_censored = round(100 * mean(ss$fu_censored_at_freeze), 1),
+             py_before = round(sum(ss$fu_raw)),
+             py_after = round(sum(ss$time_years)),
+             pct_py_removed = round(100 * (1 - sum(ss$time_years) / sum(ss$fu_raw)), 2))
+}))
+write_tab(freeze_tab, "S27_data_freeze_impact")
+print(freeze_tab)
 
 log_msg("matched analytic set: ", nrow(a), " (", sum(a$iih == 1), " IIH, ",
         sum(a$iih == 0), " controls)")

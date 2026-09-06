@@ -7,6 +7,11 @@ options(stringsAsFactors = FALSE, width = 120, warn = 1)
 set.seed(20250906)
 SEED <- 20250906
 
+## Administrative data-freeze date. Records dated after this are not real
+## follow-up: the export contains encounter and derived end-of-follow-up dates
+## running to 2031-2038. All person-time is administratively censored here.
+FREEZE_DATE <- as.Date("2026-08-31")
+
 ## ---- paths (all project-relative) ------------------------------------------
 PATH <- list(
   raw      = file.path("data-raw", "IIH_MASTER_cases_and_controls_2.csv"),

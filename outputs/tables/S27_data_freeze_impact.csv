@@ -1,0 +1,3 @@
+"cohort","n","n_censored_at_freeze","pct_censored","py_before","py_after","pct_py_removed"
+"IIH",2732,166,6.1,15952,15925,0.17
+"Non-IIH control",9742,1184,12.2,41460,41131,0.79

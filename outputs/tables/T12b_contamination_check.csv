@@ -1,0 +1,4 @@
+"check","n","verdict"
+"IIH cases appearing in the control extract",59,"expected -- the control pool is screened, not pre-filtered"
+"...of those, used as a matched control in the master file",0,"PASS -- no case contributes to both arms"
+"...of those, present in the master file as a control record",0,"PASS"

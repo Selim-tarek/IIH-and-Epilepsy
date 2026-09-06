@@ -1,123 +1,140 @@
-[20:17:17] === 01 import === 
-[20:17:17] raw: 13343 rows x 66 cols 
-[20:17:18] typed frame: 13343 x 82 
-[20:17:18] wrote outputs/tables/S1_data_dictionary.csv (66 rows) 
-[20:17:18] 01 complete 
-[20:17:18] === 02 audit === 
-[20:17:19] wrote outputs/tables/S2_audit_counts.csv (7 rows) 
-[20:17:19] [OK] A1: Controls matched WITHOUT replacement 
-[20:17:19] wrote outputs/tables/S3_realised_matching_ratio.csv (5 rows) 
-[20:17:19] [MAJOR] B1: 1:4 matching NOT achieved: mean 3.57 controls/case, only 66.4% of sets are full 
-[20:17:19] [MAJOR] B2: 869 IIH cases (6.5%) could not be matched and are excluded from all comparative analyses 
-[20:17:19] [MAJOR] B3: Analytic counts do NOT reproduce protocol v2.0 section 6 
-[20:17:19] wrote outputs/tables/S4_match_tier.csv (7 rows) 
-[20:17:19] [CRITICAL] C1: 2087 IIH cases have last_encounter_date AFTER the data-freeze date (max 2038-09-21) 
-[20:17:19] [CRITICAL] C2: Controls have NO date fields at all (last_encounter, first_encounter, death, DOB all blank) 
-[20:17:19] [MINOR] C3: 20 cases have index dates before 2000 (min 1990) 
-[20:17:19] [MODERATE] C4: 1 seizure_date before index; 57 seizure_dates on patients not flagged incident 
-[20:17:19] [CRITICAL] D1: Supplied `status` never codes death in cases: 91 IIH cases have died_fu=1 but 0 have status=2 
-[20:17:19] wrote outputs/tables/S5_followup_by_cohort.csv (2 rows) 
-[20:17:19] [MAJOR] E1: Follow-up is markedly longer in cases (median 4.75 y) than controls (median 3.42 y) 
-[20:17:19] wrote outputs/tables/S6_cohort_specific_variables.csv (37 rows) 
-[20:17:19] [CRITICAL] F1: 37 variables are extracted for one cohort only 
-[20:17:19] [CRITICAL] F2: Race was matched on but is unverifiable 
-[20:17:19] [MAJOR] F3: smoking uses different encodings in the two cohorts (text in cases, 0/1/2 in controls) 
-[20:17:19] wrote outputs/tables/S7_encephalocele_assessability.csv (4 rows) 
-[20:17:19] [CRITICAL] G1: Encephalocele assessable in only 90/3601 cases (2.5%); 65 positive; 5 and 3 incident seizures in enceph+/enceph- 
-[20:17:19] [MAJOR] H1: Opening pressure is recorded for 2517/3601 cases (70%) and is <25 cmH2O in 726 (29% of measured) 
-[20:17:19] [MAJOR] H2: No severity (mild/moderate/severe), Frisen grade, perimetry, fulminant flag, symptom-onset interval, or ASM/treatment start-stop dates exist in this file 
-[20:17:19] [MAJOR] H3: No validation sample and no double-read/adjudication overlap exist in this file 
-[20:17:19] [MAJOR] I1: Post-index encounters: case median 81 vs control median 17 
-[20:17:19] [MODERATE] J1: carpal_incident is missing for 1418 controls (all male) and GERD was never extracted 
-[20:17:19] wrote outputs/tables/S8_implausible_values.csv (7 rows) 
-[20:17:19] wrote outputs/tables/S9_audit_findings.csv (19 rows) 
-[20:17:19] 02 complete: 19 findings (6 critical) 
-[20:17:19] === 03 cohort flow === 
-[20:17:19] wrote outputs/tables/T2_cohort_flow.csv (8 rows) 
-[20:17:19] wrote outputs/tables/S10_unverifiable_exclusions.csv (8 rows) 
-[20:17:19] wrote outputs/tables/S11_timing_bias_assessment.csv (4 rows) 
-[20:17:19] 03 complete 
-[20:17:19] === 04 matching & balance === 
-[20:17:19] wrote outputs/tables/S12_matching_tolerance_check.csv (4 rows) 
-[20:17:19] sex exact: 100% | age +/-3: 94.9% | BMI +/-3: 91.5% 
-[20:17:19] wrote outputs/tables/T1_baseline_balance.csv (10 rows) 
-[20:17:19] wrote outputs/tables/S13_propensity_diagnostics.csv (5 rows) 
-[20:17:19] PS c-statistic = 0.510 
-[20:17:19] 04 complete 
-[20:17:19] === 05 outcome & follow-up === 
-[20:17:19] matched analytic set: 12474 (2732 IIH, 9742 controls) 
-[20:17:19] sets with both arms present: 2731 
-[20:17:19] incident seizures: 185 | deaths before seizure: 195 
-[20:17:20] wrote outputs/tables/S14_events_by_horizon.csv (5 rows) 
-[20:17:20] wrote outputs/tables/S15_presenting_seizure_group.csv (5 rows) 
-[20:17:20] 05 complete 
-[20:17:20] === 06 primary analysis === 
-[20:17:20] wrote outputs/tables/T3_incidence_rates.csv (6 rows) 
-[20:17:20] wrote outputs/tables/T4a_cox_models.csv (6 rows) 
-[20:17:20] wrote outputs/tables/S16_ph_assumption.csv (3 rows) 
-[20:17:21] wrote outputs/tables/T4b_competing_risk.csv (3 rows) 
-[20:17:21] wrote outputs/tables/T4c_cumulative_incidence.csv (6 rows) 
-[20:17:21] wrote outputs/tables/T4d_risk_difference.csv (1 rows) 
-[20:17:21] wrote outputs/tables/T4e_evalue.csv (2 rows) 
-[20:17:21] 06 complete 
-[20:17:21] === 07 secondary === 
-[20:17:21] wrote outputs/tables/T5a_negative_control.csv (2 rows) 
-[20:17:22] wrote outputs/tables/T5b_time_split.csv (3 rows) 
-[20:17:22] wrote outputs/tables/T5c_eeg_descriptive.csv (4 rows) 
-[20:17:22] wrote outputs/tables/S17_death_hazard_asymmetry.csv (1 rows) 
-[20:17:22] wrote outputs/tables/T5d_exploratory_within_iih.csv (3 rows) 
-[20:17:22] wrote outputs/tables/T5e_encephalocele_descriptive.csv (5 rows) 
-[20:17:22] wrote outputs/tables/S18_mediation_verdict.csv (1 rows) 
-[20:17:22] 07 complete 
-[20:17:23] === 08 sensitivity === 
-[20:17:24] wrote outputs/tables/T6_sensitivity_analyses.csv (18 rows) 
-[20:17:24] wrote outputs/tables/T6b_tipping_point.csv (6 rows) 
-[20:17:24] wrote outputs/tables/T6c_outcome_misclassification.csv (5 rows) 
-[20:17:24] 08 complete 
-[20:17:24] === 09 subgroups & alternative models === 
-[20:17:25] wrote outputs/tables/T8_subgroup_interactions.csv (11 rows) 
-[20:17:25] wrote outputs/tables/S19_subgroup_caution.csv (1 rows) 
-[20:18:19] wrote outputs/tables/T9_restricted_mean_time_lost.csv (3 rows) 
-[20:18:19] wrote outputs/tables/S20_time_varying_hr.csv (98 rows) 
-[20:18:19] 09 complete 
-[20:18:19] === 13 radiology text extraction (EXPLORATORY) === 
-[20:18:19] reports: 3115 | unique patients: 3115 | all one report per patient: TRUE 
-[20:18:19] wrote outputs/tables/S21_radiology_linkage.csv (4 rows) 
-[20:18:22] wrote outputs/tables/T10_radiology_text_yield.csv (8 rows) 
-[20:18:22] wrote outputs/tables/T10b_radiology_text_vs_structured.csv (7 rows) 
-[20:18:24] wrote outputs/tables/S22_radiology_per_patient_for_review.csv (2808 rows) 
-[20:18:24] wrote outputs/tables/S23_radiology_review_sample.csv (214 rows) 
-[20:18:24] review sample: 214 reports (all 97 text-positive + sampled negatives) 
-[20:18:24] wrote outputs/tables/S24_radiology_extraction_status.csv (1 rows) 
-[20:18:24] 13 complete 
-[20:18:24] === 14 missing data === 
-[20:18:24] wrote outputs/tables/S25_missingness_by_stratum.csv (72 rows) 
-[20:18:24] wrote outputs/tables/S26_differential_missingness.csv (12 rows) 
-[20:18:24] missing in adjustment set: age_index=0, bmi_index=0, sex=0, enc_pre12=12 
-[20:18:27] MI (m=10) complete; FMI-relevant between-imputation variance = 8.39e-05 
-[20:18:27] wrote outputs/tables/T11_missing_data_comparison.csv (3 rows) 
-[20:18:27] 14 complete 
-[20:18:27] === 10 figures === 
-[20:18:28] wrote figure F1_cohort_flow (.png/.pdf) 
-[20:18:28] wrote figure F2_balance_love_plot (.png/.pdf) 
-[20:18:29] wrote figure F3_incidence_rates (.png/.pdf) 
-[20:18:30] wrote figure F4_cumulative_incidence (.png/.pdf) 
-[20:18:31] wrote figure F5_forest_sensitivity (.png/.pdf) 
-[20:18:31] wrote figure F6_hazard_by_time (.png/.pdf) 
-[20:18:32] wrote figure F7_followup_distribution (.png/.pdf) 
-[20:18:32] wrote figure F8_missingness (.png/.pdf) 
-[20:18:33] wrote figure F9_tipping_point (.png/.pdf) 
-[20:18:33] wrote figure F10_dag (.png/.pdf) 
-[20:18:34] wrote figure F11_negative_control (.png/.pdf) 
-[20:18:34] 10 complete 
-[20:18:35] wrote figure F12_subgroup_forest (.png/.pdf) 
-[20:18:35] wrote figure F13_time_varying_hr (.png/.pdf) 
-[20:18:35] === 11 tables === 
-[20:18:35] wrote outputs/tables/T4_primary_models_combined.csv (15 rows) 
-[20:18:35] wrote outputs/tables/T7_validation_and_reliability.csv (6 rows) 
-[20:18:35] wrote outputs/tables/T0_table_manifest.csv (17 rows) 
-[20:18:35] 11 complete 
-[20:18:35] === 12 report === 
-[20:18:35] wrote report/analysis_report.md 
-[20:18:36] wrote report/analysis_report.html 
-[20:18:36] 12 complete 
+[20:30:09] === 01 import === 
+[20:30:09] raw: 13343 rows x 66 cols 
+[20:30:10] typed frame: 13343 x 82 
+[20:30:10] wrote outputs/tables/S1_data_dictionary.csv (66 rows) 
+[20:30:10] 01 complete 
+[20:30:10] === 02 audit === 
+[20:30:10] wrote outputs/tables/S2_audit_counts.csv (7 rows) 
+[20:30:10] [OK] A1: Controls matched WITHOUT replacement 
+[20:30:11] wrote outputs/tables/S3_realised_matching_ratio.csv (5 rows) 
+[20:30:11] [MAJOR] B1: 1:4 matching NOT achieved: mean 3.57 controls/case, only 66.4% of sets are full 
+[20:30:11] [MAJOR] B2: 869 IIH cases (6.5%) could not be matched and are excluded from all comparative analyses 
+[20:30:11] [MAJOR] B3: Analytic counts do NOT reproduce protocol v2.0 section 6 
+[20:30:11] wrote outputs/tables/S4_match_tier.csv (7 rows) 
+[20:30:11] [CRITICAL] C1: 2087 IIH cases have last_encounter_date AFTER the data-freeze date (max 2038-09-21) 
+[20:30:11] [CRITICAL] C2: Controls have NO date fields at all (last_encounter, first_encounter, death, DOB all blank) 
+[20:30:11] [MINOR] C3: 20 cases have index dates before 2000 (min 1990) 
+[20:30:11] [MODERATE] C4: 1 seizure_date before index; 57 seizure_dates on patients not flagged incident 
+[20:30:11] [CRITICAL] D1: Supplied `status` never codes death in cases: 91 IIH cases have died_fu=1 but 0 have status=2 
+[20:30:11] wrote outputs/tables/S5_followup_by_cohort.csv (2 rows) 
+[20:30:11] [MAJOR] E1: Follow-up is markedly longer in cases (median 4.75 y) than controls (median 3.42 y) 
+[20:30:11] wrote outputs/tables/S6_cohort_specific_variables.csv (37 rows) 
+[20:30:11] [CRITICAL] F1: 37 variables are extracted for one cohort only 
+[20:30:11] [CRITICAL] F2: Race was matched on but is unverifiable 
+[20:30:11] [MAJOR] F3: smoking uses different encodings in the two cohorts (text in cases, 0/1/2 in controls) 
+[20:30:11] wrote outputs/tables/S7_encephalocele_assessability.csv (4 rows) 
+[20:30:11] [CRITICAL] G1: Encephalocele assessable in only 90/3601 cases (2.5%); 65 positive; 5 and 3 incident seizures in enceph+/enceph- 
+[20:30:11] [MAJOR] H1: Opening pressure is recorded for 2517/3601 cases (70%) and is <25 cmH2O in 726 (29% of measured) 
+[20:30:11] [MAJOR] H2: No severity (mild/moderate/severe), Frisen grade, perimetry, fulminant flag, symptom-onset interval, or ASM/treatment start-stop dates exist in this file 
+[20:30:11] [MAJOR] H3: No validation sample and no double-read/adjudication overlap exist in this file 
+[20:30:11] [MAJOR] I1: Post-index encounters: case median 81 vs control median 17 
+[20:30:11] [MODERATE] J1: carpal_incident is missing for 1418 controls (all male) and GERD was never extracted 
+[20:30:11] wrote outputs/tables/S8_implausible_values.csv (7 rows) 
+[20:30:11] wrote outputs/tables/S9_audit_findings.csv (19 rows) 
+[20:30:11] 02 complete: 19 findings (6 critical) 
+[20:30:11] === 03 cohort flow === 
+[20:30:11] wrote outputs/tables/T2_cohort_flow.csv (8 rows) 
+[20:30:11] wrote outputs/tables/S10_unverifiable_exclusions.csv (8 rows) 
+[20:30:11] wrote outputs/tables/S11_timing_bias_assessment.csv (4 rows) 
+[20:30:11] 03 complete 
+[20:30:11] === 04 matching & balance === 
+[20:30:11] wrote outputs/tables/S12_matching_tolerance_check.csv (4 rows) 
+[20:30:11] sex exact: 100% | age +/-3: 94.9% | BMI +/-3: 91.5% 
+[20:30:11] wrote outputs/tables/T1_baseline_balance.csv (10 rows) 
+[20:30:11] wrote outputs/tables/S13_propensity_diagnostics.csv (5 rows) 
+[20:30:11] PS c-statistic = 0.510 
+[20:30:11] 04 complete 
+[20:30:11] === 05 outcome & follow-up === 
+[20:30:11] wrote outputs/tables/S27_data_freeze_impact.csv (2 rows) 
+[20:30:11] matched analytic set: 12474 (2732 IIH, 9742 controls) 
+[20:30:11] sets with both arms present: 2731 
+[20:30:11] incident seizures: 185 | deaths before seizure: 195 
+[20:30:11] wrote outputs/tables/S14_events_by_horizon.csv (5 rows) 
+[20:30:11] wrote outputs/tables/S15_presenting_seizure_group.csv (5 rows) 
+[20:30:12] 05 complete 
+[20:30:12] === 06 primary analysis === 
+[20:30:12] wrote outputs/tables/T3_incidence_rates.csv (6 rows) 
+[20:30:12] wrote outputs/tables/T4a_cox_models.csv (6 rows) 
+[20:30:12] wrote outputs/tables/S16_ph_assumption.csv (3 rows) 
+[20:30:12] wrote outputs/tables/T4b_competing_risk.csv (3 rows) 
+[20:30:13] wrote outputs/tables/T4c_cumulative_incidence.csv (6 rows) 
+[20:30:13] wrote outputs/tables/T4d_risk_difference.csv (1 rows) 
+[20:30:13] wrote outputs/tables/T4e_evalue.csv (2 rows) 
+[20:30:13] 06 complete 
+[20:30:13] === 07 secondary === 
+[20:30:13] wrote outputs/tables/T5a_negative_control.csv (2 rows) 
+[20:30:14] wrote outputs/tables/T5b_time_split.csv (3 rows) 
+[20:30:14] wrote outputs/tables/T5c_eeg_descriptive.csv (4 rows) 
+[20:30:14] wrote outputs/tables/S17_death_hazard_asymmetry.csv (1 rows) 
+[20:30:14] wrote outputs/tables/T5d_exploratory_within_iih.csv (3 rows) 
+[20:30:14] wrote outputs/tables/T5e_encephalocele_descriptive.csv (5 rows) 
+[20:30:14] wrote outputs/tables/S18_mediation_verdict.csv (1 rows) 
+[20:30:14] 07 complete 
+[20:30:14] === 08 sensitivity === 
+[20:30:15] wrote outputs/tables/T6_sensitivity_analyses.csv (18 rows) 
+[20:30:16] wrote outputs/tables/T6b_tipping_point.csv (6 rows) 
+[20:30:16] wrote outputs/tables/T6c_outcome_misclassification.csv (5 rows) 
+[20:30:16] 08 complete 
+[20:30:16] === 09 subgroups & alternative models === 
+[20:30:16] wrote outputs/tables/T8_subgroup_interactions.csv (11 rows) 
+[20:30:16] wrote outputs/tables/S19_subgroup_caution.csv (1 rows) 
+[20:31:14] wrote outputs/tables/T9_restricted_mean_time_lost.csv (3 rows) 
+[20:31:14] wrote outputs/tables/S20_time_varying_hr.csv (98 rows) 
+[20:31:14] 09 complete 
+[20:31:14] === 13 radiology text extraction (EXPLORATORY) === 
+[20:31:14] reports: 3115 | unique patients: 3115 | all one report per patient: TRUE 
+[20:31:14] wrote outputs/tables/S21_radiology_linkage.csv (4 rows) 
+[20:31:17] wrote outputs/tables/T10_radiology_text_yield.csv (8 rows) 
+[20:31:17] wrote outputs/tables/T10b_radiology_text_vs_structured.csv (7 rows) 
+[20:31:20] wrote outputs/tables/S22_radiology_per_patient_for_review.csv (2808 rows) 
+[20:31:20] wrote outputs/tables/S23_radiology_review_sample.csv (214 rows) 
+[20:31:20] review sample: 214 reports (all 97 text-positive + sampled negatives) 
+[20:31:20] wrote outputs/tables/S24_radiology_extraction_status.csv (1 rows) 
+[20:31:20] 13 complete 
+[20:31:20] === 14 missing data === 
+[20:31:20] wrote outputs/tables/S25_missingness_by_stratum.csv (72 rows) 
+[20:31:20] wrote outputs/tables/S26_differential_missingness.csv (12 rows) 
+[20:31:20] missing in adjustment set: age_index=0, bmi_index=0, sex=0, enc_pre12=12 
+[20:31:23] MI (m=10) complete; FMI-relevant between-imputation variance = 8.48e-05 
+[20:31:23] wrote outputs/tables/T11_missing_data_comparison.csv (3 rows) 
+[20:31:23] 14 complete 
+[20:31:23] === 15 medications (PROVISIONAL) === 
+[20:31:23] wrote outputs/tables/T12_medication_coverage.csv (8 rows) 
+[20:31:23] wrote outputs/tables/S28_medication_source_files.csv (2 rows) 
+[20:31:23] wrote outputs/tables/T12b_contamination_check.csv (3 rows) 
+[20:31:23] wrote outputs/tables/T12c_asm_classification_check.csv (7 rows) 
+[20:31:23] wrote outputs/tables/S29_asm_frequency.csv (18 rows) 
+[20:31:23] acetazolamide rows in extract: 0 
+[20:31:23] wrote outputs/tables/T13_asm_vs_outcome_controls.csv (4 rows) 
+[20:31:23] controls with an unambiguous ASM but NO recorded outcome: 63 (2.23% of 2821 with medication data) 
+[20:31:23] wrote outputs/tables/S30_discordant_asm_timing.csv (1 rows) 
+[20:31:23] wrote outputs/tables/S31_discordant_asm_drugs.csv (9 rows) 
+[20:31:23] wrote outputs/tables/T13b_anchored_tipping_point.csv (5 rows) 
+[20:31:23] wrote outputs/tables/T13d_anchored_tipping_extrapolated.csv (3 rows) 
+[20:31:23] wrote outputs/tables/T13c_anchored_tipping_interpretation.csv (1 rows) 
+[20:31:23] wrote outputs/tables/S32_medication_extract_status.csv (1 rows) 
+[20:31:23] 15 complete 
+[20:31:23] === 10 figures === 
+[20:31:24] wrote figure F1_cohort_flow (.png/.pdf) 
+[20:31:25] wrote figure F2_balance_love_plot (.png/.pdf) 
+[20:31:25] wrote figure F3_incidence_rates (.png/.pdf) 
+[20:31:26] wrote figure F4_cumulative_incidence (.png/.pdf) 
+[20:31:27] wrote figure F5_forest_sensitivity (.png/.pdf) 
+[20:31:27] wrote figure F6_hazard_by_time (.png/.pdf) 
+[20:31:28] wrote figure F7_followup_distribution (.png/.pdf) 
+[20:31:29] wrote figure F8_missingness (.png/.pdf) 
+[20:31:29] wrote figure F9_tipping_point (.png/.pdf) 
+[20:31:30] wrote figure F10_dag (.png/.pdf) 
+[20:31:30] wrote figure F11_negative_control (.png/.pdf) 
+[20:31:30] 10 complete 
+[20:31:31] wrote figure F12_subgroup_forest (.png/.pdf) 
+[20:31:32] wrote figure F13_time_varying_hr (.png/.pdf) 
+[20:31:32] === 11 tables === 
+[20:31:32] wrote outputs/tables/T4_primary_models_combined.csv (15 rows) 
+[20:31:32] wrote outputs/tables/T7_validation_and_reliability.csv (6 rows) 
+[20:31:32] wrote outputs/tables/T0_table_manifest.csv (17 rows) 
+[20:31:32] 11 complete 
+[20:31:32] === 12 report === 
+[20:31:32] wrote report/analysis_report.md 
+[20:31:33] wrote report/analysis_report.html 
+[20:31:33] 12 complete 

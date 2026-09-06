@@ -49,3 +49,14 @@ An unassessable scan is not a negative scan.
 `outputs/logs/package_versions.csv` record the environment of the last run.
 `report/STROBE_RECORD_checklist.md` tracks reporting completeness, including the
 items that still need input (full code lists, abstract, funding).
+
+## Data inputs
+
+| File | Covers | Used for |
+| --- | --- | --- |
+| `IIH_MASTER_cases_and_controls_2.csv` | 3,601 cases + 9,742 controls | All primary analyses |
+| `MDE Workflow Results for Radiology (25).csv` | 2,808 cases, 0 controls | Exploratory imaging text extraction (`R/13`), not used in any model |
+| `IIH_medications_*.csv` / `.xlsx` | 2,821 controls (29%), 0 cases | Extract audit and the anchored tipping point (`R/15`); provisional |
+
+All person-time is administratively censored at `FREEZE_DATE` (31 August 2026),
+set in `R/00_setup.R`.

@@ -15,6 +15,12 @@ mis <- if (file.exists(file.path(PATH$derived, "14_missing.rds")))
   readRDS(file.path(PATH$derived, "14_missing.rds")) else NULL
 rad_yield <- if (file.exists(file.path(PATH$tables, "T10_radiology_text_yield.csv")))
   utils::read.csv(file.path(PATH$tables, "T10_radiology_text_yield.csv")) else NULL
+meds <- if (file.exists(file.path(PATH$derived, "15_meds.rds")))
+  readRDS(file.path(PATH$derived, "15_meds.rds")) else NULL
+med_tip <- if (file.exists(file.path(PATH$tables, "T13b_anchored_tipping_point.csv")))
+  utils::read.csv(file.path(PATH$tables, "T13b_anchored_tipping_point.csv")) else NULL
+med_tip2 <- if (file.exists(file.path(PATH$tables, "T13d_anchored_tipping_extrapolated.csv")))
+  utils::read.csv(file.path(PATH$tables, "T13d_anchored_tipping_extrapolated.csv")) else NULL
 rad_gain <- if (file.exists(file.path(PATH$tables, "T10b_radiology_text_vs_structured.csv")))
   utils::read.csv(file.path(PATH$tables, "T10b_radiology_text_vs_structured.csv")) else NULL
 a   <- readRDS(file.path(PATH$derived, "05_analytic.rds"))
@@ -108,6 +114,8 @@ sprintf("| **Symmetric 180-day window (corrected)** | %d | **%s** |", corrected$
 "",
 tbl_md(pr$rates[, c("horizon", "cohort", "n", "events", "person_years",
                     "rate_per_1000py", "lo", "hi")], 2),
+"",
+"All person-time is administratively censored at the 31 August 2026 data freeze. This removes 0.2% of case and 0.8% of control person-time and leaves the 3-year primary estimate unchanged; projected end-of-follow-up ran to 2031 in cases and 2034 in controls before the cap.",
 "",
 "The control rate *falls* as the horizon lengthens while the case rate is stable: control person-time accrues without events. Full follow-up is the least reliable column, because case person-time is computed from an encounter-date field containing impossible values (to 2038).",
 "",
@@ -224,6 +232,43 @@ tbl_md(rad_gain),
 "**The yield is modest.** Only 4.1% of reports discuss the skull base at all, so encephalocele assessability rises from 90 cases to about 135, not to thousands. Where both sources speak, agreement is high (65 of 69 for encephalocele). This does not revive the mediation aim.",
 "",
 "No output of this extraction enters any model. `S23_radiology_review_sample.csv` contains 214 reports (all 97 text-positive plus stratified samples of the rest, with sampling fractions recorded) for blinded review before any of it is used.",
+"",
+"---",
+"",
+"## 7e. Medications: an empirical anchor for the tipping point (provisional)",
+"",
+"The medication extract covers **2,821 of 9,742 matched controls (29%) and zero IIH cases**. It therefore still cannot support the acetazolamide-only restriction, time-varying treatment models or a marginal structural model - and acetazolamide does not appear anywhere in the extract.",
+"",
+"Three checks pass cleanly:",
+"",
+"- **Classification matches protocol section 4.2.** Gabapentin (2,971 rows) and pregabalin (742) are classified as gabapentinoids and not counted as ASMs; topiramate (458) is classified as IIH treatment; benzodiazepines are excluded. Zonisamide is counted.",
+"- **No cohort contamination.** 59 IIH cases surfaced in the control extract; none was used as a matched control.",
+"- **The pre-index ASM exclusion held.** Every discordant control below started their ASM after index.",
+"",
+"### The finding that matters",
+"",
+sprintf("**%d of %d controls with medication data (%.2f%%) received an unambiguous antiseizure medication but were never coded with epilepsy.** Levetiracetam (32) and lamotrigine (14) dominate.",
+        meds$n_disc, meds$n_with_med, 100 * meds$n_disc / meds$n_with_med),
+"",
+"Until now the tipping-point analysis was hypothetical. These are named patients, and their first ASM date gives a real event time rather than an invented one.",
+"",
+"**Scenario 1 - observed candidates only:**",
+"",
+tbl_md(med_tip),
+"",
+"Even assuming every one is a true missed seizure, the association survives (1.98, 1.42-2.75).",
+"",
+"**Scenario 2 - extrapolating the same rate to the 71% of controls with no medication data:**",
+"",
+tbl_md(med_tip2),
+"",
+"Here the null **is** reached at about half. So the reassurance from scenario 1 is conditional on the medication-covered controls being representative, which is untested.",
+"",
+"### The asymmetry that decides it",
+"",
+"Both scenarios add hidden events to controls and none to cases, because **no case medications were extracted**. That is the worst case by construction and is almost certainly wrong - IIH patients also receive levetiracetam and lamotrigine for non-epilepsy reasons. If the ASM-without-diagnosis rate is similar in both arms the misclassification is non-differential and the hazard ratio moves very little.",
+"",
+"The whole question turns on whether that rate differs by exposure, and this extract cannot answer it. **Extracting the same medication data for the 2,732 matched IIH cases is now the highest-value single addition to the study.**",
 "",
 "---",
 "",

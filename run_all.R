@@ -13,6 +13,7 @@ scripts <- c(
   "R/09_subgroups_and_alternative_models.R",
   "R/13_radiology_text_extraction.R",
   "R/14_missing_data.R",
+  "R/15_medications.R",
   "R/10_figures.R",
   "R/11_tables.R",
   "R/12_report_generation.R")

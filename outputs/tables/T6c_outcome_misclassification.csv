@@ -1,6 +1,6 @@
 "sensitivity_iih","sensitivity_control","scenario","corrected_IRR"
-1,1,"non-differential",2.72
-0.9,0.9,"non-differential",2.72
-0.8,0.8,"non-differential",2.72
-0.9,0.7,"DIFFERENTIAL (favours exposed detection)",2.11
-0.9,0.6,"DIFFERENTIAL (favours exposed detection)",1.81
+1,1,"non-differential",2.7
+0.9,0.9,"non-differential",2.7
+0.8,0.8,"non-differential",2.7
+0.9,0.7,"DIFFERENTIAL (favours exposed detection)",2.1
+0.9,0.6,"DIFFERENTIAL (favours exposed detection)",1.8

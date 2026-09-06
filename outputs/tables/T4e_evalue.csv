@@ -1,3 +1,3 @@
 "quantity","value","plain_language"
-"E-value, point estimate",4.94,"An unmeasured confounder would have to be associated with BOTH IIH status AND seizure by a risk ratio of at least 4.94 each, above and beyond age, sex and BMI, to explain away the observed HR."
-"E-value, CI limit nearest the null",3.29,"To move the confidence interval to include the null, such a confounder would need associations of at least 3.29 each."
+"E-value, point estimate",4.92,"An unmeasured confounder would have to be associated with BOTH IIH status AND seizure by a risk ratio of at least 4.92 each, above and beyond age, sex and BMI, to explain away the observed HR."
+"E-value, CI limit nearest the null",3.27,"To move the confidence interval to include the null, such a confounder would need associations of at least 3.27 each."
