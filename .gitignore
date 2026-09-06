@@ -1,0 +1,7 @@
+# Patient-level data is NEVER committed. Place the source files in data-raw/
+# locally; the pipeline reads them from there and writes only to outputs/.
+data-raw/
+outputs/
+!outputs/.gitkeep
+.Rhistory
+.RData
