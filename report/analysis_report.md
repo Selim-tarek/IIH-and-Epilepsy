@@ -199,6 +199,100 @@ Non-differential misclassification does not move the rate ratio at all (it scale
 
 ---
 
+## 7b. Effect modification
+
+| modifier | subgroup | n | events | estimate | interaction_p |
+| --- | --- | --- | --- | --- | --- |
+| Overall | Overall | 12204 | 112 | 3.42 (2.37 to 4.94) | NA |
+| Sex | Female | 10442 | 92 | 2.93 (1.95 to 4.41) | 0.069 |
+| Sex | Male | 1762 | 20 | 7.21 (3.00 to 17.32) | NA |
+| Age at index | Age <35 y | 6085 | 59 | 2.43 (1.47 to 4.02) | 0.062 |
+| Age at index | Age >=35 y | 6119 | 53 | 4.97 (2.87 to 8.61) | NA |
+| BMI at index | BMI <35 | 5689 | 51 | 5.54 (3.14 to 9.76) | 0.023 |
+| BMI at index | BMI >=35 | 6515 | 61 | 2.29 (1.40 to 3.76) | NA |
+| Calendar period | Index <2015 | 2010 | 28 | 4.50 (2.12 to 9.56) | 0.428 |
+| Calendar period | Index >=2015 | 10194 | 84 | 3.17 (2.09 to 4.82) | NA |
+| Baseline surveillance | Pre-index encounters <2 | 5932 | 48 | 2.10 (0.28 to 15.44) | 0.227 |
+| Baseline surveillance | Pre-index encounters >=2 | 6260 | 63 | 7.78 (3.83 to 15.80) | NA |
+
+Subgroup hazard ratios are descriptive. Whether the effect differs is judged **only** by the interaction p-value, never by which subgroup reached significance. With 112 events these tests have low power, so a large p-value does not establish a uniform effect.
+
+The one signal worth following up is **BMI (interaction p = 0.023)**: the association is stronger in patients with BMI <35 (5.54) than >=35 (2.29). Two readings compete, and this analysis cannot separate them. Either IIH coded in a non-obese patient is more often a secondary or miscoded intracranial hypertension with its own seizure risk, or obesity-related confounding dilutes the estimate in the high-BMI stratum. This is post hoc.
+
+### Restricted mean time lost to seizure
+
+| quantity | estimate |
+| --- | --- |
+| Non-IIH control | 5.13 (4.03 to 6.40) |
+| IIH | 13.78 (10.11 to 17.83) |
+| Difference (IIH - control) | 8.65 (4.71 to 12.94) |
+
+Days spent in the post-seizure state per patient over three years. This requires no proportional-hazards assumption and treats death as a competing event, so it is a useful companion to the hazard ratio rather than a restatement of it.
+
+---
+
+## 7c. Missing data
+
+| approach | n | ev | estimate | note |
+| --- | --- | --- | --- | --- |
+| Complete case | 12192 | 111 | 4.13 (2.63 to 6.49) | Drops 12 of 12204 rows. |
+| Missing indicator | 12204 | 112 | 4.18 (2.66 to 6.55) | Biased in general; acceptable here only because missingness is an extract property. |
+| Multiple imputation (m=10, PMM) | 12204 | 112 | 4.19 (2.67 to 6.57) | Imputation model includes the Nelson-Aalen hazard and event indicator so it is congenial with the outcome model. |
+
+Complete-case, missing-indicator and multiple imputation agree to two decimal places. This is not a coincidence: only 12 of 12,204 rows are missing any adjustment-set variable. **Missing data is not a material threat to this analysis.**
+
+What *is* material is structural absence, which imputation must never touch:
+
+| variable | Non-IIH control | IIH | abs_difference | assessment |
+| --- | --- | --- | --- | --- |
+| age_index | 0.00 | 0.00 | 0.00 | comparable across arms |
+| bmi_index | 0.00 | 0.00 | 0.00 | comparable across arms |
+| sex | 0.00 | 0.00 | 0.00 | comparable across arms |
+| index_year | 0.00 | 0.00 | 0.00 | comparable across arms |
+| enc_pre12 | 0.06 | 0.22 | 0.16 | comparable across arms |
+| enc_post | 0.20 | 0.33 | 0.13 | comparable across arms |
+| osa | 0.00 | 0.00 | 0.00 | comparable across arms |
+| htn | 0.00 | 0.00 | 0.00 | comparable across arms |
+| pcos | 0.00 | 0.00 | 0.00 | comparable across arms |
+| smoking | 4.47 | 1.28 | 3.19 | comparable across arms |
+| alcohol | 100.00 | 21.38 | 78.62 | STRUCTURAL / strongly differential -- do NOT impute |
+| followup_years | 0.00 | 0.00 | 0.00 | comparable across arms |
+
+---
+
+## 7d. Radiology free text (exploratory, not validated)
+
+3,115 MRI reports link to 2,808 of 3,601 IIH cases and to **zero controls**, so nothing here can support a case-control comparison.
+
+| finding | positive | negated | not_mentioned | pct_addressed |
+| --- | --- | --- | --- | --- |
+| encephalocele | 97 | 17 | 2694 | 4.1 |
+| empty_sella | 597 | 83 | 2128 | 24.2 |
+| sinus_stenosis | 92 | 68 | 2648 | 5.7 |
+| onsd_distension | 28 | 28 | 2752 | 2.0 |
+| globe_flattening | 104 | 77 | 2627 | 6.4 |
+| skullbase_thin | 0 | 0 | 2808 | 0.0 |
+| csf_leak | 84 | 19 | 2705 | 3.7 |
+| tonsillar_desc | 91 | 71 | 2646 | 5.8 |
+
+A negation-aware extractor classified each report as positive, negated, or **not mentioned** - the last being a distinct category, never a negative.
+
+| finding | structured_assessed | text_addressed | newly_addressable | agree_both_assessed | disagree_both_assessed |
+| --- | --- | --- | --- | --- | --- |
+| encephalocele | 90 | 114 | 45 | 65 | 4 |
+| empty_sella | 902 | 680 | 24 | 640 | 16 |
+| sinus_stenosis | 978 | 160 | 47 | 37 | 6 |
+| onsd_distension | 864 | 56 | 1 | 51 | 4 |
+| globe_flattening | 382 | 181 | 27 | 152 | 2 |
+| skullbase_thin | 36 | 0 | 0 | 0 | 0 |
+| csf_leak | 2808 | 103 | 0 | 61 | 42 |
+
+**The yield is modest.** Only 4.1% of reports discuss the skull base at all, so encephalocele assessability rises from 90 cases to about 135, not to thousands. Where both sources speak, agreement is high (65 of 69 for encephalocele). This does not revive the mediation aim.
+
+No output of this extraction enters any model. `S23_radiology_review_sample.csv` contains 214 reports (all 97 text-positive plus stratified samples of the rest, with sampling fractions recorded) for blinded review before any of it is used.
+
+---
+
 ## 8. Analyses that could NOT be done, and why
 
 These were requested but are not supported by this export. None was approximated.
@@ -260,7 +354,7 @@ The defensible claim is: *patients carrying an IIH diagnosis code have a substan
 
 - **Seed:** 20250906 (set in `R/00_setup.R`)
 - **R version:** R version 4.3.3 (2024-02-29)
-- **Analysis date:** 2026-09-06 20:02
+- **Analysis date:** 2026-09-06 20:18
 - **Key packages:**
   - survival 3.5.8
   - ggplot2 3.4.4

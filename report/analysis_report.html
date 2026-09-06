@@ -2332,6 +2332,483 @@ controls to account for the finding.</p>
 </table>
 <hr />
 </div>
+<div id="b.-effect-modification" class="section level2">
+<h2>7b. Effect modification</h2>
+<table style="width:100%;">
+<colgroup>
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>modifier</th>
+<th>subgroup</th>
+<th>n</th>
+<th>events</th>
+<th>estimate</th>
+<th>interaction_p</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Overall</td>
+<td>Overall</td>
+<td>12204</td>
+<td>112</td>
+<td>3.42 (2.37 to 4.94)</td>
+<td>NA</td>
+</tr>
+<tr class="even">
+<td>Sex</td>
+<td>Female</td>
+<td>10442</td>
+<td>92</td>
+<td>2.93 (1.95 to 4.41)</td>
+<td>0.069</td>
+</tr>
+<tr class="odd">
+<td>Sex</td>
+<td>Male</td>
+<td>1762</td>
+<td>20</td>
+<td>7.21 (3.00 to 17.32)</td>
+<td>NA</td>
+</tr>
+<tr class="even">
+<td>Age at index</td>
+<td>Age &lt;35 y</td>
+<td>6085</td>
+<td>59</td>
+<td>2.43 (1.47 to 4.02)</td>
+<td>0.062</td>
+</tr>
+<tr class="odd">
+<td>Age at index</td>
+<td>Age &gt;=35 y</td>
+<td>6119</td>
+<td>53</td>
+<td>4.97 (2.87 to 8.61)</td>
+<td>NA</td>
+</tr>
+<tr class="even">
+<td>BMI at index</td>
+<td>BMI &lt;35</td>
+<td>5689</td>
+<td>51</td>
+<td>5.54 (3.14 to 9.76)</td>
+<td>0.023</td>
+</tr>
+<tr class="odd">
+<td>BMI at index</td>
+<td>BMI &gt;=35</td>
+<td>6515</td>
+<td>61</td>
+<td>2.29 (1.40 to 3.76)</td>
+<td>NA</td>
+</tr>
+<tr class="even">
+<td>Calendar period</td>
+<td>Index &lt;2015</td>
+<td>2010</td>
+<td>28</td>
+<td>4.50 (2.12 to 9.56)</td>
+<td>0.428</td>
+</tr>
+<tr class="odd">
+<td>Calendar period</td>
+<td>Index &gt;=2015</td>
+<td>10194</td>
+<td>84</td>
+<td>3.17 (2.09 to 4.82)</td>
+<td>NA</td>
+</tr>
+<tr class="even">
+<td>Baseline surveillance</td>
+<td>Pre-index encounters &lt;2</td>
+<td>5932</td>
+<td>48</td>
+<td>2.10 (0.28 to 15.44)</td>
+<td>0.227</td>
+</tr>
+<tr class="odd">
+<td>Baseline surveillance</td>
+<td>Pre-index encounters &gt;=2</td>
+<td>6260</td>
+<td>63</td>
+<td>7.78 (3.83 to 15.80)</td>
+<td>NA</td>
+</tr>
+</tbody>
+</table>
+<p>Subgroup hazard ratios are descriptive. Whether the effect differs is
+judged <strong>only</strong> by the interaction p-value, never by which
+subgroup reached significance. With 112 events these tests have low
+power, so a large p-value does not establish a uniform effect.</p>
+<p>The one signal worth following up is <strong>BMI (interaction p =
+0.023)</strong>: the association is stronger in patients with BMI &lt;35
+(5.54) than &gt;=35 (2.29). Two readings compete, and this analysis
+cannot separate them. Either IIH coded in a non-obese patient is more
+often a secondary or miscoded intracranial hypertension with its own
+seizure risk, or obesity-related confounding dilutes the estimate in the
+high-BMI stratum. This is post hoc.</p>
+<div id="restricted-mean-time-lost-to-seizure" class="section level3">
+<h3>Restricted mean time lost to seizure</h3>
+<table>
+<thead>
+<tr class="header">
+<th>quantity</th>
+<th>estimate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Non-IIH control</td>
+<td>5.13 (4.03 to 6.40)</td>
+</tr>
+<tr class="even">
+<td>IIH</td>
+<td>13.78 (10.11 to 17.83)</td>
+</tr>
+<tr class="odd">
+<td>Difference (IIH - control)</td>
+<td>8.65 (4.71 to 12.94)</td>
+</tr>
+</tbody>
+</table>
+<p>Days spent in the post-seizure state per patient over three years.
+This requires no proportional-hazards assumption and treats death as a
+competing event, so it is a useful companion to the hazard ratio rather
+than a restatement of it.</p>
+<hr />
+</div>
+</div>
+<div id="c.-missing-data" class="section level2">
+<h2>7c. Missing data</h2>
+<table>
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>approach</th>
+<th>n</th>
+<th>ev</th>
+<th>estimate</th>
+<th>note</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Complete case</td>
+<td>12192</td>
+<td>111</td>
+<td>4.13 (2.63 to 6.49)</td>
+<td>Drops 12 of 12204 rows.</td>
+</tr>
+<tr class="even">
+<td>Missing indicator</td>
+<td>12204</td>
+<td>112</td>
+<td>4.18 (2.66 to 6.55)</td>
+<td>Biased in general; acceptable here only because missingness is an
+extract property.</td>
+</tr>
+<tr class="odd">
+<td>Multiple imputation (m=10, PMM)</td>
+<td>12204</td>
+<td>112</td>
+<td>4.19 (2.67 to 6.57)</td>
+<td>Imputation model includes the Nelson-Aalen hazard and event
+indicator so it is congenial with the outcome model.</td>
+</tr>
+</tbody>
+</table>
+<p>Complete-case, missing-indicator and multiple imputation agree to two
+decimal places. This is not a coincidence: only 12 of 12,204 rows are
+missing any adjustment-set variable. <strong>Missing data is not a
+material threat to this analysis.</strong></p>
+<p>What <em>is</em> material is structural absence, which imputation
+must never touch:</p>
+<table>
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>variable</th>
+<th>Non-IIH control</th>
+<th>IIH</th>
+<th>abs_difference</th>
+<th>assessment</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>age_index</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>comparable across arms</td>
+</tr>
+<tr class="even">
+<td>bmi_index</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>comparable across arms</td>
+</tr>
+<tr class="odd">
+<td>sex</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>comparable across arms</td>
+</tr>
+<tr class="even">
+<td>index_year</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>comparable across arms</td>
+</tr>
+<tr class="odd">
+<td>enc_pre12</td>
+<td>0.06</td>
+<td>0.22</td>
+<td>0.16</td>
+<td>comparable across arms</td>
+</tr>
+<tr class="even">
+<td>enc_post</td>
+<td>0.20</td>
+<td>0.33</td>
+<td>0.13</td>
+<td>comparable across arms</td>
+</tr>
+<tr class="odd">
+<td>osa</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>comparable across arms</td>
+</tr>
+<tr class="even">
+<td>htn</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>comparable across arms</td>
+</tr>
+<tr class="odd">
+<td>pcos</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>comparable across arms</td>
+</tr>
+<tr class="even">
+<td>smoking</td>
+<td>4.47</td>
+<td>1.28</td>
+<td>3.19</td>
+<td>comparable across arms</td>
+</tr>
+<tr class="odd">
+<td>alcohol</td>
+<td>100.00</td>
+<td>21.38</td>
+<td>78.62</td>
+<td>STRUCTURAL / strongly differential – do NOT impute</td>
+</tr>
+<tr class="even">
+<td>followup_years</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>comparable across arms</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div>
+<div id="d.-radiology-free-text-exploratory-not-validated" class="section level2">
+<h2>7d. Radiology free text (exploratory, not validated)</h2>
+<p>3,115 MRI reports link to 2,808 of 3,601 IIH cases and to
+<strong>zero controls</strong>, so nothing here can support a
+case-control comparison.</p>
+<table>
+<thead>
+<tr class="header">
+<th>finding</th>
+<th>positive</th>
+<th>negated</th>
+<th>not_mentioned</th>
+<th>pct_addressed</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>encephalocele</td>
+<td>97</td>
+<td>17</td>
+<td>2694</td>
+<td>4.1</td>
+</tr>
+<tr class="even">
+<td>empty_sella</td>
+<td>597</td>
+<td>83</td>
+<td>2128</td>
+<td>24.2</td>
+</tr>
+<tr class="odd">
+<td>sinus_stenosis</td>
+<td>92</td>
+<td>68</td>
+<td>2648</td>
+<td>5.7</td>
+</tr>
+<tr class="even">
+<td>onsd_distension</td>
+<td>28</td>
+<td>28</td>
+<td>2752</td>
+<td>2.0</td>
+</tr>
+<tr class="odd">
+<td>globe_flattening</td>
+<td>104</td>
+<td>77</td>
+<td>2627</td>
+<td>6.4</td>
+</tr>
+<tr class="even">
+<td>skullbase_thin</td>
+<td>0</td>
+<td>0</td>
+<td>2808</td>
+<td>0.0</td>
+</tr>
+<tr class="odd">
+<td>csf_leak</td>
+<td>84</td>
+<td>19</td>
+<td>2705</td>
+<td>3.7</td>
+</tr>
+<tr class="even">
+<td>tonsillar_desc</td>
+<td>91</td>
+<td>71</td>
+<td>2646</td>
+<td>5.8</td>
+</tr>
+</tbody>
+</table>
+<p>A negation-aware extractor classified each report as positive,
+negated, or <strong>not mentioned</strong> - the last being a distinct
+category, never a negative.</p>
+<table style="width:100%;">
+<colgroup>
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>finding</th>
+<th>structured_assessed</th>
+<th>text_addressed</th>
+<th>newly_addressable</th>
+<th>agree_both_assessed</th>
+<th>disagree_both_assessed</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>encephalocele</td>
+<td>90</td>
+<td>114</td>
+<td>45</td>
+<td>65</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>empty_sella</td>
+<td>902</td>
+<td>680</td>
+<td>24</td>
+<td>640</td>
+<td>16</td>
+</tr>
+<tr class="odd">
+<td>sinus_stenosis</td>
+<td>978</td>
+<td>160</td>
+<td>47</td>
+<td>37</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>onsd_distension</td>
+<td>864</td>
+<td>56</td>
+<td>1</td>
+<td>51</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>globe_flattening</td>
+<td>382</td>
+<td>181</td>
+<td>27</td>
+<td>152</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>skullbase_thin</td>
+<td>36</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>csf_leak</td>
+<td>2808</td>
+<td>103</td>
+<td>0</td>
+<td>61</td>
+<td>42</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The yield is modest.</strong> Only 4.1% of reports discuss
+the skull base at all, so encephalocele assessability rises from 90
+cases to about 135, not to thousands. Where both sources speak,
+agreement is high (65 of 69 for encephalocele). This does not revive the
+mediation aim.</p>
+<p>No output of this extraction enters any model.
+<code>S23_radiology_review_sample.csv</code> contains 214 reports (all
+97 text-positive plus stratified samples of the rest, with sampling
+fractions recorded) for blinded review before any of it is used.</p>
+<hr />
+</div>
 <div id="analyses-that-could-not-be-done-and-why" class="section level2">
 <h2>8. Analyses that could NOT be done, and why</h2>
 <p>These were requested but are not supported by this export. None was
@@ -2547,7 +3024,7 @@ amount of healthcare contact alone.</em></p>
 <li><strong>Seed:</strong> 20250906 (set in
 <code>R/00_setup.R</code>)</li>
 <li><strong>R version:</strong> R version 4.3.3 (2024-02-29)</li>
-<li><strong>Analysis date:</strong> 2026-09-06 20:02</li>
+<li><strong>Analysis date:</strong> 2026-09-06 20:18</li>
 <li><strong>Key packages:</strong>
 <ul>
 <li>survival 3.5.8</li>

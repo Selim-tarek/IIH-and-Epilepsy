@@ -1,0 +1,4 @@
+"quantity","days_lost_over_3y","lo","hi","estimate","interpretation"
+"Non-IIH control",5.13,4.03,6.4,"5.13 (4.03 to 6.40)",""
+"IIH",13.78,10.11,17.83,"13.78 (10.11 to 17.83)",""
+"Difference (IIH - control)",8.65,4.71,12.94,"8.65 (4.71 to 12.94)","Average additional time spent in the post-seizure state per IIH patient over 3 years. Assumption-free: no proportional-hazards requirement, and death is handled as a competing event."

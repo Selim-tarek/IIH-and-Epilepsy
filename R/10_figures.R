@@ -307,3 +307,59 @@ p11 <- ggplot(nc, aes(hr, outcome)) +
 save_fig(p11, "F11_negative_control", w = 8, h = 3.8)
 
 log_msg("10 complete")
+
+## --- F12. subgroup forest with interaction p-values -------------------------
+## Q: is the association modified by anything measurable at baseline?
+if (file.exists(file.path(PATH$derived, "09_alt.rds"))) {
+  alt <- readRDS(file.path(PATH$derived, "09_alt.rds"))
+  sg <- alt$sub[!is.na(alt$sub$hr), ]
+  sg$lab <- sprintf("%s  (%d events)",
+                    ifelse(sg$modifier == "Overall", "Overall", sg$subgroup), sg$events)
+  sg$ip <- ifelse(is.na(sg$interaction_p), "",
+                  paste0("interaction p = ", sg$interaction_p))
+  ## Overall first, then modifiers in a fixed, meaningful order.
+  sg$modifier <- factor(sg$modifier,
+    levels = c("Overall", "Sex", "Age at index", "BMI at index",
+               "Calendar period", "Baseline surveillance"))
+  sg <- sg[order(sg$modifier), ]
+  sg$lab <- factor(sg$lab, levels = rev(sg$lab))
+  p12 <- ggplot(sg, aes(hr, lab)) +
+    geom_vline(xintercept = alt$sub$hr[1], linetype = 3, colour = COL[["accent"]]) +
+    geom_vline(xintercept = 1, linetype = 2, colour = "grey45") +
+    geom_errorbarh(aes(xmin = lo, xmax = hi), height = 0.2, linewidth = 0.5,
+                   colour = COL[["control"]]) +
+    geom_point(aes(size = events), colour = COL[["iih"]]) +
+    geom_text(aes(x = 95, label = ip), size = 2.8, hjust = 1, colour = "grey20") +
+    facet_grid(modifier ~ ., scales = "free_y", space = "free_y", switch = "y") +
+    scale_x_log10(breaks = c(0.5, 1, 2, 5, 10, 20), limits = c(0.25, 100)) +
+    scale_size_continuous(range = c(1.5, 3.5), guide = "none") +
+    labs(x = "Hazard ratio (log scale)", y = NULL,
+         title = "Effect modification, tested by interaction",
+         subtitle = "Dotted green line = overall estimate. Subgroup HRs are descriptive; only the interaction p-value tests modification.",
+         caption = paste("With 112 events, power to detect modification is low: a large interaction p-value does NOT establish",
+                         "\na uniform effect. The male estimate rests on 20 events and male matching used no calendar-year",
+                         "\nconstraint (v2.0 change #6). The BMI interaction is the one signal worth following up.")) +
+    theme_pub() +
+    theme(strip.placement = "outside",
+          strip.text.y.left = element_text(angle = 0, hjust = 1),
+          panel.spacing.y = unit(0.15, "lines"))
+  save_fig(p12, "F12_subgroup_forest", w = 11, h = 6)
+
+  ## --- F13. smooth time-varying hazard ratio --------------------------------
+  ## Q: is the excess risk front-loaded (detection at work-up) or sustained?
+  tv <- alt$tv
+  p13 <- ggplot(tv, aes(time_y, hr)) +
+    geom_hline(yintercept = 1, linetype = 2, colour = "grey45") +
+    geom_ribbon(aes(ymin = hr_lo, ymax = hr_hi), alpha = 0.18, fill = COL[["control"]]) +
+    geom_line(linewidth = 0.9, colour = COL[["iih"]]) +
+    scale_y_log10() +
+    coord_cartesian(xlim = c(180 / 365.25, 3)) +
+    labs(x = "Years since index date", y = "Hazard ratio (log scale)",
+         title = "The excess risk is sustained, not concentrated at diagnosis",
+         subtitle = "Smoothed scaled Schoenfeld residuals from the 3-year model, day 180 onward",
+         caption = paste("A detection artefact arising from the diagnostic work-up would spike early and decay. It does not.",
+                         "\nThe band is an approximate pointwise interval from the residual scatter, not a formal confidence band;",
+                         "\nthe formal test of non-proportionality is in S16 (p = 0.98 at 3 years).")) +
+    theme_pub()
+  save_fig(p13, "F13_time_varying_hr", w = 7.5, h = 5)
+}

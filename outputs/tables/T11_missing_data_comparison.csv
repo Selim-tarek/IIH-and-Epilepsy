@@ -1,0 +1,4 @@
+"approach","n","ev","estimate","note"
+"Complete case",12192,111,"4.13 (2.63 to 6.49)","Drops 12 of 12204 rows."
+"Missing indicator",12204,112,"4.18 (2.66 to 6.55)","Biased in general; acceptable here only because missingness is an extract property."
+"Multiple imputation (m=10, PMM)",12204,112,"4.19 (2.67 to 6.57)","Imputation model includes the Nelson-Aalen hazard and event indicator so it is congenial with the outcome model."

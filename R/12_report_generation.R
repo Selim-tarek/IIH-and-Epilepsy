@@ -9,6 +9,14 @@ pr  <- readRDS(file.path(PATH$derived, "06_primary.rds"))
 sec <- readRDS(file.path(PATH$derived, "07_secondary.rds"))
 sn  <- readRDS(file.path(PATH$derived, "08_sens.rds"))
 fnd <- readRDS(file.path(PATH$derived, "02_findings.rds"))
+alt <- if (file.exists(file.path(PATH$derived, "09_alt.rds")))
+  readRDS(file.path(PATH$derived, "09_alt.rds")) else NULL
+mis <- if (file.exists(file.path(PATH$derived, "14_missing.rds")))
+  readRDS(file.path(PATH$derived, "14_missing.rds")) else NULL
+rad_yield <- if (file.exists(file.path(PATH$tables, "T10_radiology_text_yield.csv")))
+  utils::read.csv(file.path(PATH$tables, "T10_radiology_text_yield.csv")) else NULL
+rad_gain <- if (file.exists(file.path(PATH$tables, "T10b_radiology_text_vs_structured.csv")))
+  utils::read.csv(file.path(PATH$tables, "T10b_radiology_text_vs_structured.csv")) else NULL
 a   <- readRDS(file.path(PATH$derived, "05_analytic.rds"))
 
 get_sens <- function(pattern) {
@@ -172,6 +180,50 @@ tbl_md(sn$mis),
 "## 7. Sensitivity analyses",
 "",
 tbl_md(sn$sens[, c("analysis", "status", "n", "events", "estimate", "p")]),
+"",
+"---",
+"",
+"## 7b. Effect modification",
+"",
+tbl_md(alt$sub[, c("modifier", "subgroup", "n", "events", "estimate", "interaction_p")]),
+"",
+"Subgroup hazard ratios are descriptive. Whether the effect differs is judged **only** by the interaction p-value, never by which subgroup reached significance. With 112 events these tests have low power, so a large p-value does not establish a uniform effect.",
+"",
+"The one signal worth following up is **BMI (interaction p = 0.023)**: the association is stronger in patients with BMI <35 (5.54) than >=35 (2.29). Two readings compete, and this analysis cannot separate them. Either IIH coded in a non-obese patient is more often a secondary or miscoded intracranial hypertension with its own seizure risk, or obesity-related confounding dilutes the estimate in the high-BMI stratum. This is post hoc.",
+"",
+"### Restricted mean time lost to seizure",
+"",
+tbl_md(alt$rmtl[, c("quantity", "estimate")]),
+"",
+"Days spent in the post-seizure state per patient over three years. This requires no proportional-hazards assumption and treats death as a competing event, so it is a useful companion to the hazard ratio rather than a restatement of it.",
+"",
+"---",
+"",
+"## 7c. Missing data",
+"",
+tbl_md(mis$comp[, c("approach", "n", "ev", "estimate", "note")]),
+"",
+"Complete-case, missing-indicator and multiple imputation agree to two decimal places. This is not a coincidence: only 12 of 12,204 rows are missing any adjustment-set variable. **Missing data is not a material threat to this analysis.**",
+"",
+"What *is* material is structural absence, which imputation must never touch:",
+"",
+tbl_md(mis$wide),
+"",
+"---",
+"",
+"## 7d. Radiology free text (exploratory, not validated)",
+"",
+"3,115 MRI reports link to 2,808 of 3,601 IIH cases and to **zero controls**, so nothing here can support a case-control comparison.",
+"",
+tbl_md(rad_yield),
+"",
+"A negation-aware extractor classified each report as positive, negated, or **not mentioned** - the last being a distinct category, never a negative.",
+"",
+tbl_md(rad_gain),
+"",
+"**The yield is modest.** Only 4.1% of reports discuss the skull base at all, so encephalocele assessability rises from 90 cases to about 135, not to thousands. Where both sources speak, agreement is high (65 of 69 for encephalocele). This does not revive the mediation aim.",
+"",
+"No output of this extraction enters any model. `S23_radiology_review_sample.csv` contains 214 reports (all 97 text-positive plus stratified samples of the rest, with sampling fractions recorded) for blinded review before any of it is used.",
 "",
 "---",
 "",

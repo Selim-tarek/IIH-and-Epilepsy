@@ -42,3 +42,10 @@ conflated, and none is imputed as a negative:
 - **88** — not applicable / not technically assessable
 
 An unassessable scan is not a negative scan.
+
+## Reproducibility
+
+`renv.lock` pins package versions; `outputs/logs/sessionInfo.txt` and
+`outputs/logs/package_versions.csv` record the environment of the last run.
+`report/STROBE_RECORD_checklist.md` tracks reporting completeness, including the
+items that still need input (full code lists, abstract, funding).
