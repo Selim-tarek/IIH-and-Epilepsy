@@ -1,0 +1,6 @@
+"metric","value"
+"c-statistic (AUC)","0.510"
+"n in PS model","12474"
+"median stabilised weight","1.001"
+"max stabilised weight (untrimmed)","1.12"
+"trim bounds (1st, 99th pct)","0.966, 1.060"

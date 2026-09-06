@@ -1,0 +1,4 @@
+"horizon_y","chisq","df","p_ph","conclusion"
+3,0,1,0.983,"PH not rejected"
+5,1.41,1,0.236,"PH not rejected"
+Inf,4.65,1,0.031,"PH VIOLATED"

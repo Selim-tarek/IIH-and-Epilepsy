@@ -1,0 +1,5 @@
+"criterion","n_pairs_evaluable","n_satisfied","pct_satisfied"
+"Sex exact",9742,9742,100
+"|age difference| <= 3 y",9742,9244,94.9
+"|BMI difference| <= 3 kg/m2",9742,8912,91.5
+"|index-year difference| <= 2 (female sets only)",8324,8324,100

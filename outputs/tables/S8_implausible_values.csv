@@ -1,0 +1,8 @@
+"check","n"
+"age_index < 13",0
+"age_index > 60",0
+"bmi_index < 15",4
+"bmi_index > 60",43
+"op_cmh2o < 5",13
+"op_cmh2o > 60",14
+"followup_years <= 0",0

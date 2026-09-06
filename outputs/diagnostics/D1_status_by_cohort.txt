@@ -1,0 +1,4 @@
+                 status_src
+cohort               0    1    2 <NA>
+  Non-IIH control 9515   83  144    0
+  IIH             2630  102    0  869

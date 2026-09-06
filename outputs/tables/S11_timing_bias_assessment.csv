@@ -1,0 +1,5 @@
+"issue","assessment"
+"Immortal time","LOW RISK: exposure is defined at index (date of diagnostic LP) and no post-index information is used to assign it. Controls inherit the case index date, so both arms start the clock at the same instant."
+"Minimum-follow-up selection","MODERATE RISK: the >=12-month post-index records requirement conditions on remaining in care, which is itself associated with both exposure and outcome ascertainment. Probed by the 6/12/24-month landmark analyses (08) and by the 3-year truncated primary estimand."
+"Index-date alignment","LOW RISK by design, but UNVERIFIABLE for controls, which carry no date fields (audit C2)."
+"Post-index adjustment","HIGH RISK if enc_post is adjusted for as a confounder. It is a consequence of exposure and of the outcome, so it is reported only as a conservative bound (protocol s5.3)."
