@@ -1,0 +1,6 @@
+"medication_class","n_rows","counted_as_asm"
+"Antiseizure medication (unambiguous)",3888,"YES"
+"Benzodiazepine / sedative (NOT counted as ASM)",18687,"no"
+"Gabapentinoid (NOT counted as ASM)",3713,"no"
+"IIH treatment (NOT counted as ASM)",458,"no"
+"Other / unclassified",608,"no"

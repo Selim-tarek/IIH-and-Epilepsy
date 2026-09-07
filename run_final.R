@@ -4,6 +4,7 @@ for (s in c("R/F1_import_audit_final.R", "R/F2_analysis_final.R",
             "R/F3_medications_final.R", "R/F5_cox_regression_final.R",
             "R/F6_additional_analyses_final.R",
             "R/F7_additional_figures_final.R",
+            "R/F8_dual_channel_final.R",
             "R/F4_figures_report_final.R")) {
   cat("\n========== ", s, " ==========\n", sep = ""); source(s, echo = FALSE)
 }

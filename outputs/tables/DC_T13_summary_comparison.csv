@@ -1,0 +1,10 @@
+"model","coded_outcome","dual_channel","coverage_restricted"
+"Cox, 3-year","3.66 (2.55 to 5.25)","2.15 (1.56 to 2.96)","NOT ESTIMABLE (separation: 3 exposed / 0 unexposed events)"
+"Stratified by matched set","4.17 (2.84 to 6.13)","2.36 (1.69 to 3.30)","NOT ESTIMABLE (separation: 3 exposed / 0 unexposed events)"
+"IPTW","3.69 (2.57 to 5.30)","2.16 (1.57 to 2.98)",NA
+"+ age/BMI/sex","3.67 (2.54 to 5.29)","2.14 (1.55 to 2.96)",NA
+"+ age/BMI/sex/OSA/HTN/PCOS",NA,"2.04 (1.47 to 2.83)",NA
+"+ pre-index encounters",NA,"2.99 (2.00 to 4.49)",NA
+"Fine-Gray, 3-year","3.66 (2.55 to 5.26)","2.15 (1.56 to 2.96)",NA
+"Cox, 5-year","4.09 (2.93 to 5.70)","2.38 (1.78 to 3.18)",NA
+"Cox, full follow-up","4.67 (3.43 to 6.35)","2.59 (1.98 to 3.38)",NA

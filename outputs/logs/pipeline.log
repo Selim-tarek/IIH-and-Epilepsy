@@ -426,3 +426,69 @@
 [16:08:53] wrote report/analysis_report.md 
 [16:08:54] wrote report/analysis_report.html 
 [16:08:54] 12 complete 
+[19:38:34] === F8 dual-channel outcome dating === 
+[19:38:35] wrote outputs/tables/DC_T00_asm_drugs_counted.csv (18 rows) 
+[19:38:35] wrote outputs/tables/DC_T00b_medication_classes.csv (5 rows) 
+[19:38:35] ASM generics counted: 18 (3888 rows) 
+[19:38:35] wrote outputs/tables/DC_T01_medication_coverage.csv (2 rows) 
+[19:38:35] coverage symmetric enough for earliest-of to be PRIMARY? FALSE 
+[19:38:35] wrote outputs/tables/DC_T02_new_exclusions.csv (2 rows) 
+[19:38:35] ASM-only records falling after censoring (not counted): 0 
+[19:38:35] wrote outputs/tables/DC_T03_event_provenance.csv (4 rows) 
+[19:38:35] wrote outputs/tables/DC_T04_code_minus_asm_lag.csv (2 rows) 
+[19:38:36] wrote outputs/tables/DC_T05_models_dual_channel.csv (9 rows) 
+[19:38:36] coverage-restricted: 27 matched sets | 27 cases, 37 controls 
+[19:38:36] wrote outputs/tables/DC_T06_coverage_restricted.csv (3 rows) 
+[19:38:36] wrote outputs/tables/DC_T06b_coverage_restricted_composition.csv (6 rows) 
+[19:38:36] wrote outputs/tables/DC_T07_cumulative_incidence.csv (6 rows) 
+[19:38:36] wrote outputs/tables/DC_T08_risk_difference.csv (1 rows) 
+[19:39:16] wrote outputs/tables/DC_T09_restricted_mean_time_lost.csv (3 rows) 
+[19:39:16] wrote outputs/tables/DC_T10_washout_symmetry.csv (2 rows) 
+[19:39:17] wrote outputs/tables/DC_T11_ph_assumption.csv (3 rows) 
+[19:39:17] wrote outputs/tables/DC_T12_negative_control.csv (2 rows) 
+[19:39:17] wrote outputs/tables/DC_T13_summary_comparison.csv (9 rows) 
+[19:39:17] F8 complete 
+[19:40:36] === F8 dual-channel outcome dating === 
+[19:40:36] wrote outputs/tables/DC_T00_asm_drugs_counted.csv (18 rows) 
+[19:40:36] wrote outputs/tables/DC_T00b_medication_classes.csv (5 rows) 
+[19:40:36] ASM generics counted: 18 (3888 rows) 
+[19:40:36] wrote outputs/tables/DC_T01_medication_coverage.csv (2 rows) 
+[19:40:36] coverage symmetric enough for earliest-of to be PRIMARY? FALSE 
+[19:40:37] wrote outputs/tables/DC_T02_new_exclusions.csv (2 rows) 
+[19:40:37] ASM-only records falling after censoring (not counted): 0 
+[19:40:37] wrote outputs/tables/DC_T03_event_provenance.csv (4 rows) 
+[19:40:37] wrote outputs/tables/DC_T04_code_minus_asm_lag.csv (2 rows) 
+[19:40:38] wrote outputs/tables/DC_T05_models_dual_channel.csv (9 rows) 
+[19:40:38] coverage-restricted: 27 matched sets | 27 cases, 37 controls 
+[19:40:38] wrote outputs/tables/DC_T06_coverage_restricted.csv (3 rows) 
+[19:40:38] wrote outputs/tables/DC_T06b_coverage_restricted_composition.csv (6 rows) 
+[19:40:38] wrote outputs/tables/DC_T07_cumulative_incidence.csv (6 rows) 
+[19:40:38] wrote outputs/tables/DC_T08_risk_difference.csv (1 rows) 
+[19:41:19] wrote outputs/tables/DC_T09_restricted_mean_time_lost.csv (3 rows) 
+[19:41:19] wrote outputs/tables/DC_T10_washout_symmetry.csv (2 rows) 
+[19:41:19] wrote outputs/tables/DC_T11_ph_assumption.csv (3 rows) 
+[19:41:19] wrote outputs/tables/DC_T12_negative_control.csv (2 rows) 
+[19:41:19] wrote outputs/tables/DC_T13_summary_comparison.csv (9 rows) 
+[19:41:19] F8 complete 
+[19:41:38] === F8 dual-channel outcome dating === 
+[19:41:38] wrote outputs/tables/DC_T00_asm_drugs_counted.csv (18 rows) 
+[19:41:38] wrote outputs/tables/DC_T00b_medication_classes.csv (5 rows) 
+[19:41:38] ASM generics counted: 18 (3888 rows) 
+[19:41:38] wrote outputs/tables/DC_T01_medication_coverage.csv (2 rows) 
+[19:41:38] coverage symmetric enough for earliest-of to be PRIMARY? FALSE 
+[19:41:38] wrote outputs/tables/DC_T02_new_exclusions.csv (2 rows) 
+[19:41:38] ASM-only records falling after censoring (not counted): 0 
+[19:41:38] wrote outputs/tables/DC_T03_event_provenance.csv (4 rows) 
+[19:41:38] wrote outputs/tables/DC_T04_code_minus_asm_lag.csv (2 rows) 
+[19:41:39] wrote outputs/tables/DC_T05_models_dual_channel.csv (9 rows) 
+[19:41:39] coverage-restricted: 27 matched sets | 27 cases, 37 controls 
+[19:41:39] wrote outputs/tables/DC_T06_coverage_restricted.csv (3 rows) 
+[19:41:39] wrote outputs/tables/DC_T06b_coverage_restricted_composition.csv (6 rows) 
+[19:41:39] wrote outputs/tables/DC_T07_cumulative_incidence.csv (6 rows) 
+[19:41:39] wrote outputs/tables/DC_T08_risk_difference.csv (1 rows) 
+[19:42:18] wrote outputs/tables/DC_T09_restricted_mean_time_lost.csv (3 rows) 
+[19:42:18] wrote outputs/tables/DC_T10_washout_symmetry.csv (2 rows) 
+[19:42:18] wrote outputs/tables/DC_T11_ph_assumption.csv (3 rows) 
+[19:42:18] wrote outputs/tables/DC_T12_negative_control.csv (2 rows) 
+[19:42:18] wrote outputs/tables/DC_T13_summary_comparison.csv (9 rows) 
+[19:42:18] F8 complete 

@@ -1,0 +1,4 @@
+"model","n","events","hr","lo","hi","p","estimate","matched_sets","status"
+"Coverage-restricted, dual-channel, 3-year",64,3,NA,NA,NA,NA,"NOT ESTIMABLE (separation: 3 exposed / 0 unexposed events)",27,"HEADLINE for dual-channel dating (coverage symmetric by construction)"
+"Coverage-restricted, dual-channel, stratified",64,3,NA,NA,NA,NA,"NOT ESTIMABLE (separation: 3 exposed / 0 unexposed events)",27,"HEADLINE for dual-channel dating (coverage symmetric by construction)"
+"Coverage-restricted, CODED outcome only, 3-year",64,3,NA,NA,NA,NA,"NOT ESTIMABLE (separation: 3 exposed / 0 unexposed events)",27,"HEADLINE for dual-channel dating (coverage symmetric by construction)"

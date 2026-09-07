@@ -1,0 +1,5 @@
+"channel","Non-IIH control","IIH"
+"code (earlier than or equal to medication)",44,0
+"code only",16,101
+"medication (earlier than code)",4,0
+"medication only (no code at all)",51,1

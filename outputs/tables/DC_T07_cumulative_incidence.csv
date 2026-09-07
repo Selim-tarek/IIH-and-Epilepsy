@@ -1,0 +1,7 @@
+"cohort","time_y","cif_pct","se_pct"
+"Non-IIH control",1,0.519,0.077
+"Non-IIH control",2,1.066,0.117
+"Non-IIH control",3,1.273,0.132
+"IIH",1,1.561,0.245
+"IIH",2,2.17,0.296
+"IIH",3,2.623,0.336
