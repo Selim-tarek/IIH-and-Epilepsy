@@ -16,7 +16,7 @@ Among **2,618 IIH cases** and **9,122 matched controls**, over the three years f
 
 > **Hazard ratio 3.66 (2.55 to 5.25)**, 115 events (p < 0.001)
 
-Three-year absolute risk 2.58% versus 0.74%: a difference of 1.84 percentage points (1.16 to 2.53), or one extra seizure per **54** patients followed three years. Over three years, IIH patients lose an average of **13.98 (9.30 to 19.06) days** to the post-seizure state.
+Three-year absolute risk 2.58% versus 0.74%: a difference of 1.84 percentage points (1.16 to 2.53), or one extra seizure per **54** patients followed three years. Over the same three years, time spent in the post-seizure state averages **18.73 (13.92 to 23.79) days** per IIH patient against **4.75 (3.46 to 6.03) days** per control -- an excess of **13.98 (9.30 to 19.06) days** (all from Table F_T9).
 
 **This is an association. It is not a demonstration that IIH causes epilepsy** (section 10).
 

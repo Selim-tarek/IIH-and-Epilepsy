@@ -246,6 +246,31 @@ tbl_md <- function(df, digits = 3) {
           apply(df, 1, function(r) paste("|", paste(r, collapse = " | "), "|"))),
         collapse = "\n")
 }
+## Row lookup BY NAME. The previous version indexed the RMTL table
+## positionally, which silently described the IIH-minus-control difference as
+## the IIH arm's own value. Named lookup makes that class of error impossible.
+rmtl_row <- function(q) {
+  i <- which(R$rmtl$quantity == q)
+  if (length(i) != 1) stop("RMTL row not found or ambiguous: ", q)
+  R$rmtl$estimate[i]
+}
+
+## CONSISTENCY GUARD -----------------------------------------------------------
+## Every headline number must come from the table that is actually written to
+## disk for this workbook. This re-reads the CSVs and fails loudly on drift,
+## rather than letting the narrative and the tables disagree.
+chk_csv <- function(f) utils::read.csv(file.path(PATH$tables, f))
+rd_disk <- chk_csv("F_T4d_risk_difference.csv")
+stopifnot(abs(rd_disk$estimate - R$rd$estimate) < 1e-6,
+          rd_disk$number_needed_to_harm == R$rd$number_needed_to_harm,
+          abs(rd_disk$iih_risk_pct - R$rd$iih_risk_pct) < 1e-6)
+rm_disk <- chk_csv("F_T9_restricted_mean_time_lost.csv")
+stopifnot(identical(rm_disk$quantity, R$rmtl$quantity),
+          max(abs(rm_disk$days_lost_over_3y - R$rmtl$days_lost_over_3y)) < 1e-6)
+cox_disk <- chk_csv("F_T4a_cox_models.csv")
+stopifnot(abs(cox_disk$hr[1] - R$models$hr[1]) < 1e-6)
+log_msg("consistency guard passed: report headline matches F_T4a, F_T4d and F_T9 on disk")
+
 p <- R$models[1, ]
 txt <- c(
 "---", "title: \"IIH and Incident Epilepsy: Final Analysis\"", "---", "",
@@ -258,9 +283,10 @@ sprintf("Among **%s IIH cases** and **%s matched controls**, over the three year
 "",
 sprintf("> **Hazard ratio %s**, %d events (p < 0.001)", p$estimate, p$events),
 "",
-sprintf("Three-year absolute risk %.2f%% versus %.2f%%: a difference of %.2f percentage points (%.2f to %.2f), or one extra seizure per **%d** patients followed three years. Over three years, IIH patients lose an average of **%s days** to the post-seizure state.",
+sprintf("Three-year absolute risk %.2f%% versus %.2f%%: a difference of %.2f percentage points (%.2f to %.2f), or one extra seizure per **%d** patients followed three years. Over the same three years, time spent in the post-seizure state averages **%s days** per IIH patient against **%s days** per control -- an excess of **%s days** (all from Table F_T9).",
         R$rd$iih_risk_pct, R$rd$control_risk_pct, R$rd$estimate, R$rd$lo, R$rd$hi,
-        R$rd$number_needed_to_harm, R$rmtl$estimate[3]),
+        R$rd$number_needed_to_harm,
+        rmtl_row("IIH"), rmtl_row("Non-IIH control"), rmtl_row("Difference (IIH - control)")),
 "",
 "**This is an association. It is not a demonstration that IIH causes epilepsy** (section 10).",
 "", "---", "",

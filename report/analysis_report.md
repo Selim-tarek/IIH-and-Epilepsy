@@ -2,11 +2,18 @@
 title: "IIH and Incident Epilepsy: Analysis Report"
 ---
 
+> **SUPERSEDED.** This report analyses `IIH_MASTER_cases_and_controls_2.csv`, which
+> has been replaced by `IIH_MASTER_FINAL.xlsx`. That export had a one-sided 180-day
+> washout, person-time running past the data cutoff, and no dates for controls.
+> **Use `report/final_analysis_report.md` instead.** This file is retained only so the
+> earlier numbers remain traceable; its risk difference (1.43 pp, NNH 70) and hazard
+> ratio (3.42) are NOT the study's estimates -- see `F_T4d` and `F_T4a`.
+
 # Incident Seizures and Epilepsy After Idiopathic Intracranial Hypertension
 
 ### Analysis report
 
-**Protocol:** v2.0 · **Analysis date:** 2026-09-06 · **Seed:** 20250906 · **R:** R version 4.3.3 (2024-02-29)
+**Protocol:** v2.0 · **Analysis date:** 2026-09-07 · **Seed:** 20250906 · **R:** R version 4.3.3 (2024-02-29)
 
 ---
 
@@ -402,7 +409,7 @@ The defensible claim is: *patients carrying an IIH diagnosis code have a substan
 
 - **Seed:** 20250906 (set in `R/00_setup.R`)
 - **R version:** R version 4.3.3 (2024-02-29)
-- **Analysis date:** 2026-09-06 20:31
+- **Analysis date:** 2026-09-07 16:08
 - **Key packages:**
   - survival 3.5.8
   - ggplot2 3.4.4

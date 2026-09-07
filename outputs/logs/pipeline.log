@@ -408,3 +408,21 @@
 [15:32:03] wrote figure FIN_G5_minimum_detectable_effect (.png/.pdf) 
 [15:32:03] wrote figure FIN_G6_time_varying_hr (.png/.pdf) 
 [15:32:03] F7 complete 
+[16:08:07] === F4 figures & report (FINAL) === 
+[16:08:08] wrote figure FIN_F1_cohort_flow (.png/.pdf) 
+[16:08:09] wrote figure FIN_F2_balance (.png/.pdf) 
+[16:08:10] wrote figure FIN_F3_incidence_rates (.png/.pdf) 
+[16:08:11] wrote figure FIN_F4_cumulative_incidence (.png/.pdf) 
+[16:08:11] wrote figure FIN_F5_forest_sensitivity (.png/.pdf) 
+[16:08:13] wrote figure FIN_F6_subgroups (.png/.pdf) 
+[16:08:13] wrote figure FIN_F7_negative_control (.png/.pdf) 
+[16:08:14] wrote figure FIN_F8_tipping_point (.png/.pdf) 
+[16:08:14] wrote figure FIN_F9_followup (.png/.pdf) 
+[16:08:15] wrote figure FIN_F10_dag (.png/.pdf) 
+[16:08:15] consistency guard passed: report headline matches F_T4a, F_T4d and F_T9 on disk 
+[16:08:16] wrote report/final_analysis_report.md 
+[16:08:25] F4 complete 
+[16:08:52] === 12 report === 
+[16:08:53] wrote report/analysis_report.md 
+[16:08:54] wrote report/analysis_report.html 
+[16:08:54] 12 complete 
