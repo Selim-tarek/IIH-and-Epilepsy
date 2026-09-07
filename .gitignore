@@ -1,0 +1,9 @@
+# Packaged archives of outputs/ and report/, built for sharing.
+# The underlying files are tracked individually, so the archive is redundant.
+IIH_outputs.zip
+*.zip
+
+# R session artefacts
+.Rhistory
+.RData
+.Rproj.user/
