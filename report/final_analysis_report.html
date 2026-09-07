@@ -2101,6 +2101,412 @@ apnoea, hypertension and PCOS were <strong>not</strong> matching
 targets, remain imbalanced, and are unadjusted residual confounders.</p>
 <hr />
 </div>
+<div id="b.-multivariable-cox-regression" class="section level2">
+<h2>6b. Multivariable Cox regression</h2>
+<p>Matching handles age, sex, BMI and index year. It does
+<strong>not</strong> handle sleep apnoea, hypertension or PCOS, which
+were never matching targets and remain imbalanced. This section adjusts
+them and reports every coefficient.</p>
+<div id="smoking-cannot-be-adjusted-for" class="section level3">
+<h3>Smoking cannot be adjusted for</h3>
+<p>Detailed smoking status (Never / Former / Current) is recorded for
+IIH cases only; <strong>all 9,122 controls are coded Unknown</strong>.
+Smoking is therefore perfectly nested within the exposure - a Current or
+Former smoker can only be a case - so its coefficients are unidentified.
+Including it does not adjust for smoking; it re-estimates the exposure
+effect inside a case-only stratum and inflates the exposure standard
+error (the first fit hit separation and a singular information matrix).
+It is excluded from every model, and residual confounding by smoking
+therefore remains.</p>
+</div>
+<div id="degrees-of-freedom" class="section level3">
+<h3>Degrees of freedom</h3>
+<table>
+<thead>
+<tr class="header">
+<th>quantity</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Events at 3 years</td>
+<td>114.0</td>
+</tr>
+<tr class="even">
+<td>Parameters in the full model</td>
+<td>8.0</td>
+</tr>
+<tr class="odd">
+<td>Events per parameter</td>
+<td>14.2</td>
+</tr>
+<tr class="even">
+<td>Rule-of-thumb minimum</td>
+<td>10.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="exposure-estimate-across-specifications" class="section level3">
+<h3>Exposure estimate across specifications</h3>
+<table>
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>model</th>
+<th>n</th>
+<th>events</th>
+<th>estimate</th>
+<th>p</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Crude (matched design only) – PRIMARY</td>
+<td>11740</td>
+<td>115</td>
+<td>3.66 (2.55 to 5.25)</td>
+<td>&lt;0.001</td>
+</tr>
+<tr class="even">
+<td>Adjusted: + age, BMI, sex, OSA, HTN, PCOS</td>
+<td>11740</td>
+<td>115</td>
+<td>3.48 (2.41 to 5.04)</td>
+<td>&lt;0.001</td>
+</tr>
+<tr class="odd">
+<td>Adjusted: + pre-index healthcare contact</td>
+<td>11728</td>
+<td>114</td>
+<td>4.27 (2.68 to 6.80)</td>
+<td>&lt;0.001</td>
+</tr>
+<tr class="even">
+<td>Adjusted, stratified by matched set</td>
+<td>11728</td>
+<td>114</td>
+<td>5.15 (2.85 to 9.32)</td>
+<td>&lt;0.001</td>
+</tr>
+</tbody>
+</table>
+<p>Adjustment does not weaken the association. Adding comorbidity moves
+it slightly down (3.48); adding pre-index healthcare contact moves it up
+(4.27), which is what a confounder suppressing the estimate looks like -
+controls with more baseline contact are more likely to have an event
+detected.</p>
+</div>
+<div id="full-multivariable-model" class="section level3">
+<h3>Full multivariable model</h3>
+<table>
+<thead>
+<tr class="header">
+<th>term</th>
+<th>estimate</th>
+<th>se</th>
+<th>z</th>
+<th>p_fmt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>iih</td>
+<td>4.27 (2.68 to 6.80)</td>
+<td>0.252</td>
+<td>6.10</td>
+<td>&lt;0.001</td>
+</tr>
+<tr class="even">
+<td>age_index</td>
+<td>0.98 (0.97 to 1.00)</td>
+<td>0.010</td>
+<td>-1.80</td>
+<td>0.071</td>
+</tr>
+<tr class="odd">
+<td>bmi_index</td>
+<td>0.99 (0.96 to 1.02)</td>
+<td>0.014</td>
+<td>-0.78</td>
+<td>0.435</td>
+</tr>
+<tr class="even">
+<td>sexM</td>
+<td>1.19 (0.70 to 2.03)</td>
+<td>0.261</td>
+<td>0.63</td>
+<td>0.526</td>
+</tr>
+<tr class="odd">
+<td>osa</td>
+<td>1.37 (0.84 to 2.21)</td>
+<td>0.245</td>
+<td>1.27</td>
+<td>0.203</td>
+</tr>
+<tr class="even">
+<td>htn</td>
+<td>1.30 (0.76 to 2.20)</td>
+<td>0.252</td>
+<td>0.96</td>
+<td>0.337</td>
+</tr>
+<tr class="odd">
+<td>pcos</td>
+<td>0.75 (0.36 to 1.55)</td>
+<td>0.376</td>
+<td>-0.78</td>
+<td>0.434</td>
+</tr>
+<tr class="even">
+<td>log_enc_pre</td>
+<td>0.89 (0.75 to 1.06)</td>
+<td>0.086</td>
+<td>-1.30</td>
+<td>0.194</td>
+</tr>
+</tbody>
+</table>
+<p>No covariate other than the exposure reaches significance.
+<strong>Covariate hazard ratios are adjusted associations, not causal
+effects of those covariates</strong> - the model is specified to
+estimate the IIH effect, not theirs.</p>
+<p>Post-index encounters are deliberately excluded: they are a
+consequence of both exposure and outcome, so adjusting for them is
+mediator adjustment (reported separately as a conservative bound in
+section 9).</p>
+</div>
+<div id="diagnostics" class="section level3">
+<h3>Diagnostics</h3>
+<p><strong>Proportional hazards, per term:</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>term</th>
+<th>chisq</th>
+<th>df</th>
+<th>p</th>
+<th>conclusion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>iih</td>
+<td>4.23</td>
+<td>1</td>
+<td>0.040</td>
+<td>PH VIOLATED</td>
+</tr>
+<tr class="even">
+<td>age_index</td>
+<td>0.94</td>
+<td>1</td>
+<td>0.334</td>
+<td>PH not rejected</td>
+</tr>
+<tr class="odd">
+<td>bmi_index</td>
+<td>0.53</td>
+<td>1</td>
+<td>0.465</td>
+<td>PH not rejected</td>
+</tr>
+<tr class="even">
+<td>sex</td>
+<td>2.70</td>
+<td>1</td>
+<td>0.100</td>
+<td>PH not rejected</td>
+</tr>
+<tr class="odd">
+<td>osa</td>
+<td>3.17</td>
+<td>1</td>
+<td>0.075</td>
+<td>PH not rejected</td>
+</tr>
+<tr class="even">
+<td>htn</td>
+<td>0.44</td>
+<td>1</td>
+<td>0.509</td>
+<td>PH not rejected</td>
+</tr>
+<tr class="odd">
+<td>pcos</td>
+<td>0.02</td>
+<td>1</td>
+<td>0.882</td>
+<td>PH not rejected</td>
+</tr>
+<tr class="even">
+<td>log_enc_pre</td>
+<td>4.15</td>
+<td>1</td>
+<td>0.042</td>
+<td>PH VIOLATED</td>
+</tr>
+<tr class="odd">
+<td>GLOBAL</td>
+<td>10.27</td>
+<td>8</td>
+<td>0.247</td>
+<td>PH not rejected</td>
+</tr>
+</tbody>
+</table>
+<p>The global test is not rejected (p = 0.247), but the exposure term is
+borderline at three years (p = 0.040; the univariable test gives p =
+0.053). It is clean at five years and over full follow-up. The hazard
+ratio should therefore be read as an average over the three-year window,
+and the restricted mean time lost (section 1) is the assumption-free
+companion that does not depend on proportionality at all.</p>
+<p><strong>Linearity of continuous covariates:</strong></p>
+<table style="width:100%;">
+<colgroup>
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>covariate</th>
+<th>knots</th>
+<th>lrt_chisq</th>
+<th>df</th>
+<th>p_nonlinearity</th>
+<th>conclusion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>age_index</td>
+<td>21.2, 34.9, 48.1</td>
+<td>0.04</td>
+<td>1</td>
+<td>0.834</td>
+<td>linear term adequate</td>
+</tr>
+<tr class="even">
+<td>bmi_index</td>
+<td>29.1, 35.7, 46</td>
+<td>0.06</td>
+<td>1</td>
+<td>0.810</td>
+<td>linear term adequate</td>
+</tr>
+</tbody>
+</table>
+<p>Linear terms are adequate; no spline is warranted.</p>
+<p><strong>Collinearity and influence:</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>term</th>
+<th>vif</th>
+<th>interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>iih</td>
+<td>1.36</td>
+<td>acceptable</td>
+</tr>
+<tr class="even">
+<td>age_index</td>
+<td>1.10</td>
+<td>acceptable</td>
+</tr>
+<tr class="odd">
+<td>bmi_index</td>
+<td>1.13</td>
+<td>acceptable</td>
+</tr>
+<tr class="even">
+<td>sexM</td>
+<td>1.11</td>
+<td>acceptable</td>
+</tr>
+<tr class="odd">
+<td>osa</td>
+<td>1.19</td>
+<td>acceptable</td>
+</tr>
+<tr class="even">
+<td>htn</td>
+<td>1.13</td>
+<td>acceptable</td>
+</tr>
+<tr class="odd">
+<td>pcos</td>
+<td>1.05</td>
+<td>acceptable</td>
+</tr>
+<tr class="even">
+<td>log_enc_pre</td>
+<td>1.41</td>
+<td>acceptable</td>
+</tr>
+</tbody>
+</table>
+<p>All variance inflation factors are near 1. The most influential
+single patient moves the IIH log hazard ratio by 5.37% of its value, and
+no patient exceeds 10%: the result is not driven by any individual.</p>
+<p><strong>Joint tests by covariate block:</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>block</th>
+<th>df</th>
+<th>wald_chisq</th>
+<th>p</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Exposure (IIH)</td>
+<td>1</td>
+<td>37.21</td>
+<td>0.000</td>
+</tr>
+<tr class="even">
+<td>Matched covariates</td>
+<td>3</td>
+<td>5.32</td>
+<td>0.149</td>
+</tr>
+<tr class="odd">
+<td>Comorbidity</td>
+<td>3</td>
+<td>4.49</td>
+<td>0.213</td>
+</tr>
+<tr class="even">
+<td>Pre-index healthcare contact</td>
+<td>1</td>
+<td>1.69</td>
+<td>0.194</td>
+</tr>
+</tbody>
+</table>
+<p>Only the exposure block carries information. The covariates are
+included because they are confounders, not because they predict the
+outcome.</p>
+<hr />
+</div>
+</div>
 <div id="effect-modification" class="section level2">
 <h2>7. Effect modification</h2>
 <table style="width:100%;">

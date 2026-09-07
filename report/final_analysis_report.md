@@ -141,6 +141,106 @@ Matched targets are balanced (propensity c-statistic 0.513). Sleep apnoea, hyper
 
 ---
 
+## 6b. Multivariable Cox regression
+
+Matching handles age, sex, BMI and index year. It does **not** handle sleep apnoea, hypertension or PCOS, which were never matching targets and remain imbalanced. This section adjusts them and reports every coefficient.
+
+### Smoking cannot be adjusted for
+
+Detailed smoking status (Never / Former / Current) is recorded for IIH cases only; **all 9,122 controls are coded Unknown**. Smoking is therefore perfectly nested within the exposure - a Current or Former smoker can only be a case - so its coefficients are unidentified. Including it does not adjust for smoking; it re-estimates the exposure effect inside a case-only stratum and inflates the exposure standard error (the first fit hit separation and a singular information matrix). It is excluded from every model, and residual confounding by smoking therefore remains.
+
+### Degrees of freedom
+
+| quantity | value |
+| --- | --- |
+| Events at 3 years | 114.0 |
+| Parameters in the full model | 8.0 |
+| Events per parameter | 14.2 |
+| Rule-of-thumb minimum | 10.0 |
+
+### Exposure estimate across specifications
+
+| model | n | events | estimate | p |
+| --- | --- | --- | --- | --- |
+| Crude (matched design only) -- PRIMARY | 11740 | 115 | 3.66 (2.55 to 5.25) | <0.001 |
+| Adjusted: + age, BMI, sex, OSA, HTN, PCOS | 11740 | 115 | 3.48 (2.41 to 5.04) | <0.001 |
+| Adjusted: + pre-index healthcare contact | 11728 | 114 | 4.27 (2.68 to 6.80) | <0.001 |
+| Adjusted, stratified by matched set | 11728 | 114 | 5.15 (2.85 to 9.32) | <0.001 |
+
+Adjustment does not weaken the association. Adding comorbidity moves it slightly down (3.48); adding pre-index healthcare contact moves it up (4.27), which is what a confounder suppressing the estimate looks like - controls with more baseline contact are more likely to have an event detected.
+
+### Full multivariable model
+
+| term | estimate | se | z | p_fmt |
+| --- | --- | --- | --- | --- |
+| iih | 4.27 (2.68 to 6.80) | 0.252 | 6.10 | <0.001 |
+| age_index | 0.98 (0.97 to 1.00) | 0.010 | -1.80 | 0.071 |
+| bmi_index | 0.99 (0.96 to 1.02) | 0.014 | -0.78 | 0.435 |
+| sexM | 1.19 (0.70 to 2.03) | 0.261 | 0.63 | 0.526 |
+| osa | 1.37 (0.84 to 2.21) | 0.245 | 1.27 | 0.203 |
+| htn | 1.30 (0.76 to 2.20) | 0.252 | 0.96 | 0.337 |
+| pcos | 0.75 (0.36 to 1.55) | 0.376 | -0.78 | 0.434 |
+| log_enc_pre | 0.89 (0.75 to 1.06) | 0.086 | -1.30 | 0.194 |
+
+No covariate other than the exposure reaches significance. **Covariate hazard ratios are adjusted associations, not causal effects of those covariates** - the model is specified to estimate the IIH effect, not theirs.
+
+Post-index encounters are deliberately excluded: they are a consequence of both exposure and outcome, so adjusting for them is mediator adjustment (reported separately as a conservative bound in section 9).
+
+### Diagnostics
+
+**Proportional hazards, per term:**
+
+| term | chisq | df | p | conclusion |
+| --- | --- | --- | --- | --- |
+| iih | 4.23 | 1 | 0.040 | PH VIOLATED |
+| age_index | 0.94 | 1 | 0.334 | PH not rejected |
+| bmi_index | 0.53 | 1 | 0.465 | PH not rejected |
+| sex | 2.70 | 1 | 0.100 | PH not rejected |
+| osa | 3.17 | 1 | 0.075 | PH not rejected |
+| htn | 0.44 | 1 | 0.509 | PH not rejected |
+| pcos | 0.02 | 1 | 0.882 | PH not rejected |
+| log_enc_pre | 4.15 | 1 | 0.042 | PH VIOLATED |
+| GLOBAL | 10.27 | 8 | 0.247 | PH not rejected |
+
+The global test is not rejected (p = 0.247), but the exposure term is borderline at three years (p = 0.040; the univariable test gives p = 0.053). It is clean at five years and over full follow-up. The hazard ratio should therefore be read as an average over the three-year window, and the restricted mean time lost (section 1) is the assumption-free companion that does not depend on proportionality at all.
+
+**Linearity of continuous covariates:**
+
+| covariate | knots | lrt_chisq | df | p_nonlinearity | conclusion |
+| --- | --- | --- | --- | --- | --- |
+| age_index | 21.2, 34.9, 48.1 | 0.04 | 1 | 0.834 | linear term adequate |
+| bmi_index | 29.1, 35.7, 46 | 0.06 | 1 | 0.810 | linear term adequate |
+
+Linear terms are adequate; no spline is warranted.
+
+**Collinearity and influence:**
+
+| term | vif | interpretation |
+| --- | --- | --- |
+| iih | 1.36 | acceptable |
+| age_index | 1.10 | acceptable |
+| bmi_index | 1.13 | acceptable |
+| sexM | 1.11 | acceptable |
+| osa | 1.19 | acceptable |
+| htn | 1.13 | acceptable |
+| pcos | 1.05 | acceptable |
+| log_enc_pre | 1.41 | acceptable |
+
+All variance inflation factors are near 1. The most influential single patient moves the IIH log hazard ratio by 5.37% of its value, and no patient exceeds 10%: the result is not driven by any individual.
+
+**Joint tests by covariate block:**
+
+| block | df | wald_chisq | p |
+| --- | --- | --- | --- |
+| Exposure (IIH) | 1 | 37.21 | 0.000 |
+| Matched covariates | 3 | 5.32 | 0.149 |
+| Comorbidity | 3 | 4.49 | 0.213 |
+| Pre-index healthcare contact | 1 | 1.69 | 0.194 |
+
+Only the exposure block carries information. The covariates are included because they are confounders, not because they predict the outcome.
+
+---
+
 ## 7. Effect modification
 
 | modifier | subgroup | n | events | estimate | interaction_p |

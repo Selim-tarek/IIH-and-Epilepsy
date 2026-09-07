@@ -269,3 +269,118 @@
 [04:07:49] wrote figure FIN_F10_dag (.png/.pdf) 
 [04:07:49] wrote report/final_analysis_report.md 
 [04:07:50] F4 complete 
+[04:37:52] === F5 Cox regression (FINAL) === 
+[04:37:52] wrote outputs/tables/F_T14a_events_per_parameter.csv (4 rows) 
+[04:37:52] wrote outputs/tables/F_T14b_univariable_cox.csv (11 rows) 
+[04:37:52] wrote outputs/tables/F_T14c_multivariable_cox.csv (29 rows) 
+[04:37:53] wrote outputs/tables/F_T14d_exposure_across_models.csv (4 rows) 
+[04:38:34] === F5 Cox regression (FINAL) === 
+[04:38:34] wrote outputs/tables/F_T14j_smoking_not_adjustable.csv (4 rows) 
+[04:38:34] smoking excluded from all models: all 9122 controls are coded Unknown (structural collinearity with exposure) 
+[04:38:34] wrote outputs/tables/F_T14a_events_per_parameter.csv (4 rows) 
+[04:38:34] wrote outputs/tables/F_T14b_univariable_cox.csv (8 rows) 
+[04:38:34] wrote outputs/tables/F_T14c_multivariable_cox.csv (23 rows) 
+[04:38:34] wrote outputs/tables/F_T14d_exposure_across_models.csv (4 rows) 
+[04:38:34] wrote outputs/tables/F_T14e_ph_by_term.csv (9 rows) 
+[04:38:35] wrote outputs/tables/F_T14f_linearity_checks.csv (2 rows) 
+[04:38:35] wrote outputs/tables/F_T14g_collinearity_vif.csv (8 rows) 
+[04:38:35] wrote outputs/tables/F_T14h_influence.csv (3 rows) 
+[04:38:35] wrote outputs/tables/F_T14i_wald_blocks.csv (4 rows) 
+[04:38:36] wrote figure FIN_F11_cox_multivariable_forest (.png/.pdf) 
+[04:38:36] F5 complete 
+[04:38:52] === F5 Cox regression (FINAL) === 
+[04:38:52] wrote outputs/tables/F_T14j_smoking_not_adjustable.csv (4 rows) 
+[04:38:52] smoking excluded from all models: all 9122 controls are coded Unknown (structural collinearity with exposure) 
+[04:38:52] wrote outputs/tables/F_T14a_events_per_parameter.csv (4 rows) 
+[04:38:52] wrote outputs/tables/F_T14b_univariable_cox.csv (8 rows) 
+[04:38:53] wrote outputs/tables/F_T14c_multivariable_cox.csv (23 rows) 
+[04:38:53] wrote outputs/tables/F_T14d_exposure_across_models.csv (4 rows) 
+[04:38:53] wrote outputs/tables/F_T14e_ph_by_term.csv (9 rows) 
+[04:38:53] wrote outputs/tables/F_T14f_linearity_checks.csv (2 rows) 
+[04:38:53] wrote outputs/tables/F_T14g_collinearity_vif.csv (8 rows) 
+[04:38:53] wrote outputs/tables/F_T14h_influence.csv (3 rows) 
+[04:38:53] wrote outputs/tables/F_T14i_wald_blocks.csv (4 rows) 
+[04:38:54] wrote figure FIN_F11_cox_multivariable_forest (.png/.pdf) 
+[04:38:54] F5 complete 
+[04:39:23] === F1 import & audit (FINAL workbook) === 
+[04:39:26] Analysis_Cohort: 11740 rows x 58 cols; excluded sheet: 1603 rows 
+[04:39:26] supplied e3/t3 and e5/t5 reproduce exactly from t_y and event 
+[04:39:26] wrote outputs/tables/F_S1_washout_symmetry.csv (2 rows) 
+[04:39:26] wrote outputs/tables/F_T2b_matching_ratio.csv (4 rows) 
+[04:39:26] mean controls/case = 3.48 | full 1:4 sets = 61.5% 
+[04:39:26] wrote outputs/tables/F_T2_cohort_flow.csv (7 rows) 
+[04:39:27] wrote outputs/tables/F_S2_data_dictionary.csv (58 rows) 
+[04:39:27] wrote outputs/tables/F_S3_source_manifest.csv (13 rows) 
+[04:39:27] wrote outputs/tables/F_S4_codebook.csv (12 rows) 
+[04:39:27] cohort-specific variables: 26 
+[04:39:27] F1 complete 
+[04:39:27] === F2 analysis (FINAL) === 
+[04:39:27] wrote outputs/tables/F_S5_events_by_horizon.csv (5 rows) 
+[04:39:27] wrote outputs/tables/F_T3_incidence_rates.csv (6 rows) 
+[04:39:27] propensity c-statistic = 0.513 
+[04:39:28] wrote outputs/tables/F_T4a_cox_models.csv (6 rows) 
+[04:39:28] wrote outputs/tables/F_S6_ph_assumption.csv (3 rows) 
+[04:39:28] wrote outputs/tables/F_T4b_competing_risk.csv (3 rows) 
+[04:39:28] wrote outputs/tables/F_T4c_cumulative_incidence.csv (6 rows) 
+[04:39:28] wrote outputs/tables/F_T4d_risk_difference.csv (1 rows) 
+[04:39:28] wrote outputs/tables/F_T4e_evalue.csv (2 rows) 
+[04:39:28] wrote outputs/tables/F_T5a_negative_control.csv (2 rows) 
+[04:39:29] wrote outputs/tables/F_T5b_time_split.csv (3 rows) 
+[04:39:29] wrote outputs/tables/F_T1_baseline_balance.csv (10 rows) 
+[04:39:29] wrote outputs/tables/F_T8_subgroup_interactions.csv (11 rows) 
+[04:39:30] wrote outputs/tables/F_T6_sensitivity_analyses.csv (14 rows) 
+[04:39:30] wrote outputs/tables/F_T6b_tipping_point.csv (6 rows) 
+[04:39:30] wrote outputs/tables/F_T6c_outcome_misclassification.csv (5 rows) 
+[04:40:18] wrote outputs/tables/F_T9_restricted_mean_time_lost.csv (3 rows) 
+[04:40:18] wrote outputs/tables/F_T5d_exploratory_within_iih.csv (2 rows) 
+[04:40:18] wrote outputs/tables/F_T5e_encephalocele_descriptive.csv (5 rows) 
+[04:40:18] F2 complete 
+[04:40:18] === F3 medications (FINAL cohort, PROVISIONAL) === 
+[04:40:19] wrote outputs/tables/F_T12_medication_coverage.csv (5 rows) 
+[04:40:19] wrote outputs/tables/F_T12c_asm_classification_check.csv (7 rows) 
+[04:40:19] wrote outputs/tables/F_T13_asm_vs_outcome_controls.csv (4 rows) 
+[04:40:19] controls on an unambiguous ASM with NO recorded outcome: 60 (2.26% of 2657 covered) 
+[04:40:19] wrote outputs/tables/F_T13b_anchored_tipping_point.csv (5 rows) 
+[04:40:19] wrote outputs/tables/F_T13d_anchored_tipping_extrapolated.csv (3 rows) 
+[04:40:19] wrote outputs/tables/F_S7_medication_status.csv (1 rows) 
+[04:40:19] F3 complete 
+[04:40:19] === F5 Cox regression (FINAL) === 
+[04:40:19] wrote outputs/tables/F_T14j_smoking_not_adjustable.csv (4 rows) 
+[04:40:19] smoking excluded from all models: all 9122 controls are coded Unknown (structural collinearity with exposure) 
+[04:40:19] wrote outputs/tables/F_T14a_events_per_parameter.csv (4 rows) 
+[04:40:19] wrote outputs/tables/F_T14b_univariable_cox.csv (8 rows) 
+[04:40:19] wrote outputs/tables/F_T14c_multivariable_cox.csv (23 rows) 
+[04:40:19] wrote outputs/tables/F_T14d_exposure_across_models.csv (4 rows) 
+[04:40:19] wrote outputs/tables/F_T14e_ph_by_term.csv (9 rows) 
+[04:40:20] wrote outputs/tables/F_T14f_linearity_checks.csv (2 rows) 
+[04:40:20] wrote outputs/tables/F_T14g_collinearity_vif.csv (8 rows) 
+[04:40:20] wrote outputs/tables/F_T14h_influence.csv (3 rows) 
+[04:40:20] wrote outputs/tables/F_T14i_wald_blocks.csv (4 rows) 
+[04:40:20] wrote figure FIN_F11_cox_multivariable_forest (.png/.pdf) 
+[04:40:20] F5 complete 
+[04:40:20] === F4 figures & report (FINAL) === 
+[04:40:20] wrote figure FIN_F1_cohort_flow (.png/.pdf) 
+[04:40:21] wrote figure FIN_F2_balance (.png/.pdf) 
+[04:40:21] wrote figure FIN_F3_incidence_rates (.png/.pdf) 
+[04:40:22] wrote figure FIN_F4_cumulative_incidence (.png/.pdf) 
+[04:40:23] wrote figure FIN_F5_forest_sensitivity (.png/.pdf) 
+[04:40:24] wrote figure FIN_F6_subgroups (.png/.pdf) 
+[04:40:24] wrote figure FIN_F7_negative_control (.png/.pdf) 
+[04:40:24] wrote figure FIN_F8_tipping_point (.png/.pdf) 
+[04:40:25] wrote figure FIN_F9_followup (.png/.pdf) 
+[04:40:25] wrote figure FIN_F10_dag (.png/.pdf) 
+[04:40:25] wrote report/final_analysis_report.md 
+[04:40:32] F4 complete 
+[04:40:54] === F4 figures & report (FINAL) === 
+[04:40:54] wrote figure FIN_F1_cohort_flow (.png/.pdf) 
+[04:40:55] wrote figure FIN_F2_balance (.png/.pdf) 
+[04:40:55] wrote figure FIN_F3_incidence_rates (.png/.pdf) 
+[04:40:56] wrote figure FIN_F4_cumulative_incidence (.png/.pdf) 
+[04:40:57] wrote figure FIN_F5_forest_sensitivity (.png/.pdf) 
+[04:40:58] wrote figure FIN_F6_subgroups (.png/.pdf) 
+[04:40:58] wrote figure FIN_F7_negative_control (.png/.pdf) 
+[04:40:58] wrote figure FIN_F8_tipping_point (.png/.pdf) 
+[04:40:59] wrote figure FIN_F9_followup (.png/.pdf) 
+[04:41:00] wrote figure FIN_F10_dag (.png/.pdf) 
+[04:41:00] wrote report/final_analysis_report.md 
+[04:41:01] F4 complete 

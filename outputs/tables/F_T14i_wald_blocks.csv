@@ -1,0 +1,5 @@
+"block","df","wald_chisq","p"
+"Exposure (IIH)",1,37.21,1.06e-09
+"Matched covariates",3,5.32,0.149
+"Comorbidity",3,4.49,0.213
+"Pre-index healthcare contact",1,1.69,0.194

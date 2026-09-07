@@ -1,0 +1,5 @@
+"model","n","events","estimate","p"
+"Crude (matched design only) -- PRIMARY",11740,115,"3.66 (2.55 to 5.25)","<0.001"
+"Adjusted: + age, BMI, sex, OSA, HTN, PCOS",11740,115,"3.48 (2.41 to 5.04)","<0.001"
+"Adjusted: + pre-index healthcare contact",11728,114,"4.27 (2.68 to 6.80)","<0.001"
+"Adjusted, stratified by matched set",11728,114,"5.15 (2.85 to 9.32)","<0.001"

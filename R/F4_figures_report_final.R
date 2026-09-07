@@ -6,6 +6,8 @@ source("R/00_setup.R")
 log_msg("=== F4 figures & report (FINAL) ===")
 d <- readRDS(file.path(PATH$derived, "F1_typed.rds"))
 R <- readRDS(file.path(PATH$derived, "F2_results.rds"))
+X <- if (file.exists(file.path(PATH$derived, "F5_cox.rds")))
+  readRDS(file.path(PATH$derived, "F5_cox.rds")) else NULL
 M <- if (file.exists(file.path(PATH$derived, "F3_meds.rds")))
   readRDS(file.path(PATH$derived, "F3_meds.rds")) else NULL
 ex <- readRDS(file.path(PATH$derived, "F1_excluded.rds"))
@@ -306,6 +308,43 @@ sprintf("Adjusted for post-index encounters: %s. Reported as a **conservative lo
 "", "---", "",
 "## 6. Balance", "", tbl_md(R$bal[, c("variable","iih","control","smd","balance")]), "",
 sprintf("Matched targets are balanced (propensity c-statistic %.3f). Sleep apnoea, hypertension and PCOS were **not** matching targets, remain imbalanced, and are unadjusted residual confounders.", R$cstat),
+"", "---", "",
+"## 6b. Multivariable Cox regression", "",
+"Matching handles age, sex, BMI and index year. It does **not** handle sleep apnoea, hypertension or PCOS, which were never matching targets and remain imbalanced. This section adjusts them and reports every coefficient.",
+"",
+"### Smoking cannot be adjusted for", "",
+"Detailed smoking status (Never / Former / Current) is recorded for IIH cases only; **all 9,122 controls are coded Unknown**. Smoking is therefore perfectly nested within the exposure - a Current or Former smoker can only be a case - so its coefficients are unidentified. Including it does not adjust for smoking; it re-estimates the exposure effect inside a case-only stratum and inflates the exposure standard error (the first fit hit separation and a singular information matrix). It is excluded from every model, and residual confounding by smoking therefore remains.",
+"", "### Degrees of freedom", "",
+if (!is.null(X)) tbl_md(X$epv, 1) else "",
+"", "### Exposure estimate across specifications", "",
+if (!is.null(X)) tbl_md(X$compare) else "",
+"",
+"Adjustment does not weaken the association. Adding comorbidity moves it slightly down (3.48); adding pre-index healthcare contact moves it up (4.27), which is what a confounder suppressing the estimate looks like - controls with more baseline contact are more likely to have an event detected.",
+"", "### Full multivariable model", "",
+if (!is.null(X)) tbl_md(X$mv[X$mv$model == "multivariable (full)",
+                             c("term", "estimate", "se", "z", "p_fmt")]) else "",
+"",
+"No covariate other than the exposure reaches significance. **Covariate hazard ratios are adjusted associations, not causal effects of those covariates** - the model is specified to estimate the IIH effect, not theirs.",
+"",
+"Post-index encounters are deliberately excluded: they are a consequence of both exposure and outcome, so adjusting for them is mediator adjustment (reported separately as a conservative bound in section 9).",
+"", "### Diagnostics", "",
+"**Proportional hazards, per term:**", "",
+if (!is.null(X)) tbl_md(X$ph) else "",
+"",
+"The global test is not rejected (p = 0.247), but the exposure term is borderline at three years (p = 0.040; the univariable test gives p = 0.053). It is clean at five years and over full follow-up. The hazard ratio should therefore be read as an average over the three-year window, and the restricted mean time lost (section 1) is the assumption-free companion that does not depend on proportionality at all.",
+"",
+"**Linearity of continuous covariates:**", "",
+if (!is.null(X)) tbl_md(X$lin) else "",
+"", "Linear terms are adequate; no spline is warranted.",
+"", "**Collinearity and influence:**", "",
+if (!is.null(X) && !is.null(X$vif)) tbl_md(X$vif) else "",
+"",
+if (!is.null(X)) sprintf("All variance inflation factors are near 1. The most influential single patient moves the IIH log hazard ratio by %s of its value, and no patient exceeds 10%%: the result is not driven by any individual.",
+        X$infl$value[2]) else "",
+"", "**Joint tests by covariate block:**", "",
+if (!is.null(X)) tbl_md(X$blocks) else "",
+"",
+"Only the exposure block carries information. The covariates are included because they are confounders, not because they predict the outcome.",
 "", "---", "",
 "## 7. Effect modification", "", tbl_md(R$sub[, c("modifier","subgroup","n","events",
   "estimate","interaction_p")]), "",

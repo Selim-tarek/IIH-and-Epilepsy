@@ -1,0 +1,3 @@
+"covariate","knots","lrt_chisq","df","p_nonlinearity","conclusion"
+"age_index","21.2, 34.9, 48.1",0.04,1,0.834,"linear term adequate"
+"bmi_index","29.1, 35.7, 46",0.06,1,0.81,"linear term adequate"

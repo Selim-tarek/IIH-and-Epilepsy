@@ -1,0 +1,4 @@
+"metric","value"
+"Largest |dfbeta| for the IIH coefficient","0.0779"
+"As a percentage of the coefficient itself","5.37%"
+"Patients with |dfbeta| > 10% of the coefficient","0"

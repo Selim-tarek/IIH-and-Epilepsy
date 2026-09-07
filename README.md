@@ -76,3 +76,10 @@ Rscript run_final.R
 
 Outputs are prefixed `F_` (tables) and `FIN_` (figures) to keep them separate from
 the earlier CSV-based pipeline, which is retained for provenance.
+
+`R/F5_cox_regression_final.R` adds the multivariable Cox regression: univariable
+and adjusted models, the full coefficient table, events-per-parameter budget,
+per-term proportional-hazards tests, linearity checks, collinearity (VIF),
+dfbeta influence, joint Wald tests by covariate block, and a coefficient forest
+plot. Smoking is excluded and the reason tabulated — it is recorded only for
+cases, so it is structurally collinear with the exposure.
