@@ -492,3 +492,85 @@
 [19:42:18] wrote outputs/tables/DC_T12_negative_control.csv (2 rows) 
 [19:42:18] wrote outputs/tables/DC_T13_summary_comparison.csv (9 rows) 
 [19:42:18] F8 complete 
+[20:36:37] === F4 figures & report (FINAL) === 
+[20:36:38] wrote figure FIN_F1_cohort_flow (.png/.pdf) 
+[20:36:38] wrote figure FIN_F2_balance (.png/.pdf) 
+[20:36:39] wrote figure FIN_F3_incidence_rates (.png/.pdf) 
+[20:36:40] wrote figure FIN_F4_cumulative_incidence (.png/.pdf) 
+[20:36:40] wrote figure FIN_F5_forest_sensitivity (.png/.pdf) 
+[20:36:41] wrote figure FIN_F6_subgroups (.png/.pdf) 
+[20:36:41] wrote figure FIN_F7_negative_control (.png/.pdf) 
+[20:36:41] wrote figure FIN_F8_tipping_point (.png/.pdf) 
+[20:36:42] wrote figure FIN_F9_followup (.png/.pdf) 
+[20:36:42] wrote figure FIN_F10_dag (.png/.pdf) 
+[20:36:42] consistency guard passed: report headline matches F_T4a, F_T4d and F_T9 on disk 
+[20:36:42] wrote report/final_analysis_report.md 
+[20:36:50] F4 complete 
+[20:36:51] === F7 additional figures === 
+[20:36:52] wrote figure FIN_G1_latency_distribution (.png/.pdf) 
+[20:36:52] wrote figure FIN_G2_bmi_interaction_continuous (.png/.pdf) 
+[20:36:52] wrote figure FIN_G3_absolute_risk_by_subgroup (.png/.pdf) 
+[20:36:53] wrote figure FIN_G4_calendar_trend (.png/.pdf) 
+[20:36:53] wrote figure FIN_G5_minimum_detectable_effect (.png/.pdf) 
+[20:36:53] wrote figure FIN_G6_time_varying_hr (.png/.pdf) 
+[20:36:53] F7 complete 
+[20:36:55] === 10 figures === 
+[20:36:56] wrote figure F1_cohort_flow (.png/.pdf) 
+[20:36:56] wrote figure F2_balance_love_plot (.png/.pdf) 
+[20:36:57] wrote figure F3_incidence_rates (.png/.pdf) 
+[20:36:58] wrote figure F4_cumulative_incidence (.png/.pdf) 
+[20:36:58] wrote figure F5_forest_sensitivity (.png/.pdf) 
+[20:36:59] wrote figure F6_hazard_by_time (.png/.pdf) 
+[20:36:59] wrote figure F7_followup_distribution (.png/.pdf) 
+[20:37:00] wrote figure F8_missingness (.png/.pdf) 
+[20:37:00] wrote figure F9_tipping_point (.png/.pdf) 
+[20:37:01] wrote figure F10_dag (.png/.pdf) 
+[20:37:01] wrote figure F11_negative_control (.png/.pdf) 
+[20:37:01] 10 complete 
+[20:37:02] wrote figure F12_subgroup_forest (.png/.pdf) 
+[20:37:02] wrote figure F13_time_varying_hr (.png/.pdf) 
+[20:37:42] === F2 analysis (FINAL) === 
+[20:37:42] wrote outputs/tables/F_S5_events_by_horizon.csv (5 rows) 
+[20:37:42] wrote outputs/tables/F_T3_incidence_rates.csv (6 rows) 
+[20:37:42] propensity c-statistic = 0.513 
+[20:37:42] wrote outputs/tables/F_T4a_cox_models.csv (6 rows) 
+[20:37:42] wrote outputs/tables/F_S6_ph_assumption.csv (3 rows) 
+[20:37:42] wrote outputs/tables/F_T4b_competing_risk.csv (3 rows) 
+[20:37:43] wrote outputs/tables/F_T4c_cumulative_incidence.csv (6 rows) 
+[20:37:43] wrote outputs/tables/F_T4d_risk_difference.csv (1 rows) 
+[20:37:43] wrote outputs/tables/F_T4e_evalue.csv (2 rows) 
+[20:37:43] wrote outputs/tables/F_T5a_negative_control.csv (2 rows) 
+[20:37:43] wrote outputs/tables/F_T5a2_negative_control_settled.csv (6 rows) 
+[20:37:43] wrote outputs/tables/F_T5a3_negative_control_by_horizon.csv (6 rows) 
+[20:37:44] wrote outputs/tables/F_T5b_time_split.csv (3 rows) 
+[20:37:44] wrote outputs/tables/F_T1_baseline_balance.csv (10 rows) 
+[20:37:44] wrote outputs/tables/F_T8_subgroup_interactions.csv (11 rows) 
+[20:37:45] wrote outputs/tables/F_T6_sensitivity_analyses.csv (14 rows) 
+[20:37:45] wrote outputs/tables/F_T6b_tipping_point.csv (6 rows) 
+[20:37:45] wrote outputs/tables/F_T6c_outcome_misclassification.csv (5 rows) 
+[20:38:21] wrote outputs/tables/F_T9_restricted_mean_time_lost.csv (3 rows) 
+[20:38:21] wrote outputs/tables/F_T5d_exploratory_within_iih.csv (2 rows) 
+[20:38:21] wrote outputs/tables/F_T5e_encephalocele_descriptive.csv (5 rows) 
+[20:38:21] F2 complete 
+[20:38:50] === F7 additional figures === 
+[20:38:51] wrote figure FIN_G1_latency_distribution (.png/.pdf) 
+[20:38:51] wrote figure FIN_G2_bmi_interaction_continuous (.png/.pdf) 
+[20:38:51] wrote figure FIN_G3_absolute_risk_by_subgroup (.png/.pdf) 
+[20:38:52] wrote figure FIN_G4_calendar_trend (.png/.pdf) 
+[20:38:52] wrote figure FIN_G5_minimum_detectable_effect (.png/.pdf) 
+[20:38:52] wrote figure FIN_G6_time_varying_hr (.png/.pdf) 
+[20:38:52] F7 complete 
+[20:38:54] === F4 figures & report (FINAL) === 
+[20:38:54] wrote figure FIN_F1_cohort_flow (.png/.pdf) 
+[20:38:54] wrote figure FIN_F2_balance (.png/.pdf) 
+[20:38:55] wrote figure FIN_F3_incidence_rates (.png/.pdf) 
+[20:38:55] wrote figure FIN_F4_cumulative_incidence (.png/.pdf) 
+[20:38:56] wrote figure FIN_F5_forest_sensitivity (.png/.pdf) 
+[20:38:57] wrote figure FIN_F6_subgroups (.png/.pdf) 
+[20:38:57] wrote figure FIN_F7_negative_control (.png/.pdf) 
+[20:38:57] wrote figure FIN_F8_tipping_point (.png/.pdf) 
+[20:38:58] wrote figure FIN_F9_followup (.png/.pdf) 
+[20:38:58] wrote figure FIN_F10_dag (.png/.pdf) 
+[20:38:58] consistency guard passed: report headline matches F_T4a, F_T4d and F_T9 on disk 
+[20:38:58] wrote report/final_analysis_report.md 
+[20:38:59] F4 complete 

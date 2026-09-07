@@ -212,6 +212,72 @@ neg$verdict <- c("Elevated, as hypothesised",
 write_tab(neg, "F_T5a_negative_control")
 print(neg[, c("outcome", "n", "events", "estimate", "p")])
 
+## ---- 7b. negative control: every specification, settled ---------------------
+## carpal_incident carries NO event date, only a binary flag, so a Cox model
+## necessarily places the event at the seizure-based censoring time. The exact
+## Poisson incidence-rate ratio needs no date and is the cleaner estimate; both
+## are reported and they agree.
+##
+## Two restrictions matter and they turn out to be the SAME restriction:
+## carpal status is missing for all 1,294 male controls but present for all 345
+## male cases, so "female sets only" is identical to "sets where both arms are
+## covered". Including men keeps case-only sets and drags the estimate upward.
+nc_row <- function(dat, label, strat = FALSE) {
+  s <- cut_at(dat, TAU); s$ev <- ifelse(s$t_y > TAU, 0L, as.integer(s$carpal_incident))
+  s <- s[!is.na(s$ev), ]
+  e1 <- sum(s$ev[s$iih == 1]); e0 <- sum(s$ev[s$iih == 0])
+  t1 <- sum(s$t[s$iih == 1]);  t0 <- sum(s$t[s$iih == 0])
+  ir <- if (e1 > 0 && e0 > 0) irr_exact(e1, t1, e0, t0) else c(irr=NA, lo=NA, hi=NA, p=NA)
+  f <- stats::as.formula(if (strat) "Surv(t, ev) ~ iih + strata(match_set)"
+                         else "Surv(t, ev) ~ iih")
+  fit <- try(if (strat) survival::coxph(f, data = s)
+             else survival::coxph(f, data = s, cluster = s$match_set, robust = TRUE),
+             silent = TRUE)
+  hr <- if (inherits(fit, "try-error") || !is.finite(stats::coef(fit)[1])) rep(NA, 4) else {
+    sm <- summary(fit); c(sm$conf.int[1,1], sm$conf.int[1,3], sm$conf.int[1,4],
+                          sm$coefficients[1, ncol(sm$coefficients)]) }
+  data.frame(analysis = label, model = ifelse(strat, "Cox stratified", "Cox robust"),
+             n = nrow(s), events_iih = e1, events_control = e0,
+             IRR_exact_poisson = ifelse(is.na(ir[["irr"]]), NA,
+                                        fmt_est(ir[["irr"]], ir[["lo"]], ir[["hi"]])),
+             HR = ifelse(is.na(hr[1]), "not estimable", fmt_est(hr[1], hr[2], hr[3])),
+             p = fmt_p(hr[4]), stringsAsFactors = FALSE)
+}
+ok_sets <- intersect(a$match_set[a$iih == 1 & !is.na(a$carpal_incident)],
+                     unique(a$match_set[a$iih == 0 & !is.na(a$carpal_incident)]))
+both_cov <- a[a$match_set %in% ok_sets & !is.na(a$carpal_incident), ]
+nc_settled <- rbind(
+  nc_row(a[a$sex == "F", ], "A. Female sets only (PRIMARY)"),
+  nc_row(a[a$sex == "F", ], "A. Female sets only (PRIMARY)", strat = TRUE),
+  nc_row(a, "B. All sexes, complete-case (keeps 345 case-only males)"),
+  nc_row(a, "B. All sexes, complete-case (keeps 345 case-only males)", strat = TRUE),
+  nc_row(both_cov, "C. Sets with BOTH arms covered"),
+  nc_row(both_cov, "C. Sets with BOTH arms covered", strat = TRUE))
+write_tab(nc_settled, "F_T5a2_negative_control_settled")
+print(nc_settled)
+
+## Horizon dependence. The 3-year estimates agree with each other and are null.
+## At full follow-up the robust and stratified models point in OPPOSITE
+## directions (1.45 vs 0.61), which is a signal that the estimate is unstable
+## once the known follow-up asymmetry (case median 4.9 y vs control 3.8 y) is
+## allowed to act -- not evidence of a carpal tunnel effect.
+nc_h <- do.call(rbind, lapply(c(3, 5, Inf), function(tau) {
+  do.call(rbind, lapply(c(FALSE, TRUE), function(st) {
+    s <- a[a$sex == "F", ]; s$t <- pmin(s$t_y, tau)
+    s$ev <- ifelse(s$t_y > tau, 0L, as.integer(s$carpal_incident)); s <- s[!is.na(s$ev), ]
+    f <- stats::as.formula(if (st) "Surv(t, ev) ~ iih + strata(match_set)" else "Surv(t, ev) ~ iih")
+    fit <- try(if (st) survival::coxph(f, data = s)
+               else survival::coxph(f, data = s, cluster = s$match_set, robust = TRUE), silent = TRUE)
+    if (inherits(fit, "try-error")) return(NULL)
+    sm <- summary(fit)
+    data.frame(horizon_y = tau, model = ifelse(st, "stratified", "robust"),
+               events = fit$nevent,
+               estimate = fmt_est(sm$conf.int[1,1], sm$conf.int[1,3], sm$conf.int[1,4]))
+  }))
+}))
+write_tab(nc_h, "F_T5a3_negative_control_by_horizon")
+print(nc_h)
+
 ## ---- 8. timing of risk ------------------------------------------------------
 sp <- survival::survSplit(Surv(t, ev) ~ ., data = cut_at(a, Inf), cut = c(2, 5),
                           episode = "period")

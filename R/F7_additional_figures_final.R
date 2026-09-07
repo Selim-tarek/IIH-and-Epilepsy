@@ -124,10 +124,12 @@ p6 <- ggplot(tv, aes(time_y, hr)) +
   geom_line(linewidth = 0.9, colour = COL[["iih"]]) +
   scale_y_log10() +
   labs(x = "Years since day 180", y = "Hazard ratio (log scale)",
-       title = "The excess risk is sustained across the three-year window",
+       title = "Excess risk is highest in the first year, then plateaus",
        subtitle = "Smoothed scaled Schoenfeld residuals from the primary model",
-       caption = paste("A detection artefact from the diagnostic work-up would spike early and decay. The band is an approximate",
-                       "\npointwise interval from the residual scatter, not a formal confidence band; the formal test is in F_S6.")) +
+       caption = paste("The curve falls from roughly 7.5 to about 3 over the first year and then flattens; it does NOT decay toward",
+                       "the null, which is what a pure diagnostic work-up artefact would do. The plateau is the point, not flatness.",
+                       "The band is an approximate pointwise interval from the residual scatter, not a formal confidence band;",
+                       "the formal test is in F_S6.")) +
   theme_pub()
 FIG(p6, "G6_time_varying_hr", 7.5, 4.6)
 

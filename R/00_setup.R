@@ -150,8 +150,19 @@ write_tab <- function(x, name) {
   invisible(f)
 }
 
+## Re-wrap a label to a character width, discarding any hand-placed newlines so
+## the wrap matches the figure actually being written.
+wrap_lab <- function(x, chars) {
+  if (is.null(x) || !is.character(x) || !nzchar(x)) return(x)
+  paste(strwrap(gsub("[\n[:space:]]+", " ", x), width = chars), collapse = "\n")
+}
+
 save_fig <- function(plot, name, w = 8, h = 5.5, dpi = 300) {
   if (!HAS_GG) { log_msg("ggplot2 absent; skipped figure ", name); return(invisible(NULL)) }
+  ## Roughly 13-16 characters per inch at these point sizes.
+  if (!is.null(plot$labels$title))    plot$labels$title    <- wrap_lab(plot$labels$title, floor(w * 11))
+  if (!is.null(plot$labels$subtitle)) plot$labels$subtitle <- wrap_lab(plot$labels$subtitle, floor(w * 13))
+  if (!is.null(plot$labels$caption))  plot$labels$caption  <- wrap_lab(plot$labels$caption, floor(w * 15))
   ggplot2::ggsave(file.path(PATH$figures, paste0(name, ".png")), plot,
                   width = w, height = h, dpi = dpi)
   ggplot2::ggsave(file.path(PATH$figures, paste0(name, ".pdf")), plot,
@@ -177,6 +188,12 @@ theme_pub <- function(base_size = 11) {
       plot.subtitle    = ggplot2::element_text(colour = "grey25", size = base_size - 1),
       plot.caption     = ggplot2::element_text(colour = "grey35", size = base_size - 2,
                                                hjust = 0),
-      legend.position  = "bottom", legend.title = ggplot2::element_blank()
+      legend.position  = "bottom", legend.title = ggplot2::element_blank(),
+      ## Anchor headings to the whole plot rather than to the panel. With long
+      ## y-axis labels the panel starts far to the right, which was pushing
+      ## titles and captions off the canvas.
+      plot.title.position   = "plot",
+      plot.caption.position = "plot",
+      plot.margin = ggplot2::margin(6, 14, 6, 6)
     )
 }
