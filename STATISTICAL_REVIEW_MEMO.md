@@ -91,7 +91,7 @@ subgroup would not be evidence of mediation.**
 | --- | --- | --- |
 | Primary Cox, 3 y | 112 | Yes — comfortably |
 | Negative control | 32 | Yes, but wide (0.38–2.07); null is reassuring, not decisive |
-| Sex-stratified | 92 F / 20 M | Female yes; male exploratory only (HR 7.21, 3.00–17.32) |
+| Sex-stratified | 95 F / 20 M | Female yes; male exploratory only — 80% power required HR ≥ 4.65 |
 | Time-split | 91 / 80 | Yes |
 | Opening-pressure spline | 42 | **No** — linear term only; knots would be set by a few events |
 | Severity gradient | — | **No variable exists** |
@@ -175,3 +175,40 @@ Run: `Rscript run_all.R`. Outputs to `outputs/{tables,figures,diagnostics,logs}`
     Note acetazolamide appears **nowhere** in the extract (0 rows).
 10. **Extract the `outcome_criterion` flag for cases** if you want the stricter
     outcome definition. It is currently controls-only and unusable.
+
+
+---
+
+## 11. Added after the final workbook (F6/F7)
+
+**A dichotomy manufactured a finding, and the continuous analysis retracts it.**
+The BMI subgroup interaction (p = 0.028 split at 35) does **not** survive when BMI
+is modelled continuously: interaction p = 0.558, HR 0.92 per 5 BMI units. Do not
+report BMI effect modification. Age is the borderline one instead (p = 0.067,
+HR 1.41 per decade), and it too is only hypothesis-generating.
+
+**The negative control is weaker evidence than I first said.** It had 80% power
+only for HR ≥ 1.99. Its null result excludes a *large* surveillance effect, not a
+modest one of 1.3–1.5. State that explicitly rather than calling it decisive.
+
+**Timing argues against work-up detection.** Median latency 2.46 y in IIH vs
+1.68 y in controls (Wilcoxon p = 0.052); only 55% of IIH events fall inside three
+years against 80% of control events. A detection artefact would cluster events
+immediately after index. It does not.
+
+**The design effect is ~1.0** (robust/naive SE ratio 0.981), so matched-set
+clustering costs essentially nothing. An exact permutation test that permutes
+exposure within matched sets gives p < 0.0005 with no large-sample or
+proportional-hazards assumption.
+
+**Calendar stability.** Rates fall over time in both arms, but the exposure-by-era
+interaction is p = 0.994. The ICD-9 to ICD-10 transition did not move the contrast.
+
+**Attributable fraction among the exposed: 72.7% (60.7–81.0)** — valid only under
+a causal reading the study does not support. Report as an upper bound on clinical
+impact or omit.
+
+**Absolute risk is small everywhere.** The largest subgroup risk difference is in
+men, 3.29 percentage points over three years (NNH 30). Lead with absolute risk
+alongside the hazard ratio; a threefold ratio on a 0.7% baseline is easy to
+over-read.

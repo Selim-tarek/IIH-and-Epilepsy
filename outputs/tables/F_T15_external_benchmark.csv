@@ -1,0 +1,5 @@
+"horizon","cohort","rate_per_1000py","rate_per_100k_py","lo_per_100k","hi_per_100k","note"
+"3 years","Non-IIH control",2.65,265,200,345,"Benchmark against published adult epilepsy incidence for your setting; a control rate far above it indicates a clinical, not general, comparison population."
+"3 years","IIH",9.49,949,725,1222,"Benchmark against published adult epilepsy incidence for your setting; a control rate far above it indicates a clinical, not general, comparison population."
+"full follow-up","Non-IIH control",1.86,186,144,238,"Benchmark against published adult epilepsy incidence for your setting; a control rate far above it indicates a clinical, not general, comparison population."
+"full follow-up","IIH",7.97,797,650,968,"Benchmark against published adult epilepsy incidence for your setting; a control rate far above it indicates a clinical, not general, comparison population."

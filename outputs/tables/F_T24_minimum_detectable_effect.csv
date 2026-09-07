@@ -1,0 +1,7 @@
+"analysis","events","pct_exposed","min_detectable_hr","interpretation"
+"Overall",115,22.3,1.87,"80% power to detect HR >= 1.87; smaller true effects would likely be missed"
+"Female",95,22.5,1.99,"80% power to detect HR >= 1.99; smaller true effects would likely be missed"
+"Male",20,21,4.65,"80% power to detect HR >= 4.65; smaller true effects would likely be missed"
+"BMI <35",51,22,2.58,"80% power to detect HR >= 2.58; smaller true effects would likely be missed"
+"BMI >=35",64,22.6,2.31,"80% power to detect HR >= 2.31; smaller true effects would likely be missed"
+"Negative control (carpal, female)",95,22.5,1.99,"80% power to detect HR >= 1.99; smaller true effects would likely be missed"

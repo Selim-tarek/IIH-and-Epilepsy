@@ -1,0 +1,2 @@
+"quantity","estimate_pct","lo_pct","hi_pct","assumption"
+"Attributable fraction among the exposed",72.7,60.7,81,"Valid ONLY if the hazard ratio is causal and unconfounded. It is not: see the E-value and the ascertainment discussion. Report it as an upper bound on clinical impact, never as a demonstrated causal share."

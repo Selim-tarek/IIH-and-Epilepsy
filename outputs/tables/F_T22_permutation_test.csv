@@ -1,0 +1,2 @@
+"test","observed_log_hr","permutations","p_value","note"
+"Exact permutation test, exposure permuted within matched sets",1.4285,2000,"<5e-04","Randomisation-based; makes no large-sample or proportional-hazards assumption."

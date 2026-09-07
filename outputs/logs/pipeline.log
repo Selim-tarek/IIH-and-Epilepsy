@@ -384,3 +384,27 @@
 [04:41:00] wrote figure FIN_F10_dag (.png/.pdf) 
 [04:41:00] wrote report/final_analysis_report.md 
 [04:41:01] F4 complete 
+[15:28:26] === F6 additional analyses === 
+[15:28:26] wrote outputs/tables/F_T15_external_benchmark.csv (4 rows) 
+[15:28:26] wrote outputs/tables/F_T16_latency_to_event.csv (2 rows) 
+[15:28:26] wrote outputs/tables/F_T17_bmi_interaction_curve.csv (12 rows) 
+[15:28:26] continuous BMI x IIH interaction p = 0.558 | HR per 5 BMI units: 0.92 
+[15:28:26] wrote outputs/tables/F_T17b_continuous_interactions.csv (2 rows) 
+[15:28:27] wrote outputs/tables/F_T18_absolute_risk_by_subgroup.csv (7 rows) 
+[15:28:27] wrote outputs/tables/F_T19_attributable_fraction.csv (1 rows) 
+[15:28:27] wrote outputs/tables/F_T20_calendar_trend.csv (8 rows) 
+[15:28:27] exposure x calendar-era interaction p = 0.994 
+[15:28:27] wrote outputs/tables/F_T21_design_effect.csv (2 rows) 
+[15:30:35] wrote outputs/tables/F_T22_permutation_test.csv (1 rows) 
+[15:30:35] wrote outputs/tables/F_T23_time_varying_hr.csv (15 rows) 
+[15:30:35] wrote outputs/tables/F_T24_minimum_detectable_effect.csv (6 rows) 
+[15:30:35] wrote outputs/tables/F_T25_missingness.csv (13 rows) 
+[15:30:35] F6 complete 
+[15:31:58] === F7 additional figures === 
+[15:32:00] wrote figure FIN_G1_latency_distribution (.png/.pdf) 
+[15:32:01] wrote figure FIN_G2_bmi_interaction_continuous (.png/.pdf) 
+[15:32:01] wrote figure FIN_G3_absolute_risk_by_subgroup (.png/.pdf) 
+[15:32:02] wrote figure FIN_G4_calendar_trend (.png/.pdf) 
+[15:32:03] wrote figure FIN_G5_minimum_detectable_effect (.png/.pdf) 
+[15:32:03] wrote figure FIN_G6_time_varying_hr (.png/.pdf) 
+[15:32:03] F7 complete 
