@@ -1,0 +1,9 @@
+## run_final.R ----------------------------------------------------------------
+## FINAL pipeline on IIH_MASTER_FINAL.xlsx:  Rscript run_final.R
+for (s in c("R/F1_import_audit_final.R", "R/F2_analysis_final.R",
+            "R/F3_medications_final.R", "R/F4_figures_report_final.R")) {
+  cat("\n========== ", s, " ==========\n", sep = ""); source(s, echo = FALSE)
+}
+cat("\nDone. See report/final_analysis_report.md and outputs/.\n")
+writeLines(utils::capture.output(utils::sessionInfo()),
+           file.path("outputs", "logs", "sessionInfo_final.txt"))

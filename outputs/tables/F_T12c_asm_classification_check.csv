@@ -1,0 +1,8 @@
+"drug","n_rows","class_assigned","counted_as_asm","protocol_expectation","agrees"
+"gabapentin",2971,"Gabapentinoid (NOT counted as ASM)","FALSE","NOT an ASM","YES"
+"pregabalin",742,"Gabapentinoid (NOT counted as ASM)","FALSE","NOT an ASM","YES"
+"topiramate",458,"IIH treatment (NOT counted as ASM)","FALSE","NOT counted (IIH treatment)","YES"
+"acetazolamide",0,"","","NOT counted (IIH treatment)","no rows"
+"levetiracetam",2291,"Antiseizure medication (unambiguous)","TRUE","counted","YES"
+"zonisamide",77,"Antiseizure medication (unambiguous)","TRUE","counted","YES"
+"lorazepam",4943,"Benzodiazepine / sedative (NOT counted as ASM)","FALSE","NOT counted (sedation)","YES"

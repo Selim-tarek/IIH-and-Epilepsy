@@ -1,0 +1,12 @@
+"modifier","subgroup","n","events","estimate","interaction_p"
+"Overall","Overall",11740,115,"3.66 (2.55 to 5.25)",NA
+"Sex","Female",10101,95,"3.19 (2.14 to 4.76)",0.0941
+"Sex","Male",1639,20,"7.22 (3.02 to 17.26)",NA
+"Age at index","Age <35 y",5876,61,"2.59 (1.58 to 4.24)",0.0533
+"Age at index","Age >=35 y",5864,54,"5.40 (3.11 to 9.36)",NA
+"BMI at index","BMI <35",5412,51,"5.88 (3.32 to 10.42)",0.0277
+"BMI at index","BMI >=35",6328,64,"2.52 (1.56 to 4.07)",NA
+"Calendar period","Index <2015",1873,30,"3.83 (1.85 to 7.93)",0.919
+"Calendar period","Index >=2015",9867,85,"3.67 (2.42 to 5.56)",NA
+"Baseline surveillance","Pre-index enc <2",5652,47,"2.30 (0.31 to 17.06)",0.246
+"Baseline surveillance","Pre-index enc >=2",6076,67,"8.06 (3.97 to 16.35)",NA

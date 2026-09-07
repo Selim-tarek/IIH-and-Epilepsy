@@ -1,0 +1,4 @@
+"estimand","hr","lo","hi","interpretation","estimate"
+"Cause-specific HR, seizure (PRIMARY)",3.66,2.55,5.25,"Rate of seizure among those still alive and seizure-free -- aetiological","3.66 (2.55 to 5.25)"
+"Cause-specific HR, death (competing event)",0.57,0.34,0.95,"Whether IIH also alters mortality; interpret the seizure estimands against it","0.57 (0.34 to 0.95)"
+"Subdistribution HR, seizure (Fine-Gray)",3.66,2.55,5.26,"Effect on cumulative INCIDENCE with death retained in the risk set -- prognostic","3.66 (2.55 to 5.26)"

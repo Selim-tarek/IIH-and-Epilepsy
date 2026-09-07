@@ -1,0 +1,7 @@
+"horizon","cohort","n","events","person_years","rate_per_1000py","rate_lo","rate_hi","irr","irr_lo","irr_hi","irr_p"
+"3 years (primary)","Non-IIH control",9122,55,20724.9,2.65,2,3.45,NA,NA,NA,NA
+"3 years (primary)","IIH",2618,60,6319.3,9.49,7.25,12.22,3.58,2.44,5.26,2.36e-11
+"5 years","Non-IIH control",9122,61,27495.1,2.22,1.7,2.85,NA,NA,NA,NA
+"5 years","IIH",2618,77,8851.1,8.7,6.87,10.87,3.92,2.77,5.58,3.79e-15
+"full follow-up","Non-IIH control",9122,64,34321,1.86,1.44,2.38,NA,NA,NA,NA
+"full follow-up","IIH",2618,102,12796.6,7.97,6.5,9.68,4.27,3.1,5.94,2.8e-20

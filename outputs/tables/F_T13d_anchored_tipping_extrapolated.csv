@@ -1,0 +1,4 @@
+"pct_assumed_true","extrapolated_added","hr","lo","hi","crosses_null"
+0,0,3.66,2.55,5.25,FALSE
+50,73,1.35,1,1.82,TRUE
+100,146,0.82,0.62,1.09,TRUE

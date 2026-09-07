@@ -60,3 +60,19 @@ items that still need input (full code lists, abstract, funding).
 
 All person-time is administratively censored at `FREEZE_DATE` (31 August 2026),
 set in `R/00_setup.R`.
+
+## Final pipeline (IIH_MASTER_FINAL.xlsx)
+
+```bash
+Rscript run_final.R
+```
+
+| Script | Contents |
+| --- | --- |
+| `R/F1_import_audit_final.R` | Typed import from the workbook, dictionary, washout/matching/flow audit, all structural assertions |
+| `R/F2_analysis_final.R` | Rates, Cox models, PH checks, competing risks, absolute risk, E-value, negative control, timing, balance, subgroups, sensitivity, tipping point, RMTL, within-IIH exploratory |
+| `R/F3_medications_final.R` | Medication linkage, ASM classification check, anchored tipping point (provisional) |
+| `R/F4_figures_report_final.R` | 10 figures (`outputs/figures/FIN_*`) and `report/final_analysis_report.md` |
+
+Outputs are prefixed `F_` (tables) and `FIN_` (figures) to keep them separate from
+the earlier CSV-based pipeline, which is retained for provenance.

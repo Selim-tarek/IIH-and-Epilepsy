@@ -1,0 +1,4 @@
+"quantity","days_lost_over_3y","lo","hi","estimate"
+"Non-IIH control",4.75,3.46,6.03,"4.75 (3.46 to 6.03)"
+"IIH",18.73,13.92,23.79,"18.73 (13.92 to 23.79)"
+"Difference (IIH - control)",13.98,9.3,19.06,"13.98 (9.30 to 19.06)"

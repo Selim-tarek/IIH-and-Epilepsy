@@ -1,0 +1,7 @@
+"model","horizon_y","n","events","hr","lo","hi","p","note","estimate"
+"Cox, 3-year (PRIMARY)",3,11740,115,3.66,2.55,5.25,2.31e-12,"robust SE clustered on match_set","3.66 (2.55 to 5.25)"
+"Cox stratified by matched set, 3 y",3,11740,115,4.17,2.84,6.13,3.51e-13,"conditional estimand","4.17 (2.84 to 6.13)"
+"Cox, 3 y, IPTW (stabilised, trimmed)",3,11740,115,3.69,2.57,5.3,1.74e-12,"marginal estimand","3.69 (2.57 to 5.30)"
+"Cox, 3 y, + age/BMI/sex",3,11740,115,3.67,2.54,5.29,3.35e-12,"re-adjusts matched covariates; tests residual imbalance only","3.67 (2.54 to 5.29)"
+"Cox, 5-year",5,11740,138,4.09,2.93,5.7,1.06e-16,"","4.09 (2.93 to 5.70)"
+"Cox, full follow-up",Inf,11740,166,4.67,3.43,6.35,1.29e-22,"check PH before quoting","4.67 (3.43 to 6.35)"
