@@ -15,6 +15,6 @@ writeLines(utils::capture.output(utils::sessionInfo()),
            file.path("outputs", "logs", "sessionInfo_final.txt"))
 
 ## Rebuilt (G-series) pipeline: ingests every supplied source.
-for (s2 in c("R/G1_build_master.R","R/G2_analysis.R","R/G3_figures_report.R")) {
+for (s2 in c("R/G1_build_master.R","R/G2_analysis.R","R/G3_figures_report.R","R/G5_negative_control_panel.R")) {
   cat("\n========== ", s2, " ==========\n", sep=""); source(s2, echo=FALSE)
 }

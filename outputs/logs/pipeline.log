@@ -796,3 +796,16 @@
 [13:22:25] wrote figure G_F5_calibration (.png/.pdf) 
 [13:22:33] G3 complete 
 [13:28:58] wrote outputs/tables/G_T10_negative_control_screen.csv (1 rows) 
+[13:39:09] === G5 negative-control panel === 
+[13:39:12] wrote outputs/tables/G_T11_negative_control_panel.csv (6 rows) 
+[13:39:12] valid controls with an estimate: 1 
+[13:39:14] wrote figure G_F6_negative_control_panel (.png/.pdf) 
+[13:39:14] G5 complete 
+[13:40:19] === G5 negative-control panel === 
+[13:40:21] wrote outputs/tables/G_T11_negative_control_panel.csv (6 rows) 
+[13:40:21] valid controls with an estimate: 1 
+[13:40:21] wrote outputs/tables/G_T13_bias_trend.csv (6 rows) 
+[13:40:21] seizure HR 5.58 vs predicted-at-balance 0.79 (0.28-2.23) 
+[13:40:22] wrote figure G_F7_bias_trend (.png/.pdf) 
+[13:40:23] wrote figure G_F6_negative_control_panel (.png/.pdf) 
+[13:40:23] G5 complete 
