@@ -1,0 +1,2 @@
+"candidate","baseline_pct_iih","baseline_pct_control","baseline_p","criterion_1_balance","events_iih","events_control","criterion_2_power","engagement_gradient","criterion_3_contact","estimate_full","estimate_engaged","criterion_4_stability"
+"Carpal tunnel syndrome",3.59,0.99,"<2e-16","FAIL - imbalanced before index",40,51,"WEAK - 80% power only for HR>=2.04",NA,"FAIL - tracks healthcare contact","2.60 (1.73 to 3.91)","2.66 (1.58 to 4.47)","compare the two columns"
