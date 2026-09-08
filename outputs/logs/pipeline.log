@@ -742,3 +742,36 @@
 [12:58:51] wrote outputs/tables/F_T5b4_carpal_excess_drivers.csv (6 rows) 
 [12:58:51] wrote outputs/tables/F_T5b5_negative_control_calibration.csv (3 rows) 
 [12:58:51] F9 complete 
+[13:00:17] === F10 smoking === 
+[13:00:19] wrote outputs/tables/F_S8_smoking_unmapped_answers.csv (3 rows) 
+[13:00:22] controls/cases matched in social history: 8192 
+[13:00:22] wrote outputs/tables/F_T16a_smoking_coverage.csv (2 rows) 
+[13:00:22] wrote outputs/tables/F_T16b_smoking_record_timing.csv (6 rows) 
+[13:00:22] records dated AFTER index: 5010 
+[13:00:22] wrote outputs/tables/F_T16c_models_with_smoking.csv (4 rows) 
+[13:00:23] wrote outputs/tables/F_T16d_smoking_model_coefficients.csv (11 rows) 
+[13:00:23] F10 complete 
+[13:00:48] === F10 smoking === 
+[13:00:50] wrote outputs/tables/F_S8_smoking_unmapped_answers.csv (3 rows) 
+[13:00:53] controls/cases matched in social history: 8192 
+[13:00:53] wrote outputs/tables/F_T16a_smoking_coverage.csv (2 rows) 
+[13:00:53] wrote outputs/tables/F_T16b_smoking_record_timing.csv (6 rows) 
+[13:00:53] records dated AFTER index: 5010 
+[13:00:53] wrote outputs/tables/F_T16e_smoking_comparability.csv (3 rows) 
+[13:00:54] wrote outputs/tables/F_T16c_models_with_smoking.csv (4 rows) 
+[13:00:54] wrote outputs/tables/F_T16d_smoking_model_coefficients.csv (11 rows) 
+[13:00:54] F10 complete 
+[13:01:30] === F4 figures & report (FINAL) === 
+[13:01:32] wrote figure FIN_F1_cohort_flow (.png/.pdf) 
+[13:01:32] wrote figure FIN_F2_balance (.png/.pdf) 
+[13:01:33] wrote figure FIN_F3_incidence_rates (.png/.pdf) 
+[13:01:33] wrote figure FIN_F4_cumulative_incidence (.png/.pdf) 
+[13:01:34] wrote figure FIN_F5_forest_sensitivity (.png/.pdf) 
+[13:01:35] wrote figure FIN_F6_subgroups (.png/.pdf) 
+[13:01:36] wrote figure FIN_F7_negative_control (.png/.pdf) 
+[13:01:36] wrote figure FIN_F8_tipping_point (.png/.pdf) 
+[13:01:37] wrote figure FIN_F9_followup (.png/.pdf) 
+[13:01:38] wrote figure FIN_F10_dag (.png/.pdf) 
+[13:01:38] consistency guard passed: report headline matches F_T4a, F_T4d and F_T9 on disk 
+[13:01:38] wrote report/final_analysis_report.md 
+[13:01:49] F4 complete 

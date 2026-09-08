@@ -212,3 +212,58 @@ impact or omit.
 men, 3.29 percentage points over three years (NNH 30). Lead with absolute risk
 alongside the hazard ratio; a threefold ratio on a 0.7% baseline is easy to
 over-read.
+
+
+---
+
+## 12. Investigator decisions recorded (final)
+
+**Dropped from the protocol, by decision:**
+- **GERD** as a second negative-control outcome. Removed; not to appear in the
+  protocol, the analysis plan, or the limitations.
+- **Chart adjudication of the IIH diagnosis.** Not feasible. The cohort is
+  "patients coded as IIH" and that is now a stated fixed limitation, not an
+  outstanding data request.
+
+**Outcome-algorithm validation.** The investigators drew a random sample and
+reviewed it manually against the coded outcome, reporting excellent agreement.
+The review results themselves have not reached this pipeline, so no positive
+predictive value, sensitivity or two-phase-corrected estimate has been computed
+here. To put a number in the paper, send the per-patient review file (MRN,
+algorithm result, gold-standard result, sampling stratum) and the confusion
+matrix and corrected estimates can be produced.
+
+**Smoking, now resolved and now adjustable.** The social-history extract
+populates smoking for controls, so it is no longer perfectly nested within the
+exposure. Adjusting for it barely moves the estimate: 4.27 to 4.01.
+
+But it is populated, not comparable. Case smoking comes from the workbook's
+chart abstraction and control smoking from social-history flowsheets, and the
+distributions differ by an order of magnitude: Former 1.5% of cases vs 15.9% of
+controls, Current 0.7% vs 8.0%. That is not biology, it is measurement. Report
+smoking descriptively; do not lean on the adjusted estimate as evidence that
+smoking confounding has been removed. A further caveat: 5,010 control records
+post-date index, so for those patients smoking is not strictly a baseline
+covariate. Restricting to pre-index records gives 4.93 (2.63-9.23) on 75 events.
+
+**The carpal tunnel rebuild supersedes everything earlier about the negative
+control.** See section 13.
+
+## 13. The finding that changes the paper
+
+The dated diagnosis extract shows the negative-control outcome is NOT null:
+incident carpal tunnel HR **2.57 (1.71-3.87)**, stable across every
+specification. The seizure hazard ratio is 3.66. An outcome with no plausible
+causal link to IIH is elevated almost as much as the outcome of interest.
+
+Adjusting for post-index healthcare contact reverses the carpal excess to 0.60,
+which points at detection rather than biology. Dividing the seizure estimate by
+the negative-control estimate leaves **1.43 (0.83-2.46)**, which crosses the
+null.
+
+The equal-bias assumption behind that division is strong and unverifiable, and
+two things still argue for a real effect: the timing (median 2.46 y to event in
+IIH vs 1.68 y in controls, where a detection artefact would cluster early), and
+the fact that seizure and carpal tunnel travel different referral routes so the
+bias need not be equal in size. But the sentence "the negative control was null,
+therefore this is not surveillance bias" can no longer be written.

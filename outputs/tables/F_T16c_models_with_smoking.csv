@@ -1,0 +1,5 @@
+"model","n","events","HR_IIH","p"
+"Crude",11740,115,"3.66 (2.55 to 5.25)","<0.001"
+"Adjusted, smoking EXCLUDED (previous model)",11728,114,"4.27 (2.68 to 6.80)","<0.001"
+"Adjusted, smoking INCLUDED (new)",11728,114,"4.01 (2.46 to 6.55)","<0.001"
+"Adjusted + smoking, pre-index records only",6718,75,"4.93 (2.63 to 9.23)","<0.001"
