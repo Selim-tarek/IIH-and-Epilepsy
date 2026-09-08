@@ -726,3 +726,19 @@
 [00:47:52] consistency guard passed: report headline matches F_T4a, F_T4d and F_T9 on disk 
 [00:47:52] wrote report/final_analysis_report.md 
 [00:47:54] F4 complete 
+[12:57:31] === F9 rebuild carpal tunnel from diagnosis extract === 
+[12:57:31] wrote outputs/tables/F_T5b1_carpal_codes_used.csv (12 rows) 
+[12:57:31] carpal records kept: 2187 across 322 patients 
+[12:57:32] wrote outputs/tables/F_T5b2_carpal_rebuild_vs_workbook.csv (8 rows) 
+[12:57:32] analysis set after dropping prevalent carpal tunnel: 11556 (2524 IIH, 9032 control) 
+[12:57:32] wrote outputs/tables/F_T5b3_negative_control_rebuilt.csv (8 rows) 
+[12:57:32] F9 complete 
+[12:58:50] === F9 rebuild carpal tunnel from diagnosis extract === 
+[12:58:50] wrote outputs/tables/F_T5b1_carpal_codes_used.csv (12 rows) 
+[12:58:50] carpal records kept: 2187 across 322 patients 
+[12:58:51] wrote outputs/tables/F_T5b2_carpal_rebuild_vs_workbook.csv (8 rows) 
+[12:58:51] analysis set after dropping prevalent carpal tunnel: 11556 (2524 IIH, 9032 control) 
+[12:58:51] wrote outputs/tables/F_T5b3_negative_control_rebuilt.csv (8 rows) 
+[12:58:51] wrote outputs/tables/F_T5b4_carpal_excess_drivers.csv (6 rows) 
+[12:58:51] wrote outputs/tables/F_T5b5_negative_control_calibration.csv (3 rows) 
+[12:58:51] F9 complete 

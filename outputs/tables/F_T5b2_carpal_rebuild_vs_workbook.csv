@@ -1,0 +1,9 @@
+"quantity","n"
+"Male controls with a carpal record (workbook said 0)",14
+"Patients with any carpal record",322
+"Prevalent at or before day 180 (now EXCLUDED)",184
+"Incident after day 180, within follow-up",161
+"  of which IIH",89
+"  of which control",72
+"Workbook flag = 1 but no dated record",0
+"Dated incident record but workbook flag = 0 or blank",29

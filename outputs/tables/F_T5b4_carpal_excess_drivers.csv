@@ -1,0 +1,7 @@
+"model","HR","p"
+"unadjusted","2.57 (1.71 to 3.87)","<0.001"
+"+ BMI","2.53 (1.68 to 3.82)","<0.001"
+"+ BMI, OSA, HTN, PCOS","2.11 (1.36 to 3.27)","<0.001"
+"+ full covariates","2.07 (1.33 to 3.23)","0.001"
+"+ pre-index encounters","1.77 (1.15 to 2.72)","0.009"
+"+ POST-index encounters (contact proxy; NOT causal)","0.60 (0.39 to 0.95)","0.027"

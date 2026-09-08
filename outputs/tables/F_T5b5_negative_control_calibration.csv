@@ -1,0 +1,4 @@
+"quantity","estimate","interpretation"
+"Seizure/epilepsy hazard ratio","3.66 (2.55 to 5.25)","As reported"
+"Carpal tunnel (negative control) hazard ratio","2.57 (1.71 to 3.87)","Should be ~1 if the design is specific. It is not."
+"Calibrated ratio (seizure / negative control)","1.43 (0.83 to 2.46)","What remains of the seizure association if the shared bias is fully removed. Crosses the null."
