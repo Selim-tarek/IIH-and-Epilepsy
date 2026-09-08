@@ -1,0 +1,5 @@
+"cohort","arm","n","events","py","rate","lo","hi"
+"Engagement-restricted","IIH",2606,59,6289,9.38,7.14,12.1
+"Engagement-restricted","Control",4037,15,8413,1.78,1,2.94
+"Full cohort","IIH",2618,60,6319,9.49,7.25,12.22
+"Full cohort","Control",9122,55,20725,2.65,2,3.45

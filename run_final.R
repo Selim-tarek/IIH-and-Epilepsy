@@ -18,3 +18,8 @@ writeLines(utils::capture.output(utils::sessionInfo()),
 for (s2 in c("R/G1_build_master.R","R/G2_analysis.R","R/G3_figures_report.R","R/G5_negative_control_panel.R")) {
   cat("\n========== ", s2, " ==========\n", sep=""); source(s2, echo=FALSE)
 }
+
+## FINAL polished outputs
+for (s3 in c("R/H1_final_stats.R","R/H2_final_figures.R","R/H3_final_report.R")) {
+  cat("\n========== ", s3, " ==========\n", sep=""); source(s3, echo=FALSE)
+}

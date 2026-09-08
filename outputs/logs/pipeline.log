@@ -809,3 +809,38 @@
 [13:40:22] wrote figure G_F7_bias_trend (.png/.pdf) 
 [13:40:23] wrote figure G_F6_negative_control_panel (.png/.pdf) 
 [13:40:23] G5 complete 
+[13:46:20] === H1 final statistics === 
+[13:46:22] wrote outputs/tables/H_T1_specifications.csv (15 rows) 
+[13:46:22] wrote outputs/tables/H_T2_rates.csv (4 rows) 
+[13:46:22] wrote outputs/tables/H_T3_cumulative_incidence.csv (6 rows) 
+[13:46:22] wrote outputs/tables/H_T4_risk_difference.csv (1 rows) 
+[13:46:22] wrote outputs/tables/H_T5_competing_risk.csv (3 rows) 
+[13:46:22] wrote outputs/tables/H_T6_ph.csv (3 rows) 
+[13:46:22] wrote outputs/tables/H_T7_evalue.csv (2 rows) 
+[13:47:01] wrote outputs/tables/H_T8_rmtl.csv (3 rows) 
+[13:47:01] wrote outputs/tables/H_T9_latency.csv (2 rows) 
+[13:47:02] wrote outputs/tables/H_T10_subgroups.csv (9 rows) 
+[13:47:02] wrote outputs/tables/H_T11_tipping_point.csv (5 rows) 
+[13:47:02] H1 complete 
+[13:48:01] === H2 final figures === 
+[13:48:03] wrote figure H_F1_primary_specifications (.png/.pdf) 
+[13:48:03] wrote figure H_F2_bias_trend (.png/.pdf) 
+[13:48:04] wrote figure H_F3_negative_control_panel (.png/.pdf) 
+[13:48:05] wrote figure H_F4_cumulative_incidence (.png/.pdf) 
+[13:48:06] wrote figure H_F5_timing (.png/.pdf) 
+[13:48:07] wrote figure H_F6_balance (.png/.pdf) 
+[13:48:08] wrote figure H_F7_subgroups (.png/.pdf) 
+[13:48:09] wrote figure H_F8_tipping_point (.png/.pdf) 
+[13:48:09] H2 complete 
+[13:48:24] === H2 final figures === 
+[13:48:25] wrote figure H_F1_primary_specifications (.png/.pdf) 
+[13:48:26] wrote figure H_F2_bias_trend (.png/.pdf) 
+[13:48:27] wrote figure H_F3_negative_control_panel (.png/.pdf) 
+[13:48:28] wrote figure H_F4_cumulative_incidence (.png/.pdf) 
+[13:48:29] wrote figure H_F5_timing (.png/.pdf) 
+[13:48:29] wrote figure H_F6_balance (.png/.pdf) 
+[13:48:30] wrote figure H_F7_subgroups (.png/.pdf) 
+[13:48:31] wrote figure H_F8_tipping_point (.png/.pdf) 
+[13:48:31] H2 complete 
+[13:49:20] === H3 final report === 
+[13:49:31] H3 complete 
