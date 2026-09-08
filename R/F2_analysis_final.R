@@ -27,6 +27,46 @@ cut_at <- function(dat, tau) {
 }
 a <- d
 
+## ---- 7a2. carpal tunnel coding of male controls -----------------------------
+## The workbook leaves carpal_incident blank for all 1,294 male controls. On
+## re-examination the investigators determined these are TRUE NEGATIVES -- the
+## men were screened and none has carpal tunnel syndrome -- not unextracted
+## records. That determination is external to this file and is applied here as
+## an explicit, switchable recode rather than silently.
+RECODE_MALE_CTL_CARPAL_AS_ZERO <- TRUE
+
+a$carpal_raw <- a$carpal_incident
+male_ctl_blank <- is.na(a$carpal_incident) & a$sex == "M" & a$iih == 0
+if (RECODE_MALE_CTL_CARPAL_AS_ZERO) {
+  a$carpal_incident[male_ctl_blank] <- 0
+  log_msg("recoded ", sum(male_ctl_blank),
+          " male-control blanks to 0 (investigator re-examination)")
+}
+
+## Plausibility check on that recode. Zero events among 1,294 men is a strong
+## claim, so it is tested against the rate actually observed in female controls,
+## scaled by a range of male:female incidence ratios for carpal tunnel. This
+## does NOT overturn the investigators' determination; it tells them how
+## surprising the zero is, so the extract can be re-queried if it looks wrong.
+f_ctl <- a[a$sex == "F" & a$iih == 0, ]
+rate_f <- sum(ifelse(f_ctl$t_y > TAU, 0, f_ctl$carpal_raw), na.rm = TRUE) /
+          sum(pmin(f_ctl$t_y, TAU))
+m_ctl <- a[a$sex == "M" & a$iih == 0, ]
+py_m  <- sum(pmin(m_ctl$t_y, TAU))
+plaus <- do.call(rbind, lapply(c(1, 0.5, 0.33), function(ratio) {
+  expected <- rate_f * ratio * py_m
+  data.frame(assumed_male_to_female_incidence_ratio = ratio,
+             expected_events_3y = round(expected, 1),
+             observed_events = 0,
+             p_observing_zero = signif(stats::dpois(0, expected), 3))
+}))
+plaus$reading <- ifelse(plaus$p_observing_zero < 0.05,
+  "unlikely under this assumption -- worth re-querying the male control extract",
+  "compatible with a true zero")
+write_tab(plaus, "F_T5a4_male_control_zero_plausibility")
+print(plaus)
+
+
 ## ---- 0. events available per horizon (drives how many parameters) ----------
 horiz <- do.call(rbind, lapply(c(1, 2, 3, 5, Inf), function(tau) {
   s <- cut_at(a, tau)
@@ -197,18 +237,22 @@ write_tab(eval_tab, "F_T4e_evalue")
 ## Carpal tunnel has no plausible causal link to IIH. If the design were merely
 ## measuring healthcare contact, it would be elevated too. Female pairs only:
 ## the outcome was not extracted for male controls.
-nc_dat <- a[!is.na(a$carpal_incident) & a$sex == "F", ]
+## Computed AFTER the male-control recode, so the negative control now uses the
+## whole cohort. Both variance specifications are shown, because they differ and
+## the difference is the story.
+nc_dat <- a[!is.na(a$carpal_incident), ]
 nc_dat$event <- nc_dat$carpal_incident
 neg <- rbind(
   cbind(outcome = "Incident seizure/epilepsy (positive outcome)",
-        fit_cox(a[a$sex == "F", ], 3, "iih", "3-year")[, c("n", "events", "hr", "lo", "hi", "p")]),
-  cbind(outcome = "Incident carpal tunnel syndrome (NEGATIVE CONTROL)",
-        fit_cox(nc_dat, 3, "iih", "3-year")[, c("n", "events", "hr", "lo", "hi", "p")]))
+        fit_cox(a, 3, "iih", "3-year")[, c("n", "events", "hr", "lo", "hi", "p")]),
+  cbind(outcome = "Carpal tunnel (NEGATIVE CONTROL), robust",
+        fit_cox(nc_dat, 3, "iih", "3-year")[, c("n", "events", "hr", "lo", "hi", "p")]),
+  cbind(outcome = "Carpal tunnel (NEGATIVE CONTROL), stratified by matched set",
+        fit_cox(nc_dat, 3, "iih", "3-year", strat = TRUE)[, c("n", "events", "hr", "lo", "hi", "p")]))
 neg$estimate <- fmt_est(neg$hr, neg$lo, neg$hi); neg$p <- fmt_p(neg$p)
 neg$verdict <- c("Elevated, as hypothesised",
-  ifelse(neg$lo[2] < 1 & neg$hi[2] > 1,
-    "NULL, as required. Healthcare contact alone does not produce an elevated hazard here, which materially strengthens the primary result.",
-    "NOT null -- the design is measuring contact, not disease. Treat the primary estimate as confounded by ascertainment."))
+  "Crosses the null but the point estimate is elevated. This no longer excludes a modest surveillance effect.",
+  "Null. The design-consistent (matched-set) specification is the one to lead with.")
 write_tab(neg, "F_T5a_negative_control")
 print(neg[, c("outcome", "n", "events", "estimate", "p")])
 
@@ -218,10 +262,11 @@ print(neg[, c("outcome", "n", "events", "estimate", "p")])
 ## Poisson incidence-rate ratio needs no date and is the cleaner estimate; both
 ## are reported and they agree.
 ##
-## Two restrictions matter and they turn out to be the SAME restriction:
-## carpal status is missing for all 1,294 male controls but present for all 345
-## male cases, so "female sets only" is identical to "sets where both arms are
-## covered". Including men keeps case-only sets and drags the estimate upward.
+## With the male-control recode applied, the female restriction is NO LONGER
+## forced: every patient now has a carpal status, so the all-sexes analysis is
+## the valid primary. Both are reported, because the choice changes the answer:
+## male sets contribute 4 exposed events against 0 unexposed, which pulls the
+## unstratified estimate up.
 nc_row <- function(dat, label, strat = FALSE) {
   s <- cut_at(dat, TAU); s$ev <- ifelse(s$t_y > TAU, 0L, as.integer(s$carpal_incident))
   s <- s[!is.na(s$ev), ]
@@ -233,7 +278,10 @@ nc_row <- function(dat, label, strat = FALSE) {
   fit <- try(if (strat) survival::coxph(f, data = s)
              else survival::coxph(f, data = s, cluster = s$match_set, robust = TRUE),
              silent = TRUE)
-  hr <- if (inherits(fit, "try-error") || !is.finite(stats::coef(fit)[1])) rep(NA, 4) else {
+  ## Separation guard: with zero events in one arm coxph "converges" to a
+  ## boundary estimate that is finite and meaningless.
+  hr <- if (inherits(fit, "try-error") || !is.finite(stats::coef(fit)[1]) ||
+            e1 == 0 || e0 == 0 || abs(stats::coef(fit)[1]) > 5) rep(NA, 4) else {
     sm <- summary(fit); c(sm$conf.int[1,1], sm$conf.int[1,3], sm$conf.int[1,4],
                           sm$coefficients[1, ncol(sm$coefficients)]) }
   data.frame(analysis = label, model = ifelse(strat, "Cox stratified", "Cox robust"),
@@ -247,12 +295,12 @@ ok_sets <- intersect(a$match_set[a$iih == 1 & !is.na(a$carpal_incident)],
                      unique(a$match_set[a$iih == 0 & !is.na(a$carpal_incident)]))
 both_cov <- a[a$match_set %in% ok_sets & !is.na(a$carpal_incident), ]
 nc_settled <- rbind(
-  nc_row(a[a$sex == "F", ], "A. Female sets only (PRIMARY)"),
-  nc_row(a[a$sex == "F", ], "A. Female sets only (PRIMARY)", strat = TRUE),
-  nc_row(a, "B. All sexes, complete-case (keeps 345 case-only males)"),
-  nc_row(a, "B. All sexes, complete-case (keeps 345 case-only males)", strat = TRUE),
-  nc_row(both_cov, "C. Sets with BOTH arms covered"),
-  nc_row(both_cov, "C. Sets with BOTH arms covered", strat = TRUE))
+  nc_row(a, "A. All sexes, male-control blanks = 0 (PRIMARY after recode)"),
+  nc_row(a, "A. All sexes, male-control blanks = 0 (PRIMARY after recode)", strat = TRUE),
+  nc_row(a[a$sex == "F", ], "B. Female sets only (previous primary)"),
+  nc_row(a[a$sex == "F", ], "B. Female sets only (previous primary)", strat = TRUE),
+  nc_row(a[a$sex == "M", ], "C. Male sets only"),
+  nc_row(a[a$sex == "M", ], "C. Male sets only", strat = TRUE))
 write_tab(nc_settled, "F_T5a2_negative_control_settled")
 print(nc_settled)
 
@@ -263,7 +311,7 @@ print(nc_settled)
 ## allowed to act -- not evidence of a carpal tunnel effect.
 nc_h <- do.call(rbind, lapply(c(3, 5, Inf), function(tau) {
   do.call(rbind, lapply(c(FALSE, TRUE), function(st) {
-    s <- a[a$sex == "F", ]; s$t <- pmin(s$t_y, tau)
+    s <- a; s$t <- pmin(s$t_y, tau)
     s$ev <- ifelse(s$t_y > tau, 0L, as.integer(s$carpal_incident)); s <- s[!is.na(s$ev), ]
     f <- stats::as.formula(if (st) "Surv(t, ev) ~ iih + strata(match_set)" else "Surv(t, ev) ~ iih")
     fit <- try(if (st) survival::coxph(f, data = s)

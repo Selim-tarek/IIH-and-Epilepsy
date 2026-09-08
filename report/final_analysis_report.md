@@ -6,7 +6,7 @@ title: "IIH and Incident Epilepsy: Final Analysis"
 
 ### Final analysis report
 
-**Source:** `IIH_MASTER_FINAL.xlsx` · **Cutoff:** 3 September 2026 · **Analysis date:** 2026-09-07 · **Seed:** 20250906 · **R:** R version 4.3.3 (2024-02-29)
+**Source:** `IIH_MASTER_FINAL.xlsx` · **Cutoff:** 3 September 2026 · **Analysis date:** 2026-09-08 · **Seed:** 20250906 · **R:** R version 4.3.3 (2024-02-29)
 
 ---
 
@@ -101,14 +101,21 @@ IIH patients have far more clinical contact (post-index encounters 171 vs 35), s
 
 | outcome | n | events | estimate | p |
 | --- | --- | --- | --- | --- |
-| Incident seizure/epilepsy (positive outcome) | 10101 | 95 | 3.19 (2.14 to 4.76) | <0.001 |
-| Incident carpal tunnel syndrome (NEGATIVE CONTROL) | 10101 | 35 | 1.23 (0.59 to 2.58) | 0.580 |
+| Incident seizure/epilepsy (positive outcome) | 11740 | 115 | 3.66 (2.55 to 5.25) | <0.001 |
+| Carpal tunnel (NEGATIVE CONTROL), robust | 11740 | 39 | 1.79 (0.93 to 3.45) | 0.083 |
+| Carpal tunnel (NEGATIVE CONTROL), stratified by matched set | 11740 | 39 | 1.17 (0.50 to 2.74) | 0.718 |
 
-Carpal tunnel syndrome has no plausible causal link to IIH and is ascertained identically. If the design were measuring contact, it would be elevated. At the study's 3-year horizon it is not.
+Carpal tunnel syndrome has no plausible causal link to IIH and is ascertained identically. **This check is weaker than earlier drafts of this report claimed, and the change should be carried into the abstract.**
 
 Three things have to be stated with it.
 
-**The restriction is forced, not chosen.** carpal_incident is missing for all 1,294 male controls and present for all 345 male cases, so "female sets only" and "sets with both arms covered" are the *same* 10,101 patients. Keeping men retains 345 case-only sets and pulls the estimate to 1.74 (0.90-3.35). Female restriction is the correct analysis, not a subgroup choice (Table F_T5a2).
+**The male-control blanks are true negatives, not missing data.** On re-examination the investigators established that the 1,294 male controls with a blank carpal field were screened and none has carpal tunnel syndrome. They are recoded as zeros, so the female restriction is no longer forced and the all-sexes analysis becomes the valid primary. An earlier version of this report described the female restriction as forced; that is superseded.
+
+**The recode moves the estimate, and not in the comfortable direction.** All sexes at 3 years: 1.79 (0.93-3.45) robust, 1.17 (0.50-2.74) stratified by matched set. Female sets alone: 1.23 (0.59-2.58) and 0.85 (0.34-2.14). The gap between the two variance specifications comes from the male sets, which contribute 4 exposed events against 0 unexposed and are completely separated (Table F_T5a2).
+
+**What can honestly be claimed.** The design-consistent specification -- stratified by matched set, which is how the cohort was built -- remains null at 1.17 (0.50-2.74). But the robust estimate is 1.79 with an upper limit of 3.45, and this analysis had 80% power only for HR >= 1.99. So the negative control rules out a LARGE ascertainment effect and no longer excludes a modest one. The abstract should say that, not "null".
+
+**One caveat on the recode itself (Table F_T5a4).** Zero events among 1,294 male controls is a strong observation. If male controls had the incidence seen in female controls, 4.5 events would be expected over three years and observing zero has probability 0.011. At a male:female incidence ratio of 0.5 or 0.33 the zero is unremarkable (p = 0.10 and 0.22). Carpal tunnel is genuinely commoner in women, so this is not evidence the recode is wrong -- but confirming that the male control extract actually queried G56.0x / 354.0 would put it beyond doubt.
 
 **There is no event date.** carpal_incident is a bare binary flag, so the Cox model places the event at the seizure-based censoring time. The exact Poisson incidence-rate ratio needs no date and agrees: 1.27 (0.55-2.74).
 

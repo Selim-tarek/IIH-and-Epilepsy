@@ -1,0 +1,4 @@
+"assumed_male_to_female_incidence_ratio","expected_events_3y","observed_events","p_observing_zero","reading"
+1,4.5,0,0.0108,"unlikely under this assumption -- worth re-querying the male control extract"
+0.5,2.3,0,0.104,"compatible with a true zero"
+0.33,1.5,0,0.224,"compatible with a true zero"

@@ -1,7 +1,7 @@
 "analysis","model","n","events_iih","events_control","IRR_exact_poisson","HR","p"
-"A. Female sets only (PRIMARY)","Cox robust",10101,10,25,"1.27 (0.55 to 2.74)","1.23 (0.59 to 2.58)","0.580"
-"A. Female sets only (PRIMARY)","Cox stratified",10101,10,25,"1.27 (0.55 to 2.74)","0.85 (0.34 to 2.14)","0.737"
-"B. All sexes, complete-case (keeps 345 case-only males)","Cox robust",11266,14,25,"1.77 (0.85 to 3.54)","1.74 (0.90 to 3.35)","0.098"
-"B. All sexes, complete-case (keeps 345 case-only males)","Cox stratified",11266,14,25,"1.77 (0.85 to 3.54)","1.10 (0.47 to 2.58)","0.821"
-"C. Sets with BOTH arms covered","Cox robust",10101,10,25,"1.27 (0.55 to 2.74)","1.23 (0.59 to 2.58)","0.580"
-"C. Sets with BOTH arms covered","Cox stratified",10101,10,25,"1.27 (0.55 to 2.74)","0.85 (0.34 to 2.14)","0.737"
+"A. All sexes, male-control blanks = 0 (PRIMARY after recode)","Cox robust",11740,14,25,"1.84 (0.88 to 3.67)","1.79 (0.93 to 3.45)","0.083"
+"A. All sexes, male-control blanks = 0 (PRIMARY after recode)","Cox stratified",11740,14,25,"1.84 (0.88 to 3.67)","1.17 (0.50 to 2.74)","0.718"
+"B. Female sets only (previous primary)","Cox robust",10101,10,25,"1.27 (0.55 to 2.74)","1.23 (0.59 to 2.58)","0.580"
+"B. Female sets only (previous primary)","Cox stratified",10101,10,25,"1.27 (0.55 to 2.74)","0.85 (0.34 to 2.14)","0.737"
+"C. Male sets only","Cox robust",1639,4,0,NA,"not estimable",NA
+"C. Male sets only","Cox stratified",1639,4,0,NA,"not estimable",NA
