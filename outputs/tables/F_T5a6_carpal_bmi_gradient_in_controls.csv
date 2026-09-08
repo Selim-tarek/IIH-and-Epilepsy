@@ -1,0 +1,3 @@
+"bmi_group","n","events","rate_per_1000py","lo","hi","note"
+"BMI <35",4224,8,0.83,0.36,1.63,"Controls only -- IIH cannot contribute to this gradient."
+"BMI >=35",4898,17,1.54,0.89,2.46,"Controls only -- IIH cannot contribute to this gradient."

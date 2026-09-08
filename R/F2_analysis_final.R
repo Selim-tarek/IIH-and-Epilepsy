@@ -326,6 +326,49 @@ nc_h <- do.call(rbind, lapply(c(3, 5, Inf), function(tau) {
 write_tab(nc_h, "F_T5a3_negative_control_by_horizon")
 print(nc_h)
 
+## ---- 7c. is carpal tunnel a valid negative control at all? -----------------
+## A negative control must have NO plausible causal link to the exposure.
+## Carpal tunnel does not obviously satisfy that here: obesity is a risk factor
+## for carpal tunnel and is the axis IIH sits on. If obesity drives both, an
+## elevated carpal hazard is confounding by shared cause, not evidence of
+## surveillance bias -- and the control cannot do the job asked of it.
+##
+## Two things are checked: whether the signal is removed by adjusting for the
+## metabolic covariates, and whether carpal tunnel tracks BMI among CONTROLS
+## (where IIH cannot be involved at all).
+nc_adj <- do.call(rbind, lapply(list(
+    c("iih", "unadjusted (robust)"),
+    c("iih + bmi_index", "+ BMI"),
+    c("iih + bmi_index + osa + htn + pcos", "+ BMI, OSA, HTN, PCOS"),
+    c("iih + bmi_index + osa + htn + pcos + age_index + sex", "+ full covariate set")),
+  function(z) {
+    s <- cut_at(a, TAU); s$ev <- ifelse(s$t_y > TAU, 0L, as.integer(s$carpal_incident))
+    s <- s[!is.na(s$ev), ]
+    fit <- survival::coxph(stats::as.formula(paste("Surv(t, ev) ~", z[1])),
+                           data = s, cluster = s$match_set, robust = TRUE)
+    sm <- summary(fit)
+    data.frame(model = z[2],
+               HR = fmt_est(sm$conf.int[1,1], sm$conf.int[1,3], sm$conf.int[1,4]),
+               p = fmt_p(sm$coefficients[1, ncol(sm$coefficients)]))
+  }))
+write_tab(nc_adj, "F_T5a5_negative_control_adjusted")
+print(nc_adj)
+
+s_c <- cut_at(a[a$iih == 0, ], TAU)
+s_c$ev <- ifelse(s_c$t_y > TAU, 0L, as.integer(s_c$carpal_incident))
+s_c <- s_c[!is.na(s_c$ev) & !is.na(s_c$bmi_index), ]
+bmi_grad <- do.call(rbind, lapply(list(c(-Inf, 35, "BMI <35"), c(35, Inf, "BMI >=35")),
+  function(z) {
+    ss <- s_c[s_c$bmi_index >= as.numeric(z[1]) & s_c$bmi_index < as.numeric(z[2]), ]
+    r <- pois_rate_ci(sum(ss$ev), sum(ss$t))
+    data.frame(bmi_group = z[3], n = nrow(ss), events = sum(ss$ev),
+               rate_per_1000py = round(r[["rate"]], 2),
+               lo = round(r[["lo"]], 2), hi = round(r[["hi"]], 2))
+  }))
+bmi_grad$note <- "Controls only -- IIH cannot contribute to this gradient."
+write_tab(bmi_grad, "F_T5a6_carpal_bmi_gradient_in_controls")
+print(bmi_grad)
+
 ## ---- 8. timing of risk ------------------------------------------------------
 sp <- survival::survSplit(Surv(t, ev) ~ ., data = cut_at(a, Inf), cut = c(2, 5),
                           episode = "period")

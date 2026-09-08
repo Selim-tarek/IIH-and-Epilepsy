@@ -1,0 +1,5 @@
+"model","HR","p"
+"unadjusted (robust)","1.79 (0.93 to 3.45)","0.083"
+"+ BMI","1.76 (0.91 to 3.39)","0.092"
+"+ BMI, OSA, HTN, PCOS","1.69 (0.87 to 3.26)","0.121"
+"+ full covariate set","1.74 (0.88 to 3.44)","0.113"
