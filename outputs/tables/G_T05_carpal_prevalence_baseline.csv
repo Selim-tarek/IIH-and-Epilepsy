@@ -1,0 +1,5 @@
+"cohort","arm","n","prevalent_carpal","pct","note"
+"FULL","IIH",2618,94,3.59,"Carpal tunnel present BEFORE index. A negative control must be balanced here."
+"FULL","Control",9122,90,0.99,"Carpal tunnel present BEFORE index. A negative control must be balanced here."
+"ENGAGED","IIH",2606,94,3.61,"Carpal tunnel present BEFORE index. A negative control must be balanced here."
+"ENGAGED","Control",4037,78,1.93,"Carpal tunnel present BEFORE index. A negative control must be balanced here."

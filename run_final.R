@@ -13,3 +13,8 @@ for (s in c("R/F1_import_audit_final.R", "R/F2_analysis_final.R",
 cat("\nDone. See report/final_analysis_report.md and outputs/.\n")
 writeLines(utils::capture.output(utils::sessionInfo()),
            file.path("outputs", "logs", "sessionInfo_final.txt"))
+
+## Rebuilt (G-series) pipeline: ingests every supplied source.
+for (s2 in c("R/G1_build_master.R","R/G2_analysis.R","R/G3_figures_report.R")) {
+  cat("\n========== ", s2, " ==========\n", sep=""); source(s2, echo=FALSE)
+}
