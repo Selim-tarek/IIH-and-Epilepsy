@@ -7,3 +7,10 @@ IIH_outputs.zip
 .Rhistory
 .RData
 .Rproj.user/
+
+# PHI — patient identifiers must never reach a remote repository.
+# The MRN lists live outside the working tree (/home/user/mrn_lists) and are
+# delivered directly to the investigator, never committed.
+mrn_lists/
+*MRN*.csv
+*MRN*.txt
