@@ -859,3 +859,8 @@
 [16:13:24] === J2 outcome-definition sensitivity === 
 [16:13:25] wrote outputs/tables/J_T05_outcome_definition_sensitivity.csv (6 rows) 
 [16:13:25] J2 complete 
+[16:45:05] === J3 epilepsy vs single seizure among outcome-positive patients === 
+[16:45:09] wrote outputs/tables/J_T06_epilepsy_vs_single.csv (2 rows) 
+[16:45:09] wrote outputs/tables/J_T07_channel_contributions.csv (2 rows) 
+[16:45:09] wrote outputs/tables/J_T08_epilepsy_proportion_test.csv (1 rows) 
+[16:45:09] J3 complete 
