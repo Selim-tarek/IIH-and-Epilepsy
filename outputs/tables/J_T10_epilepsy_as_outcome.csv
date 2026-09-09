@@ -1,0 +1,5 @@
+"outcome","cohort","iih","control","iih_rate_1000py","control_rate_1000py","HR","lo","hi","estimate"
+"Epilepsy (recurrent/established)","Full","60/2618 (2.29%)","63/9122 (0.69%)",4.7,1.8,2.76448269053306,1.94882202528536,3.921530261409,"2.76 (1.95 to 3.92)"
+"Single seizure only","Full","42/2618 (1.60%)","1/9122 (0.01%)",3.3,0,NA,NA,NA,"not estimable (see header)"
+"Epilepsy (recurrent/established)","Engagement-restricted","60/2606 (2.30%)","16/4037 (0.40%)",4.7,1.4,3.87403441094153,2.22941569299118,6.73187268948613,"3.87 (2.23 to 6.73)"
+"Single seizure only","Engagement-restricted","40/2606 (1.53%)","0/4037 (0.00%)",3.1,0,NA,NA,NA,"not estimable (see header)"

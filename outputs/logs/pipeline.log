@@ -914,3 +914,6 @@
 [17:03:19] wrote figure J_F2_absolute_risk_split (.png/.pdf) 
 [17:03:20] wrote figure J_F3_epilepsy_evidence_channels (.png/.pdf) 
 [17:03:20] J4 complete 
+[17:06:16] === J5 epilepsy as an outcome === 
+[17:06:16] wrote outputs/tables/J_T10_epilepsy_as_outcome.csv (4 rows) 
+[17:06:16] J5 complete 
