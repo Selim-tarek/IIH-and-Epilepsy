@@ -176,7 +176,11 @@ dict <- do.call(rbind, lapply(names(raw), function(v) {
              n_code_99 = sum(nr == MISS_UNKNOWN, na.rm = TRUE),
              n_code_88 = sum(nr == MISS_NOTAPPLIC, na.rm = TRUE),
              n_distinct = length(vals),
-             example = paste(utils::head(vals, 4), collapse = " | "),
+             ## Identifier columns are redacted; a dictionary must not carry
+             ## real MRNs or record ids into a shareable output.
+             example = if (grepl("clinic_number|record_id|match_set", v))
+                         "[redacted: identifier]"
+                       else paste(utils::head(vals, 4), collapse = " | "),
              availability = if (bc == n_case && bk < n_ctl) "CONTROLS ONLY"
                        else if (bk == n_ctl && bc < n_case) "CASES ONLY" else "both cohorts",
              stringsAsFactors = FALSE)

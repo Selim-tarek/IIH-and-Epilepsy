@@ -184,7 +184,11 @@ dict <- do.call(rbind, lapply(names(raw), function(v) {
     n_code_99_unknown  = sum(nr == MISS_UNKNOWN, na.rm = TRUE),
     n_code_88_na       = sum(nr == MISS_NOTAPPLIC, na.rm = TRUE),
     n_distinct_values  = length(uv),
-    example_values     = paste(utils::head(uv, 5), collapse = " | "),
+    ## Identifier columns are redacted: a data dictionary must not carry real
+    ## MRNs or record ids into a shareable output.
+    example_values     = if (grepl("clinic_number|record_id|match_set", v))
+                           "[redacted: identifier]"
+                         else paste(utils::head(uv, 5), collapse = " | "),
     blank_in_cases     = sum(x[d$iih == 1] == ""),
     blank_in_controls  = sum(x[d$iih == 0] == ""),
     stringsAsFactors = FALSE)

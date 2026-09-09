@@ -20,3 +20,4 @@ mrn_lists/
 # NOTE: 14 such files are already tracked from earlier commits and are NOT
 # removed by this rule - see the note in STATISTICAL_REVIEW_MEMO.md.
 data-raw/
+data-derived/
