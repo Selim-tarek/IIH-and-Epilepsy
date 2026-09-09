@@ -864,3 +864,24 @@
 [16:45:09] wrote outputs/tables/J_T07_channel_contributions.csv (2 rows) 
 [16:45:09] wrote outputs/tables/J_T08_epilepsy_proportion_test.csv (1 rows) 
 [16:45:09] J3 complete 
+[16:50:03] === J3 epilepsy vs single seizure among outcome-positive patients === 
+[16:50:08] wrote outputs/tables/J_T06_epilepsy_vs_single.csv (2 rows) 
+[16:50:08] wrote outputs/tables/J_T07_channel_contributions.csv (2 rows) 
+[16:50:08] wrote outputs/tables/J_T09_chronic_asm_agents.csv (11 rows) 
+[16:50:08] wrote outputs/tables/J_T08_epilepsy_proportion_test.csv (1 rows) 
+[16:50:08] J3 complete 
+[16:50:18] === J3 epilepsy vs single seizure among outcome-positive patients === 
+[16:50:22] wrote outputs/tables/J_T06_epilepsy_vs_single.csv (2 rows) 
+[16:50:22] wrote outputs/tables/J_T07_channel_contributions.csv (2 rows) 
+[16:50:22] wrote outputs/tables/J_T09_chronic_asm_agents.csv (11 rows) 
+[16:50:22] wrote outputs/tables/J_T08_epilepsy_proportion_test.csv (1 rows) 
+[16:50:22] J3 complete 
+[16:50:53] === J4 figure === 
+[16:51:50] === J4 figures === 
+[16:51:52] wrote figure J_F1_epilepsy_vs_single_seizure (.png/.pdf) 
+[16:51:53] wrote figure J_F2_epilepsy_evidence_channels (.png/.pdf) 
+[16:51:53] J4 complete 
+[16:52:25] === J4 figures === 
+[16:52:26] wrote figure J_F1_epilepsy_vs_single_seizure (.png/.pdf) 
+[16:52:26] wrote figure J_F2_epilepsy_evidence_channels (.png/.pdf) 
+[16:52:26] J4 complete 

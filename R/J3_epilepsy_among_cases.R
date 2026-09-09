@@ -31,6 +31,7 @@
 ## counting either would manufacture epilepsy in the IIH arm by construction.
 
 source("R/00_setup.R")
+FREEZE <- as.Date("2026-09-03")
 log_msg("=== J3 epilepsy vs single seizure among outcome-positive patients ===")
 P <- readRDS(file.path(PATH$derived, "J1_phenotype.rds"))$code
 WASHOUT_D <- 180
@@ -76,6 +77,16 @@ B <- data.frame(mrn=trimws(md$clinic_number), st=as.Date(substr(md$start_date,1,
                 en=as.Date(substr(md$end_date,1,10)),
                 g=ifelse(md$asm_generic != "", md$asm_generic, md$medication_name))
 M <- rbind(A, B); M <- M[M$mrn %in% E$mrn & isa(M$g) & !is.na(M$st), ]
+## Sentinel end-dates. The case file uses 9999-12-31 for "no end date" (379
+## rows) and 1000-01-01 as a null (range runs 1000-01-01 to 9999-12-31).
+## Untreated, these produce ASM spans of up to 2.9 million days. 9999-12-31 is
+## genuinely open-ended therapy, so it is read as "still active at freeze" and
+## clamped there; anything before the start date is dropped as null.
+M$open_ended <- !is.na(M$en) & M$en >= as.Date("9999-01-01")
+M$en[M$open_ended] <- FREEZE
+M$en[!is.na(M$en) & (M$en > FREEZE | M$en < M$st)] <- NA
+M$st[M$st < as.Date("1900-01-01")] <- NA
+M <- M[!is.na(M$st), ]
 CHRONIC_D <- 180
 span <- tapply(seq_len(nrow(M)), M$mrn, function(k){
   st <- M$st[k]; en <- M$en[k]
@@ -85,6 +96,10 @@ span <- tapply(seq_len(nrow(M)), M$mrn, function(k){
 E$asm_span <- as.numeric(span[E$mrn]); E$asm_span[is.na(E$asm_span)] <- -1
 E$ch_chronic_asm <- E$asm_span >= CHRONIC_D
 E$any_asm <- E$mrn %in% M$mrn
+E$asm_drugs <- sapply(E$mrn, function(m){
+  g <- tolower(M$g[M$mrn == m])
+  d <- unique(CORE[sapply(CORE, function(a) any(grepl(a, g, fixed = TRUE)))])
+  if (!length(d)) "" else paste(sort(d), collapse = "; ") })
 
 E$epilepsy <- E$ch_recurrence | E$ch_epilepsy_code | E$ch_chronic_asm
 E$class <- ifelse(E$epilepsy, "EPILEPSY (recurrent/established)", "SINGLE SEIZURE")
@@ -106,6 +121,13 @@ ch <- do.call(rbind, lapply(c(1,0), function(g){
              any_asm_record=sum(s$any_asm),
              codes_only_epilepsy=sum(s$ch_recurrence | s$ch_epilepsy_code)) }))
 write_tab(ch, "J_T07_channel_contributions"); print(ch)
+
+## Which agents the indefinitely-treated patients were on.
+dr <- E[E$ch_chronic_asm, c("iih","asm_drugs","asm_span")]
+dr <- data.frame(arm=ifelse(dr$iih==1,"IIH","Control"), agents=dr$asm_drugs,
+                 span_days=round(dr$asm_span))
+dr <- dr[order(dr$arm, -dr$span_days), ]
+write_tab(dr, "J_T09_chronic_asm_agents"); print(dr, row.names=FALSE)
 
 ## Fisher test on the CODE-BASED definition only. The ASM channel is not
 ## comparable between arms (see J_T07 and the report): the case medication file
