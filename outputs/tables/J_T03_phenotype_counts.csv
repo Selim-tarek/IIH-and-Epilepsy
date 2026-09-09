@@ -1,0 +1,5 @@
+"definition","arm","at_risk","epilepsy","seizure_only","none","pct_epilepsy","person_years"
+"Codes only","IIH",2610,13,45,2552,0.5,6304
+"Codes only","Control",9087,79,128,8880,0.87,20445
+"Codes + chronic ASM","IIH",2610,13,45,2552,0.5,6304
+"Codes + chronic ASM","Control",9087,79,128,8880,0.87,20445

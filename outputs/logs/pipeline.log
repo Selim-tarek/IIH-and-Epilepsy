@@ -844,3 +844,15 @@
 [13:48:31] H2 complete 
 [13:49:20] === H3 final report === 
 [13:49:31] H3 complete 
+[15:46:07] === J1 epilepsy phenotype === 
+[15:46:07] wrote outputs/tables/J_T01_code_classes.csv (4 rows) 
+[15:46:10] classifying phenotypes (this takes a moment) ... 
+[15:46:14] wrote outputs/tables/J_T02_phenotype_counts.csv (4 rows) 
+[15:46:14] J1 complete 
+[15:51:04] === J1 epilepsy vs single-seizure phenotype === 
+[15:51:05] wrote outputs/tables/J_T01_code_classes.csv (4 rows) 
+[15:51:07] wrote outputs/tables/J_T02_at_risk.csv (2 rows) 
+[15:51:07] classifying phenotypes ... 
+[15:51:08] wrote outputs/tables/J_T03_phenotype_counts.csv (4 rows) 
+[15:51:08] wrote outputs/tables/J_T04_concordance_with_primary.csv (2 rows) 
+[15:51:08] J1 complete 
