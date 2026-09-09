@@ -286,7 +286,20 @@ after each data drop, without separating source data from code. `data-raw/` is
 now in `.gitignore`, which stops further additions but does not remove what is
 already tracked.
 
-**Nothing has been removed pending the investigator's decision.** Options:
+**RESOLVED 2026-09-09.** The investigator chose option 2. History was rewritten
+with `git filter-repo` and force-pushed. A fresh clone of the remote now
+contains zero patient-identifying blobs, verified by re-cloning and scanning.
+Six paths were purged: `data-raw/`, `data-derived/`, the two radiology review
+tables, and both generated data dictionaries (whose example-value columns
+carried real MRNs). The dictionary builders were patched first so regenerating
+them cannot re-leak. `data-raw/` and `data-derived/` are gitignored; the files
+remain on the analyst's disk and the pipeline is unaffected.
+
+Anyone holding a clone made before this rewrite still has the data and must
+re-clone. The branch behind PR #1 was rewritten, so that PR shows a forced
+update.
+
+The options considered were:
 
 1. `git rm --cached` on the 14 files plus the two output tables. One commit,
    files stay on local disk, PR history unaffected. The data remains
