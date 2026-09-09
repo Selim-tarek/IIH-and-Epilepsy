@@ -14,3 +14,9 @@ IIH_outputs.zip
 mrn_lists/
 *MRN*.csv
 *MRN*.txt
+
+# Raw patient-level extracts. These carry MRNs, dates of birth, diagnosis and
+# medication records for identifiable patients and must not reach a remote.
+# NOTE: 14 such files are already tracked from earlier commits and are NOT
+# removed by this rule - see the note in STATISTICAL_REVIEW_MEMO.md.
+data-raw/

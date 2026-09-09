@@ -267,3 +267,34 @@ IIH vs 1.68 y in controls, where a detection artefact would cluster early), and
 the fact that seizure and carpal tunnel travel different referral routes so the
 bias need not be equal in size. But the sentence "the negative control was null,
 therefore this is not surveillance bias" can no longer be written.
+
+
+---
+
+## 14. OUTSTANDING: patient-identifiable data in the git repository
+
+**75 MB of raw patient-level extracts are committed to this repository and
+pushed to GitHub.** Fourteen files under `data-raw/`, including the master
+cohort workbook (MRNs, dates of birth, index dates, diagnoses, outcomes), a
+237,000-row medication administration file, six dated diagnosis extracts and
+the social-history file. Two output tables also carry clinic numbers:
+`outputs/tables/S22_radiology_per_patient_for_review.csv` (2,808) and
+`S23_radiology_review_sample.csv` (214), the latter with radiology report text.
+
+This accumulated because the analysis pipeline was committed with `git add -A`
+after each data drop, without separating source data from code. `data-raw/` is
+now in `.gitignore`, which stops further additions but does not remove what is
+already tracked.
+
+**Nothing has been removed pending the investigator's decision.** Options:
+
+1. `git rm --cached` on the 14 files plus the two output tables. One commit,
+   files stay on local disk, PR history unaffected. The data remains
+   retrievable from earlier commits.
+2. Purge from history with `git filter-repo` and force-push. Fully removes it;
+   rewrites the branch behind PR #1 and invalidates existing clones.
+3. Leave as-is if the repository is private and its access list matches the
+   IRB-approved study team.
+
+Option 1 is the minimum; option 2 is appropriate if the repository is public or
+has ever been public. This should be resolved before the branch is merged.
