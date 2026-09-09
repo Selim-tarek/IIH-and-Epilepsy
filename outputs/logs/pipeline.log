@@ -856,3 +856,6 @@
 [15:51:08] wrote outputs/tables/J_T03_phenotype_counts.csv (4 rows) 
 [15:51:08] wrote outputs/tables/J_T04_concordance_with_primary.csv (2 rows) 
 [15:51:08] J1 complete 
+[16:13:24] === J2 outcome-definition sensitivity === 
+[16:13:25] wrote outputs/tables/J_T05_outcome_definition_sensitivity.csv (6 rows) 
+[16:13:25] J2 complete 
