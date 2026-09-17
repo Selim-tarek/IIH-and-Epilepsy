@@ -1031,3 +1031,32 @@
 [02:45:58] wrote outputs/tables/K_T28_orphaned_cases.csv (2 rows) 
 [02:45:58] wrote outputs/tables/K_T29_complete_sets_sensitivity.csv (2 rows) 
 [02:45:58] K12 complete 
+[13:43:50] === K13 proper re-match on dated encounters === 
+[13:44:02] encounter days 452908 for 9122 controls 
+[13:44:20] pass 1: cases 2571 | controls 2571 
+[13:44:33] pass 2: cases 2571 | controls 5045 
+[13:44:46] pass 3: cases 2571 | controls 7219 
+[13:45:01] pass 4: cases 2571 | controls 7944 
+[13:45:02] wrote outputs/tables/K_T30_rematched_proper.csv (1 rows) 
+[13:45:02] wrote outputs/tables/K_T31_rematch_flow_proper.csv (6 rows) 
+[13:45:02] wrote outputs/tables/K_T32_rematch_balance_proper.csv (3 rows) 
+[13:45:02] K13 complete 
+[13:45:48] === K13 proper re-match on dated encounters === 
+[13:46:01] encounter days 452908 for 9122 controls 
+[13:46:17] pass 1: cases 2573 | controls 2573 
+[13:46:30] pass 2: cases 2573 | controls 5050 
+[13:46:43] pass 3: cases 2573 | controls 7245 
+[13:46:58] pass 4: cases 2573 | controls 8088 
+[13:46:58] prevalent excluded after matching: 208 
+[13:46:58] wrote outputs/tables/K_T33_prev_after_matching.csv (1 rows) 
+[13:46:58] K13 complete 
+[13:47:30] === K13 proper re-match on dated encounters === 
+[13:47:43] encounter days 452908 for 9122 controls 
+[13:47:59] pass 1: cases 2571 | controls 2571 
+[13:48:13] pass 2: cases 2571 | controls 5045 
+[13:48:26] pass 3: cases 2571 | controls 7219 
+[13:48:42] pass 4: cases 2571 | controls 7944 
+[13:48:43] wrote outputs/tables/K_T30_rematched_proper.csv (1 rows) 
+[13:48:43] wrote outputs/tables/K_T31_rematch_flow_proper.csv (6 rows) 
+[13:48:43] wrote outputs/tables/K_T32_rematch_balance_proper.csv (3 rows) 
+[13:48:43] K13 complete 
