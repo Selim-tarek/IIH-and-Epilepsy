@@ -1149,3 +1149,19 @@
 [15:07:37] wrote outputs/tables/K_S1_encounter_type_classification.csv (171 rows) 
 [15:07:37] encounter types: 125 counted, 46 excluded 
 [15:07:37] K16 complete 
+[15:12:45] === K17 negative controls on the rebuilt cohort === 
+[15:12:46] wrote outputs/tables/K_T42_negative_controls.csv (6 rows) 
+[15:12:46] wrote outputs/tables/K_T43_calibration.csv (5 rows) 
+[15:12:46] K17 complete 
+[15:14:25] === K18 further figures === 
+[15:14:26] wrote figure K_F4_negative_control_calibration (.png/.pdf) 
+[15:14:27] wrote figure K_F5_timing_of_events (.png/.pdf) 
+[15:14:32] wrote figure K_F6_severity_cascade (.png/.pdf) 
+[15:14:32] wrote outputs/tables/K_T44_severity_cascade.csv (4 rows) 
+[15:14:32] K18 complete 
+[15:15:12] === K18 further figures === 
+[15:15:13] wrote figure K_F4_negative_control_calibration (.png/.pdf) 
+[15:15:14] wrote figure K_F5_timing_of_events (.png/.pdf) 
+[15:15:19] wrote figure K_F6_severity_cascade (.png/.pdf) 
+[15:15:19] wrote outputs/tables/K_T44_severity_cascade.csv (4 rows) 
+[15:15:19] K18 complete 
