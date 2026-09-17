@@ -1026,3 +1026,8 @@
 [02:42:02] wrote outputs/tables/K_T25_rematch_balance.csv (3 rows) 
 [02:42:05] wrote outputs/tables/K_T26_rematched_primary.csv (1 rows) 
 [02:42:05] K11 complete 
+[02:45:58] === K12 audit === 
+[02:45:58] wrote outputs/tables/K_T27_rematch_index_mismatch.csv (4 rows) 
+[02:45:58] wrote outputs/tables/K_T28_orphaned_cases.csv (2 rows) 
+[02:45:58] wrote outputs/tables/K_T29_complete_sets_sensitivity.csv (2 rows) 
+[02:45:58] K12 complete 
