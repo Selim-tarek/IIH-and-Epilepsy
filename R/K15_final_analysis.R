@@ -44,10 +44,29 @@ set.seed(SEED)
 d0 <- readRDS(file.path(PATH$derived, "G1_master.rds"))
 W <- 180; TAU <- 3; FR <- as.Date("2026-09-03")
 
-rd <- function(p, dcol) { x <- utils::read.csv(p, colClasses="character")
-  data.frame(mrn=trimws(x[[1]]), d=as.Date(substr(x[[dcol]],1,10)), stringsAsFactors=FALSE) }
-EN <- unique(rbind(rd("data-raw/MDE_Encounters_types_full.csv", 3),   # cases, complete
-                   rd("data-raw/MDE_Encounters_controls.csv", 3)))    # comparators
+ENC_MODE <- Sys.getenv("ENC_MODE", "visits")
+## Administrative encounter types, excluded from the "visits" definition in BOTH
+## arms. Anything not matched here counts as a clinical contact. Built from the
+## observed values (171 distinct types; the top 80 carry all but 9,421 of
+## 2.19 million rows) and covering messaging, order-entry and record-keeping
+## activity that does not represent the patient being seen.
+ADMIN <- paste0("^(Patient Message|Clinical Communication|History|Orders Only|",
+  "Recurring Plan|Reconciled Outside Data|Account-less|Refill|Wait List|",
+  "Ancillary Orders|Letter \\(Out\\)|Historical Appointment|Documentation|",
+  "Results Follow-Up|Transcribe Orders|Series|Silent Schedule|Abstract|",
+  "OurPractice Advisory|Episode Changes|Dictaphone|Committee Review|",
+  "Community Orders|Outside Material Tracking|Aria Results|Enrollment|Education|",
+  "Patient Outreach|External Outreach|Patient Self-Triage|Remote Monitoring|",
+  "CPAP Download|Prep for Case|Specialty Pharmacy|Internal E-Consult|Admin Visit)|",
+  "Conversion Encounter|^Erroneous|^Historic|^Clinical Support")
+rd <- function(p, dcol, tcol) { x <- utils::read.csv(p, colClasses="character")
+  z <- data.frame(mrn=trimws(x[[1]]), d=as.Date(substr(x[[dcol]],1,10)),
+                  type=trimws(x[[tcol]]), stringsAsFactors=FALSE)
+  if (ENC_MODE == "visits") z <- z[!grepl(ADMIN, z$type), ]
+  z[, c("mrn","d")] }
+EN <- unique(rbind(rd("data-raw/MDE_Encounters_types_full.csv", 3, 2),      # cases
+                   rd("data-raw/MDE_Encounters_controls_typed.csv", 5, 6))) # comparators
+log_msg("ENC_MODE = ", ENC_MODE)
 EN <- EN[!is.na(EN$d) & EN$mrn %in% d0$mrn, ]
 EN$dn <- as.numeric(EN$d); EN <- EN[order(EN$dn), ]
 last_enc <- tapply(EN$dn, EN$mrn, max)

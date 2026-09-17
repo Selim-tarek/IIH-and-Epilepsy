@@ -1077,3 +1077,36 @@
 [14:30:01] pass 1: cases 2508 controls 2508 
 [14:31:11] pass 2: cases 2508 controls 4934 
 [14:33:00] === K15 FINAL ANALYSIS === 
+[14:33:35] encounter-days 1008379 across 11740 patients 
+[14:33:52] cases engaged: 2538 of 2618 
+[14:35:07] pass 1: cases 2511 controls 2511 
+[14:36:26] pass 2: cases 2511 controls 4948 
+[14:37:52] pass 3: cases 2511 controls 7112 
+[14:39:25] === K15 FINAL ANALYSIS === 
+[14:40:00] encounter-days 1008379 across 11740 patients 
+[14:40:18] cases engaged: 2538 of 2618 
+[14:41:35] pass 1: cases 2511 controls 2511 
+[14:42:54] pass 2: cases 2511 controls 4948 
+[14:44:21] pass 3: cases 2511 controls 7112 
+[14:46:13] pass 4: cases 2511 controls 7905 
+[14:46:16] === K15 FINAL ANALYSIS === 
+[14:46:51] encounter-days 1008379 across 11740 patients 
+[14:47:37] === K15 FINAL ANALYSIS === 
+[14:48:13] ENC_MODE = visits 
+[14:48:13] encounter-days 476988 across 11740 patients 
+[14:48:27] cases engaged: 2520 of 2618 
+[14:49:35] pass 1: cases 2490 controls 2490 
+[14:50:54] pass 2: cases 2490 controls 4661 
+[14:52:38] pass 3: cases 2490 controls 5548 
+[14:54:29] pass 4: cases 2490 controls 5743 
+[14:54:30] wrote outputs/tables/K_T38_FINAL_results_visits.csv (4 rows) 
+[14:54:30] wrote outputs/tables/K_T39_FINAL_secondary_visits.csv (2 rows) 
+[14:54:30] wrote outputs/tables/K_T40_FINAL_flow_visits.csv (6 rows) 
+[14:54:30] wrote outputs/tables/K_T41_FINAL_balance_visits.csv (3 rows) 
+[14:54:30] K15 complete 
+[14:54:32] === K15 FINAL ANALYSIS === 
+[14:55:11] ENC_MODE = all 
+[14:55:12] encounter-days 1008379 across 11740 patients 
+[14:55:30] cases engaged: 2538 of 2618 
+[14:56:40] pass 1: cases 2511 controls 2511 
+[14:57:51] pass 2: cases 2511 controls 4948 
