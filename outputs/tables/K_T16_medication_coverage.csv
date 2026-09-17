@@ -1,0 +1,8 @@
+"quantity","value"
+"IIH patients in the case medication file",2187
+"IIH patients with any protocol antiseizure drug",90
+"IIH events with any protocol antiseizure drug",18
+"IIH non-events with any protocol antiseizure drug",72
+"comparators with any protocol antiseizure drug",108
+"patients meeting chronic ASM (180+ days), IIH",20
+"patients meeting chronic ASM (180+ days), comparator",7

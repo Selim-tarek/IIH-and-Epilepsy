@@ -979,3 +979,7 @@
 [02:18:04] wrote outputs/tables/K_T12_corrected_primary.csv (2 rows) 
 [02:18:04] wrote outputs/tables/K_T13_secondary_recurrent.csv (4 rows) 
 [02:18:04] K6 complete 
+[02:21:33] === K8 dropping the non-specific codes === 
+[02:21:37] wrote outputs/tables/K_T15_dropping_nonspecific.csv (6 rows) 
+[02:21:37] wrote outputs/tables/K_T16_medication_coverage.csv (7 rows) 
+[02:21:37] K8 complete 

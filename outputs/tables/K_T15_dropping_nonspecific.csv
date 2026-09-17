@@ -1,0 +1,7 @@
+"definition","cohort","iih","comparator","estimate","p"
+"A. Any seizure code (R56.9/780.39 or G40/345)","Engagement-restricted","53/2567","47/4012","1.62 (1.09 to 2.40)",0.0173
+"B. Epilepsy codes only (G40/345)","Engagement-restricted","13/2567","24/4029","0.76 (0.39 to 1.49)",0.423
+"C. Epilepsy code OR chronic antiseizure drug","Engagement-restricted","13/2567","24/4029","0.76 (0.39 to 1.49)",0.423
+"A. Any seizure code (R56.9/780.39 or G40/345)","Full","54/2579","206/9079","0.88 (0.65 to 1.19)",0.398
+"B. Epilepsy codes only (G40/345)","Full","13/2579","93/9106","0.47 (0.26 to 0.84)",0.0103
+"C. Epilepsy code OR chronic antiseizure drug","Full","13/2579","94/9106","0.46 (0.26 to 0.83)",0.0092
