@@ -917,3 +917,6 @@
 [17:06:16] === J5 epilepsy as an outcome === 
 [17:06:16] wrote outputs/tables/J_T10_epilepsy_as_outcome.csv (4 rows) 
 [17:06:16] J5 complete 
+[01:42:59] === K1 reviewer checks === 
+[01:42:59] wrote outputs/tables/K_T01_reviewer_checks.csv (16 rows) 
+[01:42:59] K1 complete 
