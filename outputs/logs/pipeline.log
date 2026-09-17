@@ -1110,3 +1110,10 @@
 [14:55:30] cases engaged: 2538 of 2618 
 [14:56:40] pass 1: cases 2511 controls 2511 
 [14:57:51] pass 2: cases 2511 controls 4948 
+[14:59:13] pass 3: cases 2511 controls 7112 
+[15:01:03] pass 4: cases 2511 controls 7905 
+[15:01:04] wrote outputs/tables/K_T38_FINAL_results_all.csv (4 rows) 
+[15:01:05] wrote outputs/tables/K_T39_FINAL_secondary_all.csv (2 rows) 
+[15:01:05] wrote outputs/tables/K_T40_FINAL_flow_all.csv (6 rows) 
+[15:01:05] wrote outputs/tables/K_T41_FINAL_balance_all.csv (3 rows) 
+[15:01:05] K15 complete 
