@@ -88,13 +88,33 @@ measured ratio.
 
 ## 5. Some negative controls are not clean
 
-**Accepted in full.** Acetazolamide and topiramate predispose to renal stones and
-both treat IIH; gallstones follow weight loss and bariatric surgery; carpal
-tunnel syndrome is associated with obesity. We would add that our own validity
-screen had already marked these outcomes as failing the baseline-balance
-criterion, and that of six candidate controls only limb fracture passes it. The
-Discussion now states that a single clean negative control remains and tempers
-the specificity argument accordingly.
+**Accepted in full, and on re-examination the problem is worse than the reviewer
+suggests. We have withdrawn the specificity claim entirely.**
+
+The reviewer is right about each mechanism: acetazolamide and topiramate
+predispose to renal stones and both treat IIH; gallstones follow weight loss and
+bariatric surgery; carpal tunnel syndrome is associated with obesity.
+
+Recomputing the panel on the rebuilt cohort showed more. Five of six candidate
+controls are already more prevalent in the IIH arm before index — ratios of 1.6
+to 3.2, all p < 0.01 — so none of them can distinguish detection from whatever
+produced that imbalance. The only outcome meeting the balance criterion, limb
+fracture, has two and seven events and cannot be estimated. And the calibration
+extrapolation reported in the submitted manuscript does not replicate: across
+the five estimable controls the relationship between baseline imbalance and
+apparent effect is weak and not significant (r = 0.28, p = 0.65; slope 0.48,
+SE 0.94), giving a predicted detection-only hazard ratio at balance of 1.51 with
+an interval of 0.07 to 30.8. The earlier figure (r = 0.925) was computed on the
+arm-asymmetric matching and does not carry over.
+
+We also note, because a reader would find it, that several controls sit at
+hazard ratios of 2.0 to 3.1, overlapping the primary estimate. Since those
+outcomes are baseline-imbalanced this does not establish that the seizure
+association is detection-driven, but it cannot be excluded either.
+
+The manuscript therefore makes no specificity claim. The negative-control figure
+is retained and its caption states what it shows: that the approach cannot
+adjudicate specificity in these data.
 
 ## 6. Exclusions may have been applied only to comparators
 

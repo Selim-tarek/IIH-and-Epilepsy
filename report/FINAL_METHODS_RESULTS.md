@@ -163,12 +163,31 @@ cannot be excluded. Median follow-up was longer in the IIH arm (2.77 against
 account for person-time, but differential observation remains a plausible
 partial explanation.
 
-**Negative controls.** Of six candidate negative-control outcomes, only limb
-fracture satisfied the baseline-balance criterion. Renal stones can follow
-acetazolamide or topiramate, gallstones follow weight loss, and carpal tunnel
-syndrome is associated with obesity — each is plausibly related to IIH or its
-treatment. The specificity argument rests on a single clean control and is
-correspondingly weak.
+**Negative controls provide no usable specificity evidence in this dataset.**
+Six candidate outcomes were examined on the rebuilt cohort. Five — herpes
+zoster, renal or ureteric stone, gallstones, acute appendicitis and carpal
+tunnel syndrome — are already more prevalent in the IIH arm before index (ratios
+1.6 to 3.2, all p < 0.01), so their post-index hazard cannot be attributed to
+detection rather than to whatever produced the baseline imbalance. Several are
+plausibly related to IIH or its treatment in any case: acetazolamide and
+topiramate predispose to renal stones, gallstones follow weight loss, and carpal
+tunnel syndrome is associated with obesity. The one outcome that satisfied the
+balance criterion, limb fracture, yielded two and seven events — too few to
+estimate.
+
+The calibration approach used in the submitted manuscript, in which the
+relationship between baseline imbalance and apparent post-index effect is
+extrapolated to perfect balance, does not survive the rebuild. Across the five
+estimable controls that relationship is weak and not significant (r = 0.28,
+p = 0.65; slope 0.48, SE 0.94), and the predicted detection-only hazard ratio at
+baseline balance is 1.51 with an interval of 0.07 to 30.8. We report this rather
+than the earlier figure, which was computed on the arm-asymmetric matching and
+does not carry over.
+
+We note that several negative controls sit at hazard ratios of 2.0 to 3.1,
+overlapping the primary estimate. Because those outcomes are baseline-imbalanced
+this does not demonstrate that the seizure association is detection-driven, but
+neither can it be excluded. We therefore make no specificity claim.
 
 **Design.** This is an observational matched cohort. The association should not
 be read as causal, and residual confounding by factors raising both the
