@@ -1071,3 +1071,6 @@
 [14:15:39] wrote outputs/tables/K_T35_final_flow.csv (6 rows) 
 [14:15:39] wrote outputs/tables/K_T36_final_balance.csv (3 rows) 
 [14:15:39] K14 complete 
+[14:27:49] === K15 FINAL ANALYSIS === 
+[14:28:35] encounter-days 1003353 across 11740 patients 
+[14:28:52] cases engaged: 2536 of 2618 
