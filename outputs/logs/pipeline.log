@@ -943,3 +943,7 @@
 [01:55:16] If both, the asymmetry is clinical and the published estimate stands.  
 [01:55:16] If not, the rule differed by arm and the estimate does not. 
 [01:55:16] K3 complete 
+[02:02:13] === K4 outcome_criterion === 
+[02:02:13] wrote outputs/tables/K_T08_outcome_criterion.csv (2 rows) 
+[02:02:13] wrote outputs/tables/K_T09_criterion_coverage.csv (4 rows) 
+[02:02:13] K4 complete 
