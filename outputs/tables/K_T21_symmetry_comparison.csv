@@ -1,0 +1,7 @@
+"definition","symmetric","cohort","iih_events","ctl_events","HR","note"
+"Cases: any seizure code. Controls: epilepsy code or chronic ASM","NO - different rule per arm","Engagement-restricted",54,23,"3.32 (2.03 to 5.44)","same class of error as the submitted analysis"
+"Cases: any seizure code. Controls: epilepsy code or chronic ASM","NO - different rule per arm","Full cohort",55,92,"1.99 (1.43 to 2.78)","same class of error as the submitted analysis"
+"Both arms: epilepsy code or chronic ASM","YES","Engagement-restricted",22,23,"1.32 (0.74 to 2.39)","strict rule applied evenly; IIH events fall to 22"
+"Both arms: epilepsy code or chronic ASM","YES","Full cohort",22,92,"0.79 (0.50 to 1.26)","strict rule applied evenly"
+"Both arms: any seizure code or chronic ASM","YES","Engagement-restricted",63,48,"1.87 (1.28 to 2.72)","the recommended primary (K_T17, with the Spells rule applied)"
+"Both arms: any seizure code or chronic ASM","YES","Full cohort",64,207,"1.03 (0.78 to 1.36)","the recommended primary"
