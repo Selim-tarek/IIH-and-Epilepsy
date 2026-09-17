@@ -1194,3 +1194,14 @@
 [16:11:49] wrote outputs/tables/K_T51_visits_by_event.csv (2 rows) 
 [16:11:50] wrote outputs/tables/K_T52_collider_demonstration.csv (3 rows) 
 [16:11:50] K23 complete 
+[16:48:40] === K24 SAP completion === 
+[16:49:14] wrote outputs/tables/SAP_T1_baseline.csv (7 rows) 
+[16:49:14] wrote outputs/tables/SAP_T2_surveillance.csv (3 rows) 
+[16:49:14] wrote outputs/tables/SAP_T3a_period_specific.csv (4 rows) 
+[16:49:14] wrote outputs/tables/SAP_T3b_landmark.csv (4 rows) 
+[16:49:15] wrote outputs/tables/SAP_T4_competing_risks.csv (3 rows) 
+[16:49:15] wrote outputs/tables/SAP_T5_subgroups.csv (6 rows) 
+[16:49:15] wrote outputs/tables/SAP_T6_propensity.csv (7 rows) 
+[16:49:15] wrote outputs/tables/SAP_T7_missing.csv (7 rows) 
+[16:49:15] wrote outputs/tables/SAP_T8_events_per_parameter.csv (7 rows) 
+[16:49:15] K24 complete 

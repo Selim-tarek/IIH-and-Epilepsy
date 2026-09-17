@@ -1,0 +1,8 @@
+"variable","missing_iih","missing_comparator","handling"
+"Age","0.0%","0.0%","complete"
+"Sex","0.0%","0.0%","complete"
+"BMI","0.0%","0.0%","complete"
+"Hypertension","0.0%","0.0%","complete"
+"Race","100.0%","0.0%","NOT USABLE - absent for every IIH case, so could not constrain matching"
+"Opening pressure","26.9%","100.0%","IIH only - used for one sensitivity analysis, never for adjustment"
+"EEG performed","85.0%","100.0%","IIH only - not used"
