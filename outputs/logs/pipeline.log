@@ -953,3 +953,11 @@
 [02:07:11] === K5 re-score comparators to the case standard === 
 [02:07:11] wrote outputs/tables/K_T10_rescored_comparators.csv (6 rows) 
 [02:07:11] K5 complete 
+[02:10:02] === K6 corrected primary analysis === 
+[02:10:03] wrote outputs/tables/K_T12_corrected_primary.csv (2 rows) 
+[02:10:03] wrote outputs/tables/K_T13_secondary_recurrent.csv (4 rows) 
+[02:10:03] K6 complete 
+[02:10:38] === K6 corrected primary analysis === 
+[02:10:38] wrote outputs/tables/K_T12_corrected_primary.csv (2 rows) 
+[02:10:38] wrote outputs/tables/K_T13_secondary_recurrent.csv (4 rows) 
+[02:10:38] K6 complete 
