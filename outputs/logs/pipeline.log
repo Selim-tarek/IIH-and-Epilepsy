@@ -961,3 +961,7 @@
 [02:10:38] wrote outputs/tables/K_T12_corrected_primary.csv (2 rows) 
 [02:10:38] wrote outputs/tables/K_T13_secondary_recurrent.csv (4 rows) 
 [02:10:38] K6 complete 
+[02:13:49] === K7 code inventory === 
+[02:13:50] wrote outputs/tables/K_T14_code_inventory.csv (92 rows) 
+[02:13:50] rows with fewer than 3 patients are in the CSV but not printed 
+[02:13:50] K7 complete 
