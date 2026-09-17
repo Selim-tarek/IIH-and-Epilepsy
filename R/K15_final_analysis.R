@@ -18,13 +18,17 @@
 ##     extracted, and the differing counts came from Excel silently cutting the
 ##     export, not from the query.
 ##
-##  2. STILL OPEN. Encounter Type exists for cases but not comparators. 60% of case rows are
-##     patient messages, orders, refills and conversion encounters rather than
-##     visits. Cases are therefore NOT filtered to clinical visits, because
-##     comparators cannot be filtered the same way and a one-sided filter would
-##     recreate the very asymmetry this analysis exists to remove. If the type
-##     column is supplied for comparators, both arms should be restricted to
-##     visits and this re-run.
+##  2. RESOLVED. Encounter Type is now available for BOTH arms (cases from
+##     Encounters (4), comparators from Encounters (5), 995,409 rows covering
+##     all 9,122). Roughly 60% of rows in each arm are administrative rather
+##     than clinical -- patient messages, clinical communications, orders,
+##     refills, wait lists, conversion encounters and the like. An explicit
+##     exclusion list, applied IDENTICALLY to both arms, removes them.
+##
+##     Which rows count is a judgement call, so the analysis is run twice and
+##     both are reported: ENC_MODE="visits" (administrative rows removed) and
+##     ENC_MODE="all" (every row counts). Encounter type is used only to decide
+##     engagement and the censoring date; it never touches the outcome.
 ##
 ## OUTCOME (identical in both arms): a qualifying seizure code after the 180-day
 ## washout, or antiseizure medication continued 180+ days. Codes G40/345/R56.9/
@@ -190,7 +194,7 @@ keep_op <- d0$mrn[d0$iih==1 & !is.na(op) & op >= 25]
 sets_op <- m$match_set[m$iih==1 & m$mrn %in% keep_op]
 sens <- rbind(sens, report(mk(m[m$match_set %in% sets_op, ]),
                            "Restricted to opening pressure >= 25 cmH2O"))
-write_tab(sens, "K_T38_FINAL_results"); print(sens[,c("analysis","iih","comparator","HR","p")], row.names=FALSE)
+write_tab(sens, paste0("K_T38_FINAL_results_", ENC_MODE)); print(sens[,c("analysis","iih","comparator","HR","p")], row.names=FALSE)
 
 ## ---- secondary: epilepsy vs single ---------------------------------------------
 epi <- function(mrn, idx, open){
@@ -205,13 +209,13 @@ sec <- do.call(rbind, lapply(c(1,0), function(g){ s <- ae[ae$iih==g,]
   data.frame(arm=ifelse(g==1,"IIH","Comparator"), with_event=nrow(s),
     recurrent_or_epilepsy=sum(s$epi), single_seizure=sum(!s$epi),
     pct=sprintf("%.0f%% (%.0f to %.0f)", 100*mean(s$epi), 100*ci[1], 100*ci[2])) }))
-write_tab(sec, "K_T39_FINAL_secondary"); print(sec, row.names=FALSE)
+write_tab(sec, paste0("K_T39_FINAL_secondary_", ENC_MODE)); print(sec, row.names=FALSE)
 
 flow <- data.frame(quantity=c("IIH engaged & eligible","cases matched","cases unmatched",
                               "controls used","mean controls per case","tier-1 matches"),
   value=c(nrow(cases), sum(!is.na(csets)), sum(is.na(csets)), sum(!is.na(ctlset)),
           round(sum(!is.na(ctlset))/sum(!is.na(csets)),2), sum(tier_of==1, na.rm=TRUE)))
-write_tab(flow, "K_T40_FINAL_flow"); print(flow, row.names=FALSE)
+write_tab(flow, paste0("K_T40_FINAL_flow_", ENC_MODE)); print(flow, row.names=FALSE)
 bal <- rbind(
   data.frame(variable="Age at index", iih=round(mean(m$age_index[m$iih==1],na.rm=TRUE),2),
              control=round(mean(m$age_index[m$iih==0],na.rm=TRUE),2), smd=round(smd_cont(m$age_index,m$iih),4)),
@@ -219,6 +223,6 @@ bal <- rbind(
              control=round(mean(m$bmi_index[m$iih==0],na.rm=TRUE),2), smd=round(smd_cont(m$bmi_index,m$iih),4)),
   data.frame(variable="Female", iih=round(mean(m$sex[m$iih==1]=="F"),3),
              control=round(mean(m$sex[m$iih==0]=="F"),3), smd=round(smd_bin(m$sex=="F",m$iih),4)))
-write_tab(bal, "K_T41_FINAL_balance"); print(bal, row.names=FALSE)
-saveRDS(list(a=a, ae=ae, sens=sens, sec=sec, flow=flow, bal=bal), file.path(PATH$derived,"K15_final.rds"))
+write_tab(bal, paste0("K_T41_FINAL_balance_", ENC_MODE)); print(bal, row.names=FALSE)
+saveRDS(list(a=a, ae=ae, sens=sens, sec=sec, flow=flow, bal=bal), file.path(PATH$derived,paste0("K15_final_", ENC_MODE, ".rds")))
 log_msg("K15 complete")
