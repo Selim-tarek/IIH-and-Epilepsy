@@ -983,3 +983,13 @@
 [02:21:37] wrote outputs/tables/K_T15_dropping_nonspecific.csv (6 rows) 
 [02:21:37] wrote outputs/tables/K_T16_medication_coverage.csv (7 rows) 
 [02:21:37] K8 complete 
+[02:23:52] === K9 final corrected primary === 
+[02:23:56] Spells-only without indefinite ASM, excluded from both arms: 1 
+[02:23:57] wrote outputs/tables/K_T17_final_primary.csv (4 rows) 
+[02:23:57] wrote outputs/tables/K_T18_final_secondary.csv (4 rows) 
+[02:23:57] K9 complete 
+[02:24:21] === K9 final corrected primary === 
+[02:24:24] Spells-only without indefinite ASM, excluded from both arms: 1 
+[02:24:25] wrote outputs/tables/K_T17_final_primary.csv (4 rows) 
+[02:24:25] wrote outputs/tables/K_T18_final_secondary.csv (4 rows) 
+[02:24:25] K9 complete 

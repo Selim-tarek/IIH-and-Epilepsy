@@ -1,0 +1,5 @@
+"definition","cohort","iih","comparator","iih_rate","ctl_rate","HR","p","ph_p","cif3_iih","cif3_ctl","risk_diff_pp","NNH"
+"SYMMETRIC: code or indefinite ASM, both arms","Engagement-restricted","63/2593","48/4017","10.09 (7.75 to 12.90)","5.78 (4.26 to 7.66)","1.87 (1.28 to 2.72)",0.00121,0.894,2.73,1.45,1.28,78
+"CHART-PLUS: IIH also keeps its abstracted events","Engagement-restricted","63/2593","48/4017","10.09 (7.75 to 12.90)","5.78 (4.26 to 7.66)","1.87 (1.28 to 2.72)",0.00121,0.894,2.73,1.45,1.28,78
+"SYMMETRIC: code or indefinite ASM, both arms","Full cohort","64/2605","207/9085","10.20 (7.85 to 13.02)","10.13 (8.79 to 11.60)","1.03 (0.78 to 1.36)",0.847,0.026,2.77,2.79,-0.02,-5221
+"CHART-PLUS: IIH also keeps its abstracted events","Full cohort","64/2605","207/9085","10.20 (7.85 to 13.02)","10.13 (8.79 to 11.60)","1.03 (0.78 to 1.36)",0.847,0.026,2.77,2.79,-0.02,-5221
