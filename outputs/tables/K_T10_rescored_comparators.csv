@@ -1,0 +1,7 @@
+"comparator_rule","cohort","iih","comparator","estimate","p"
+"As published (comparators by code algorithm only)","Full","60/2618","55/9122","3.66 (2.55 to 5.25)",2.31e-12
+"Comparators: any epilepsy code (G40/345)","Full","60/2618","94/9122","2.13 (1.54 to 2.95)",4.75e-06
+"Comparators: any seizure code, incl. R56.9","Full","60/2618","220/9122","0.91 (0.68 to 1.21)",0.501
+"As published (comparators by code algorithm only)","Engagement-restricted","59/2606","15/4037","5.58 (3.15 to 9.87)",3.65e-09
+"Comparators: any epilepsy code (G40/345)","Engagement-restricted","59/2606","24/4037","3.48 (2.16 to 5.62)",3.35e-07
+"Comparators: any seizure code, incl. R56.9","Engagement-restricted","59/2606","54/4037","1.56 (1.07 to 2.26)",0.0193
