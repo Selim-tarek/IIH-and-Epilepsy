@@ -1,0 +1,6 @@
+"rule_tested","iih_r56only_events_explained","matching_controls_that_were_NOT_counted","verdict"
+"R56 code alone","70 of 70","152","fails - same code, opposite treatment"
+"R56 code + protocol antiseizure drug","7 of 70 (10%)","13 of 152 (9%)","fails - same rate in both arms"
+"R56 code + benzodiazepine","52 of 70 (74%)","45 of 152 (30%)","fails - 45 controls would qualify"
+"R56 code + topiramate","7 of 70 (10%)","not tested","fails - explains only 10%"
+"two epilepsy codes 30+ days apart","17 of 102 IIH events total","1 of 42","controls scored correctly; IIH not reproducible"
