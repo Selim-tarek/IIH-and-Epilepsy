@@ -1165,3 +1165,24 @@
 [15:15:19] wrote figure K_F6_severity_cascade (.png/.pdf) 
 [15:15:19] wrote outputs/tables/K_T44_severity_cascade.csv (4 rows) 
 [15:15:19] K18 complete 
+[15:55:21] === K19 second negative-control panel === 
+[15:55:22] wrote outputs/tables/K_T45_negative_controls_v2.csv (5 rows) 
+[15:55:22] admitted: 0 of 5 
+[15:55:22] K19 complete 
+[15:57:02] === K19 second negative-control panel === 
+[15:57:02] wrote outputs/tables/K_T45_negative_controls_v2.csv (6 rows) 
+[15:57:02] admitted: 0 of 6 
+[15:57:02] K19 complete 
+[15:59:42] === K20 healthcare contact === 
+[16:00:16] wrote outputs/tables/K_T46_visit_density.csv (2 rows) 
+[16:00:17] wrote outputs/tables/K_T47_contact_adjustment.csv (12 rows) 
+[16:00:18] wrote outputs/tables/K_T48_calibration_v2.csv (8 rows) 
+[16:00:18] K20 complete 
+[16:01:02] === K21 contact figures === 
+[16:01:03] wrote figure K_F7_contact_adjustment (.png/.pdf) 
+[16:01:04] wrote figure K_F8_calibration_v2 (.png/.pdf) 
+[16:01:04] K21 complete 
+[16:01:23] === K21 contact figures === 
+[16:01:24] wrote figure K_F7_contact_adjustment (.png/.pdf) 
+[16:01:25] wrote figure K_F8_calibration_v2 (.png/.pdf) 
+[16:01:25] K21 complete 

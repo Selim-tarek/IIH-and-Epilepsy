@@ -1,0 +1,7 @@
+"outcome","patients_in_file_iih","patients_in_file_ctl","baseline_iih_pct","baseline_ctl_pct","baseline_ratio","baseline_p","events_iih","events_ctl","hr","lo","hi","estimate","verdict"
+"Upper respiratory infection",797,937,21.52,10.6,2.03,1.19e-33,173,213,2.02108165052779,1.64885242833378,2.47734179718432,"2.02 (1.65 to 2.48)","EXCLUDED - baseline imbalanced"
+"Otitis media or externa",277,179,6.08,1.65,3.68,1.25e-22,72,51,3.08572486333757,2.14973372842241,4.42924526248521,"3.09 (2.15 to 4.43)","EXCLUDED - baseline imbalanced"
+"Sprain or strain",228,172,5.05,1.78,2.84,5.48e-14,54,47,2.47300263137023,1.66575650951878,3.67145016682593,"2.47 (1.67 to 3.67)","EXCLUDED - baseline imbalanced"
+"Laceration or open wound",133,65,2.85,0.57,4.97,1.64e-14,33,16,4.28157597285898,2.36691301074124,7.74506402566203,"4.28 (2.37 to 7.75)","EXCLUDED - baseline imbalanced"
+"Contact dermatitis",76,69,1.73,0.68,2.55,7.14e-05,18,20,1.85033654547166,0.978931329856044,3.4974315634698,"1.85 (0.98 to 3.50)","EXCLUDED - baseline imbalanced"
+"Fracture, excluding skull/face",108,132,2.25,1.24,1.82,0.00171,24,40,1.22476196576165,0.756509345743447,1.98284645287786,"1.22 (0.76 to 1.98)","EXCLUDED - baseline imbalanced"
