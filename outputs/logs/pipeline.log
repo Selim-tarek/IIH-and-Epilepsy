@@ -1060,3 +1060,14 @@
 [13:48:43] wrote outputs/tables/K_T31_rematch_flow_proper.csv (6 rows) 
 [13:48:43] wrote outputs/tables/K_T32_rematch_balance_proper.csv (3 rows) 
 [13:48:43] K13 complete 
+[14:09:47] === K14 final re-match, both arms on dated encounters === 
+[14:10:15] encounter-days 978634 across 11740 patients 
+[14:10:32] cases engaged on the rebuilt definition: 2527 of 2618 
+[14:11:39] pass 1: cases 2501 controls 2501 
+[14:12:48] pass 2: cases 2501 controls 4921 
+[14:14:02] pass 3: cases 2501 controls 7092 
+[14:15:38] pass 4: cases 2501 controls 7916 
+[14:15:39] wrote outputs/tables/K_T34_final_rematch.csv (1 rows) 
+[14:15:39] wrote outputs/tables/K_T35_final_flow.csv (6 rows) 
+[14:15:39] wrote outputs/tables/K_T36_final_balance.csv (3 rows) 
+[14:15:39] K14 complete 
