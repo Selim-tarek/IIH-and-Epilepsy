@@ -7,15 +7,18 @@
 ##
 ## TWO LIMITATIONS STAND, both awaiting data, both stated in the output:
 ##
-##  1. The case encounter export is truncated. Encounters_3 and Encounters_4
-##     each hold exactly 1,048,575 rows, Excel's maximum, and they are NOT the
-##     same rows: 925,159 shared, 123,416 unique to one, 76,608 to the other.
-##     Their UNION is used here, which recovers about 76,600 encounters that
-##     neither file alone contains and is strictly closer to complete than
-##     either -- but it is still not known to be complete. A CSV re-export
-##     would settle it.
+##  1. RESOLVED by the zipped CSV re-export. The .xlsb exports had been
+##     truncated at Excel's 1,048,575-row ceiling. Encounters (4) holds
+##     1,199,125 rows; Encounters (3) holds exactly 1,048,575 and is a strict
+##     SUBSET of it (1,048,575 keys shared, 89,334 rows unique to the larger,
+##     none unique to the smaller). Encounters (4) is the complete case file and
+##     is the only one used; Encounters (3) is discarded. The flowsheet CSV
+##     matches its .xlsb row for row (387,125) and was never truncated.
+##     The investigator's recollection was right: the full data had been
+##     extracted, and the differing counts came from Excel silently cutting the
+##     export, not from the query.
 ##
-##  2. Encounter Type exists for cases but not comparators. 60% of case rows are
+##  2. STILL OPEN. Encounter Type exists for cases but not comparators. 60% of case rows are
 ##     patient messages, orders, refills and conversion encounters rather than
 ##     visits. Cases are therefore NOT filtered to clinical visits, because
 ##     comparators cannot be filtered the same way and a one-sided filter would
@@ -39,9 +42,8 @@ W <- 180; TAU <- 3; FR <- as.Date("2026-09-03")
 
 rd <- function(p, dcol) { x <- utils::read.csv(p, colClasses="character")
   data.frame(mrn=trimws(x[[1]]), d=as.Date(substr(x[[dcol]],1,10)), stringsAsFactors=FALSE) }
-EN <- unique(rbind(rd("data-raw/MDE_Encounters_cases.csv", 3),
-                   rd("data-raw/MDE_Encounters_types.csv", 3),
-                   rd("data-raw/MDE_Encounters_controls.csv", 3)))
+EN <- unique(rbind(rd("data-raw/MDE_Encounters_types_full.csv", 3),   # cases, complete
+                   rd("data-raw/MDE_Encounters_controls.csv", 3)))    # comparators
 EN <- EN[!is.na(EN$d) & EN$mrn %in% d0$mrn, ]
 EN$dn <- as.numeric(EN$d); EN <- EN[order(EN$dn), ]
 last_enc <- tapply(EN$dn, EN$mrn, max)
