@@ -1117,3 +1117,35 @@
 [15:01:05] wrote outputs/tables/K_T40_FINAL_flow_all.csv (6 rows) 
 [15:01:05] wrote outputs/tables/K_T41_FINAL_balance_all.csv (3 rows) 
 [15:01:05] K15 complete 
+[15:05:42] === K16 final figures === 
+[15:05:44] wrote figure K_F1_cumulative_incidence (.png/.pdf) 
+[15:05:44] wrote outputs/tables/K_S2_numbers_at_risk.csv (2 rows) 
+[15:05:45] wrote figure K_F2_forest_specifications (.png/.pdf) 
+[15:05:46] wrote figure K_F3_recurrent_vs_single (.png/.pdf) 
+[15:05:55] wrote outputs/tables/K_S1_encounter_type_classification.csv (171 rows) 
+[15:05:55] encounter types: 125 counted, 46 excluded 
+[15:05:55] K16 complete 
+[15:06:15] === K16 final figures === 
+[15:06:16] wrote figure K_F1_cumulative_incidence (.png/.pdf) 
+[15:06:16] wrote outputs/tables/K_S2_numbers_at_risk.csv (2 rows) 
+[15:06:17] wrote figure K_F2_forest_specifications (.png/.pdf) 
+[15:06:17] wrote figure K_F3_recurrent_vs_single (.png/.pdf) 
+[15:06:27] wrote outputs/tables/K_S1_encounter_type_classification.csv (171 rows) 
+[15:06:27] encounter types: 125 counted, 46 excluded 
+[15:06:27] K16 complete 
+[15:06:53] === K16 final figures === 
+[15:06:54] wrote figure K_F1_cumulative_incidence (.png/.pdf) 
+[15:06:54] wrote outputs/tables/K_S2_numbers_at_risk.csv (2 rows) 
+[15:06:55] wrote figure K_F2_forest_specifications (.png/.pdf) 
+[15:06:56] wrote figure K_F3_recurrent_vs_single (.png/.pdf) 
+[15:07:05] wrote outputs/tables/K_S1_encounter_type_classification.csv (171 rows) 
+[15:07:05] encounter types: 125 counted, 46 excluded 
+[15:07:05] K16 complete 
+[15:07:25] === K16 final figures === 
+[15:07:26] wrote figure K_F1_cumulative_incidence (.png/.pdf) 
+[15:07:26] wrote outputs/tables/K_S2_numbers_at_risk.csv (2 rows) 
+[15:07:27] wrote figure K_F2_forest_specifications (.png/.pdf) 
+[15:07:27] wrote figure K_F3_recurrent_vs_single (.png/.pdf) 
+[15:07:37] wrote outputs/tables/K_S1_encounter_type_classification.csv (171 rows) 
+[15:07:37] encounter types: 125 counted, 46 excluded 
+[15:07:37] K16 complete 
