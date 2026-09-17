@@ -1,0 +1,8 @@
+"measure","controls_median_change","controls_range","controls_moving_up","seizure_hr","seizure_change","seizure_direction"
+"(unadjusted)","-","-",NA,2.28,"-","-"
+"visits_12m","-27.9%","-42% to -16%",0,2.46,"+7.8%","AWAY from null"
+"visits_24m","-28.1%","-39% to -19%",0,2.64,"+15.6%","AWAY from null"
+"months_12m","-24.1%","-41% to -10%",0,2.62,"+14.8%","AWAY from null"
+"visits_all","-31.8%","-46% to -22%",0,2.93,"+28.6%","AWAY from null"
+"history_years","-11.3%","-21% to -3%",0,2.69,"+18.1%","AWAY from null"
+"office_12m","-32.8%","-43% to -20%",0,2.57,"+12.6%","AWAY from null"

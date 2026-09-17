@@ -1186,3 +1186,7 @@
 [16:01:24] wrote figure K_F7_contact_adjustment (.png/.pdf) 
 [16:01:25] wrote figure K_F8_calibration_v2 (.png/.pdf) 
 [16:01:25] K21 complete 
+[16:05:48] === K22 robustness of the contact adjustment === 
+[16:06:24] wrote outputs/tables/K_T49_contact_measures.csv (6 rows) 
+[16:06:27] wrote outputs/tables/K_T50_contact_robustness.csv (7 rows) 
+[16:06:27] K22 complete 
