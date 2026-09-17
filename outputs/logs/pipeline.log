@@ -920,3 +920,17 @@
 [01:42:59] === K1 reviewer checks === 
 [01:42:59] wrote outputs/tables/K_T01_reviewer_checks.csv (16 rows) 
 [01:42:59] K1 complete 
+[01:46:00] === K2 symmetric re-derivation of the primary outcome === 
+[01:46:17] === K2 symmetric re-derivation of the primary outcome === 
+[01:46:20] wrote outputs/tables/K_T02_symmetric_outcome.csv (8 rows) 
+[01:46:20] wrote outputs/tables/K_T03_reclassification.csv (2 rows) 
+[01:46:20] K2 complete 
+[01:47:25] === K2 symmetric re-derivation of the primary outcome === 
+[01:47:29] wrote outputs/tables/K_T02_symmetric_outcome.csv (8 rows) 
+[01:47:29] wrote outputs/tables/K_T03_reclassification.csv (2 rows) 
+[01:47:29] K2 complete 
+[01:48:17] === K2 symmetric re-derivation of the primary outcome === 
+[01:48:21] wrote outputs/tables/K_T02_symmetric_outcome.csv (8 rows) 
+[01:48:21] wrote outputs/tables/K_T03_reclassification.csv (2 rows) 
+[01:48:21] K2 complete 
+[01:48:21] wrote outputs/tables/K_T04_source_completeness.csv (5 rows) 

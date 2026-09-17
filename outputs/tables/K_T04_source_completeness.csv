@@ -1,0 +1,6 @@
+"question","value"
+"IIH patients in the seizure-code extract","156 of 2,618"
+"of those, delivered events","102 (65%)"
+"IIH non-event patients in the extract carrying a qualifying code","0"
+"comparator non-event patients in the extract carrying a qualifying code","194"
+"reading","the IIH extract appears conditioned on the outcome, so the symmetric re-derivation is biased against IIH and is NOT a corrected estimate"
