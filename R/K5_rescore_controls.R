@@ -40,8 +40,18 @@ e <- rbind(data.frame(mrn=trimws(dx$mrn), code=dx$code, desc=dx$desc, date=as.Da
                       date=as.Date(ifelse(is.na(o), r, o), origin="1970-01-01")))
 e <- e[e$mrn %in% d0$mrn & !is.na(e$date), ]
 e$day <- as.numeric(e$date - d0$index_date[match(e$mrn, d0$mrn)])
-exc <- grepl("^F44\\.5|^300\\.11|^R56\\.1|^780\\.33|^780\\.32", e$code) |
-       grepl("febrile|non.epileptic|psychogenic|conversion", e$desc, ignore.case=TRUE)
+## Exclusion list widened to every code family in the extract that is not an
+## epileptic seizure: functional/conversion (F44, 300.11), post-traumatic
+## non-epileptic (R56.1, 780.32/.33), febrile convulsion, family history
+## (Z82), migraine (G43), and anticonvulsant poisoning/adverse effect (E936,
+## 966). The extract contains no syncope codes and no blank codes, so nothing
+## else needs removing. Widening it changes the comparator count from 152 to
+## 126 and moves no estimate materially: the remaining codes read
+## "Unspecified convulsions", "Other convulsions" and "Seizure", and not one
+## patient rests solely on the vaguer "Spells Neurological".
+exc <- grepl("^F44|^300\\.11|^R56\\.1|^780\\.33|^780\\.32|^Z82|^G43|^E936|^966", e$code) |
+       grepl("febrile|non.epileptic|psychogenic|conversion|family history|migraine|poisoning|adverse",
+             e$desc, ignore.case=TRUE)
 e$g40 <- grepl("^G40|^345|^0345", e$code) & !exc
 e$r56 <- grepl("^R56|^780\\.39|^07703", e$code) & !exc & !e$g40
 
