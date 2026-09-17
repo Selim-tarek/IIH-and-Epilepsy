@@ -997,3 +997,32 @@
 [02:29:34] wrote outputs/tables/K_T19_benzodiazepine_prevalence.csv (2 rows) 
 [02:29:34] wrote outputs/tables/K_T20_benzodiazepine_as_outcome.csv (4 rows) 
 [02:29:34] K10 complete 
+[02:40:43] === K11 re-match against the engaged pool === 
+[02:40:43] cases 2606 | engaged control pool 4037 
+[02:40:47] cases matched 1145 of 2606 | controls used 4036 
+[02:41:11] === K11 re-match against the engaged pool === 
+[02:41:11] cases 2606 | engaged control pool 4037 
+[02:41:14] pass 1: cases matched 2545 | controls used 2545 
+[02:41:18] pass 2: cases matched 2545 | controls used 4036 
+[02:41:23] pass 3: cases matched 2545 | controls used 4037 
+[02:41:27] pass 4: cases matched 2545 | controls used 4037 
+[02:41:27] cases matched 2545 of 2606 | controls used 4037 
+[02:41:27] wrote outputs/tables/K_T22_rematch_flow.csv (6 rows) 
+[02:41:27] wrote outputs/tables/K_T23_ratio.csv (3 rows) 
+[02:41:27] wrote outputs/tables/K_T24_tiers.csv (4 rows) 
+[02:41:27] wrote outputs/tables/K_T25_rematch_balance.csv (3 rows) 
+[02:41:31] wrote outputs/tables/K_T26_rematched_primary.csv (1 rows) 
+[02:41:31] K11 complete 
+[02:41:46] === K11 re-match against the engaged pool === 
+[02:41:46] cases 2606 | engaged control pool 4037 
+[02:41:48] pass 1: cases matched 2545 | controls used 2545 
+[02:41:52] pass 2: cases matched 2545 | controls used 4036 
+[02:41:57] pass 3: cases matched 2545 | controls used 4037 
+[02:42:02] pass 4: cases matched 2545 | controls used 4037 
+[02:42:02] cases matched 2545 of 2606 | controls used 4037 
+[02:42:02] wrote outputs/tables/K_T22_rematch_flow.csv (6 rows) 
+[02:42:02] wrote outputs/tables/K_T23_ratio.csv (3 rows) 
+[02:42:02] wrote outputs/tables/K_T24_tiers.csv (4 rows) 
+[02:42:02] wrote outputs/tables/K_T25_rematch_balance.csv (3 rows) 
+[02:42:05] wrote outputs/tables/K_T26_rematched_primary.csv (1 rows) 
+[02:42:05] K11 complete 
