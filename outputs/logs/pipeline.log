@@ -993,3 +993,7 @@
 [02:24:25] wrote outputs/tables/K_T17_final_primary.csv (4 rows) 
 [02:24:25] wrote outputs/tables/K_T18_final_secondary.csv (4 rows) 
 [02:24:25] K9 complete 
+[02:29:32] === K10 benzodiazepine check === 
+[02:29:34] wrote outputs/tables/K_T19_benzodiazepine_prevalence.csv (2 rows) 
+[02:29:34] wrote outputs/tables/K_T20_benzodiazepine_as_outcome.csv (4 rows) 
+[02:29:34] K10 complete 

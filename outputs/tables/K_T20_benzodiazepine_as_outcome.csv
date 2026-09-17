@@ -1,0 +1,5 @@
+"outcome","cohort","iih","comparator","estimate"
+"A benzodiazepine record alone, no seizure code required","Engagement-restricted","533/2606","418/4037","1.90 (1.67 to 2.17)"
+"A benzodiazepine record alone, no seizure code required","Full cohort","538/2618","1113/9122","1.71 (1.54 to 1.90)"
+"Seizure or epilepsy (corrected primary, K_T17)","Engagement-restricted","63/2593","48/4017","1.87 (1.28 to 2.72)"
+"Seizure or epilepsy (corrected primary, K_T17)","Full cohort","64/2605","207/9085","1.03 (0.78 to 1.36)"
