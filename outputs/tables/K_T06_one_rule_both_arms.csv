@@ -1,0 +1,6 @@
+"rule","cohort","iih","comparator","estimate","p"
+"As published (R56 counted in IIH only)","Engagement-restricted","59/2606","15/4037","5.58 (3.15 to 9.87)",NA
+"Epilepsy code only (G40/345)","Full","14/2610","93/9115","0.50 (0.28 to 0.87)",0.0148
+"Epilepsy code only (G40/345)","Engagement-restricted","14/2598","24/4034","0.80 (0.41 to 1.55)",0.508
+"Any seizure code, including R56.9","Full","58/2610","207/9087","0.93 (0.69 to 1.24)",0.616
+"Any seizure code, including R56.9","Engagement-restricted","57/2598","48/4017","1.68 (1.14 to 2.46)",0.00866

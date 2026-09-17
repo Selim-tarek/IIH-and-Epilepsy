@@ -934,3 +934,12 @@
 [01:48:21] wrote outputs/tables/K_T03_reclassification.csv (2 rows) 
 [01:48:21] K2 complete 
 [01:48:21] wrote outputs/tables/K_T04_source_completeness.csv (5 rows) 
+[01:55:15] === K3 one rule, both arms === 
+[01:55:15] wrote outputs/tables/K_T05_what_was_counted.csv (3 rows) 
+[01:55:16] wrote outputs/tables/K_T06_one_rule_both_arms.csv (5 rows) 
+[01:55:16] THE QUESTION FOR THE ABSTRACTION TEAM: were the 152 comparators with  
+[01:55:16] R56-only codes chart-reviewed and rejected as non-seizures, and were  
+[01:55:16] the 70 IIH patients with R56-only codes chart-reviewed and confirmed?  
+[01:55:16] If both, the asymmetry is clinical and the published estimate stands.  
+[01:55:16] If not, the rule differed by arm and the estimate does not. 
+[01:55:16] K3 complete 
