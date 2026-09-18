@@ -53,6 +53,9 @@ ev   <- rd("K_T56_evalue")
 sap1 <- rd("SAP_T1_baseline", FALSE);  sap3b <- rd("SAP_T3b_landmark", FALSE)
 sap4 <- rd("SAP_T4_competing_risks", FALSE); sap5 <- rd("SAP_T5_subgroups", FALSE)
 sap6 <- rd("SAP_T6_propensity", FALSE)
+cset <- rd("Z_T01_complete_sets", FALSE); t1f <- rd("Z_T02_table1_full", FALSE)
+sec2 <- rd("Z_T03_secondary_test", FALSE); cmb <- rd("Z_T04_comorbidity_adjusted", FALSE)
+ccrit <- rd("Z_T05_confounder_criteria", FALSE)
 
 assert(length(stale) == 0, paste0(
   "STALE TABLES -- these predate this run and would carry old results into the ",
@@ -95,7 +98,14 @@ md(flow), "
 ### Baseline balance after matching
 ",
 md(bal), "
-Matching is on sex, age, BMI, race and BMI calendar year, in five relaxing
+### Baseline characteristics, full (Z_T02)
+
+Covariates with |SMD| > 0.10 are residual imbalance and are reported as such.
+Availability is shown per arm: a variable recorded in only one arm cannot be
+compared.
+",
+md(t1f), "
+Matching is on sex, age, BMI and BMI calendar year, in five relaxing
 tiers. Comparators inherit the index date of the case they are matched to
 (protocol §2.3); the 12-month engagement requirement and the prevalent-seizure
 exclusion are both evaluated at that inherited date, so the two arms are
@@ -114,6 +124,13 @@ md(pv), "
 ### Encounter definition: all encounter rows (sensitivity)
 ",
 md(pa), "
+### Complete matched sets (Z_T01)
+
+Comparators were required at selection to have follow-up beyond the washout;
+cases were not. 352 sets therefore lost their case while retaining 789
+comparators who contribute person-time to a set with no case in it.
+",
+md(cset), "
 Encounter type decides engagement and the censoring date only. It never touches
 the outcome.
 
@@ -122,6 +139,7 @@ the outcome.
 ## 3. Secondary outcome — recurrent seizures or epilepsy among those with an event
 ",
 md(sec), "
+", md(sec2), "
 ---
 
 ## 4. Pre-specified analyses (SAP)
@@ -134,6 +152,18 @@ md(sec), "
 ", md(sap5), "
 ### Propensity and overlap
 ", md(sap6), "
+### Comorbidity-adjusted sensitivity (Z_T04, Z_T05)
+
+Matching did not balance obstructive sleep apnoea, polycystic ovary syndrome or
+hypertension. All three are measured at or before index, so none is a collider
+and all are adjustable. Stated before running: reported whatever the result.
+
+Whether a variable can confound requires BOTH imbalance and association with the
+outcome:
+", md(ccrit), "
+Only OSA meets both criteria. PCOS is imbalanced but unrelated to the outcome
+(HR 1.14, p = 0.65) and therefore cannot confound.
+", md(cmb), "
 ---
 
 ## 5. Detection and surveillance assessment

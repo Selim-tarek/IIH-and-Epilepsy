@@ -266,6 +266,7 @@ The estimate was stable across every specification examined (Figure 2):
 | Landmark, first 180 days excluded | 2.22 (1.40–3.51) |
 | Fine–Gray subdistribution | 2.28 (1.62–3.22) |
 | Overlap-weighted | 2.31 (1.56–3.43) |
+| Adjusted for OSA, hypertension and PCOS | 2.11 (1.48–3.01) |
 
 Two of these warrant comment. The **complete-sets** analysis addresses a
 structural feature of the matching: comparators were required at selection to
@@ -280,6 +281,17 @@ case.» *(Table Z_T01)*
 
 The **all-rows** analysis gives a larger estimate (2.79) than the primary,
 confirming that the primary specification is the conservative of the two.
+
+The **comorbidity-adjusted** analysis addresses the covariates matching did not
+balance. Obstructive sleep apnoea (29.5% versus 15.4%, SMD 0.342), polycystic
+ovary syndrome (0.171) and hypertension (0.146) all exceeded the balance
+threshold. Confounding requires both imbalance and association with the outcome,
+and only OSA met both (HR for seizure 1.87, 1.29–2.71, p < 0.001); PCOS was
+imbalanced but unrelated to the outcome (1.14, 0.64–2.02, p = 0.65) and cannot
+confound. Adjusting for all three moves the estimate from 2.28 to **2.11
+(1.48–3.01)**, a reduction of 7.5%, driven entirely by OSA. Adding pre-index
+visits returns it to 2.33 (1.58–3.45). Sleep apnoea therefore accounts for a
+small part of the association and not for its existence. *(Tables Z_T04, Z_T05)*
 
 Death was less frequent in the IIH arm (cause-specific HR 0.61, 0.29–1.29), so
 the competing risk does not operate in a direction that would inflate the seizure
@@ -456,6 +468,12 @@ constrained the match, despite being specified.
 
 **Outcome misclassification.** Code-based seizure ascertainment is imperfect, and
 chart validation of code-positive comparators has not been completed.
+
+**Unmeasured and residual confounding by sleep-disordered breathing.** OSA was
+substantially more common in the IIH arm despite matching, and is itself
+associated with seizure risk in this cohort. Adjustment reduced the estimate by
+7.5% but OSA is ascertained from codes and is under-diagnosed in both arms, so
+residual confounding through this pathway remains plausible.
 
 **Observational design.** No causal claim is made, and residual confounding by
 factors raising both the likelihood of an IIH diagnosis and the likelihood of a

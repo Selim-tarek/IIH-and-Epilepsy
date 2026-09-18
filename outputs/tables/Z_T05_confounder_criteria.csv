@@ -1,0 +1,4 @@
+"covariate","prevalence_iih","prevalence_ctl","SMD","HR_for_outcome","p"
+"Obstructive sleep apnoea","29.5%","15.4%","0.342","1.87 (1.29 to 2.71)",0.000862
+"Hypertension","22.1%","16.4%","0.146","1.41 (0.95 to 2.08)",0.0902
+"Polycystic ovary syndrome","12.3%","7.3%","0.171","1.14 (0.64 to 2.02)",0.65

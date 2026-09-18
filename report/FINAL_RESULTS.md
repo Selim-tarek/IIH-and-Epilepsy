@@ -66,7 +66,33 @@ Two superseded files remain in `data-raw/` and are **not** read by this pipeline
 | Female | 0.876 | 0.866 | 0.0303 |
 
 
-Matching is on sex, age, BMI, race and BMI calendar year, in five relaxing
+### Baseline characteristics, full (Z_T02)
+
+Covariates with |SMD| > 0.10 are residual imbalance and are reported as such.
+Availability is shown per arm: a variable recorded in only one arm cannot be
+compared.
+
+| Variable | IIH | Comparator | SMD | Available_IIH | Available_Comparator |
+|---|---|---|---|---|---|
+| n | 2,138 | 5,743 | — | 100% | 100% |
+| Person-years | 4563.0 | 9375.2 | — | 100% | 100% |
+| Follow-up, years, median (IQR) | 2.77 (1.23-3.00) | 1.51 (0.52-3.00) | — | 100% | 100% |
+| Age at index, years, mean (SD) | 34.9 (10.2) | 35.5 (9.5) | -0.065 | 100% | 100% |
+| Female | 1875 (87.7%) | 4972 (86.6%) | 0.034 | 100% | 100% |
+| BMI, kg/m2, mean (SD) | 36.5 (7.3) | 36.2 (6.5) | 0.050 | 100% | 100% |
+| Obese (BMI >= 30) | 1712 (80.1%) | 4478 (78.0%) | 0.052 | 100% | 100% |
+| Hypertension | 473 (22.1%) | 940 (16.4%) | 0.146 | 100% | 100% |
+| Obstructive sleep apnoea | 630 (29.5%) | 884 (15.4%) | 0.342 | 100% | 100% |
+| Polycystic ovary syndrome | 264 (12.3%) | 418 (7.3%) | 0.171 | 100% | 100% |
+| Bariatric surgery | 74 (3.5%) | 124 (2.2%) | 0.079 | 100% | 100% |
+| Clinical visits, 12 months before index, mean (SD) | 20.6 (26.5) | 9.2 (15.2) | 0.526 | 100% | 100% |
+| Clinical visits, 12 months before index, median (IQR) | 12.00 (5.00-26.00) | 4.00 (1.00-10.00) | — | 100% | 100% |
+| Current smoker (NOT COMPARABLE - see note) | 16 (0.7%) | 433 (7.5%) | -0.346 | 100% | 100% |
+| Opening pressure, cmH2O, mean (SD) (IIH only) | 29.5 (9.7) | NaN (NA) | — | 74% | 0% |
+| Died during follow-up | 38 (1.8%) | 89 (1.5%) | 0.018 | 100% | 100% |
+
+
+Matching is on sex, age, BMI and BMI calendar year, in five relaxing
 tiers. Comparators inherit the index date of the case they are matched to
 (protocol §2.3); the 12-month engagement requirement and the prevalent-seizure
 exclusion are both evaluated at that inherited date, so the two arms are
@@ -99,6 +125,18 @@ a qualifying code, or anti-seizure medication continued 180+ days.
 | Restricted to opening pressure >= 25 cmH2O | 36/1323 | 36/4155 | 11.15 (7.81 to 15.44) | 4.09 (2.87 to 5.67) | 2.85 (1.78 to 4.56) | 1.27e-05 | 0.359 | 3.08 | 1.06 | 2.02 | 50 |
 
 
+### Complete matched sets (Z_T01)
+
+Comparators were required at selection to have follow-up beyond the washout;
+cases were not. 352 sets therefore lost their case while retaining 789
+comparators who contribute person-time to a set with no case in it.
+
+| analysis | iih | comparator | HR | p |
+|---|---|---|---|---|
+| Primary, as reported (all matched comparators retained) | 66/2138 | 63/5743 | 2.28 (1.62 to 3.22) | 2.62e-06 |
+| Complete sets only (comparators whose case was dropped removed) | 66/2138 | 61/4954 | 2.06 (1.46 to 2.92) | 4.23e-05 |
+
+
 Encounter type decides engagement and the censoring date only. It never touches
 the outcome.
 
@@ -110,6 +148,15 @@ the outcome.
 |---|---|---|---|---|
 | IIH | 66 | 41 | 25 | 62% (49 to 74) |
 | Comparator | 63 | 32 | 31 | 51% (38 to 64) |
+
+
+
+| quantity | value |
+|---|---|
+| IIH recurrent/epilepsy | 41/66 (62%, 95% CI 49-74) |
+| Comparator recurrent/epilepsy | 32/63 (51%, 95% CI 38-64) |
+| Fisher exact p | 0.217 |
+| Odds ratio (95% CI) | 1.58 (0.74 to 3.40) |
 
 
 ---
@@ -158,6 +205,35 @@ the outcome.
 | SMD BMI, unweighted -> overlap-weighted | 0.050 -> 0.000 |
 | SMD pre-index visits, unweighted -> overlap-weighted | 0.526 -> -0.073 |
 | Overlap-weighted hazard ratio | 2.31 (1.56 to 3.43) |
+
+
+### Comorbidity-adjusted sensitivity (Z_T04, Z_T05)
+
+Matching did not balance obstructive sleep apnoea, polycystic ovary syndrome or
+hypertension. All three are measured at or before index, so none is a collider
+and all are adjustable. Stated before running: reported whatever the result.
+
+Whether a variable can confound requires BOTH imbalance and association with the
+outcome:
+
+| covariate | prevalence_iih | prevalence_ctl | SMD | HR_for_outcome | p |
+|---|---|---|---|---|---|
+| Obstructive sleep apnoea | 29.5% | 15.4% | 0.342 | 1.87 (1.29 to 2.71) | 0.000862 |
+| Hypertension | 22.1% | 16.4% | 0.146 | 1.41 (0.95 to 2.08) | 0.0902 |
+| Polycystic ovary syndrome | 12.3% | 7.3% | 0.171 | 1.14 (0.64 to 2.02) | 0.65 |
+
+
+Only OSA meets both criteria. PCOS is imbalanced but unrelated to the outcome
+(HR 1.14, p = 0.65) and therefore cannot confound.
+
+| model | HR | p | change |
+|---|---|---|---|
+| Primary (matched, unadjusted) | 2.28 (1.62 to 3.22) | 2.62e-06 | — |
+| + obstructive sleep apnoea | 2.11 (1.49 to 2.99) | 2.65e-05 | -7.5% |
+| + hypertension | 2.24 (1.59 to 3.16) | 4.59e-06 | -1.8% |
+| + polycystic ovary syndrome | 2.28 (1.61 to 3.24) | 4.14e-06 | +0.0% |
+| + all three comorbidities | 2.11 (1.48 to 3.01) | 3.68e-05 | -7.5% |
+| + all three, and pre-index visits | 2.33 (1.58 to 3.45) | 1.95e-05 | +2.2% |
 
 
 ---
