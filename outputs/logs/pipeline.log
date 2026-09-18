@@ -1209,3 +1209,7 @@
 [03:50:40] wrote outputs/tables/K_T53_negative_controls_over_time.csv (11 rows) 
 [03:50:40] negative-control trend slopes: median 0.21  (negative = fading)   seizure -0.049 
 [03:50:40] K25 complete 
+[04:00:46] === K26 post-index surveillance === 
+[04:01:22] wrote outputs/tables/K_T54_post_index_surveillance.csv (10 rows) 
+[04:01:23] wrote outputs/tables/K_T55_negative_outcome_rates.csv (12 rows) 
+[04:01:23] K26 complete 
