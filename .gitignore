@@ -21,3 +21,6 @@ mrn_lists/
 # removed by this rule - see the note in STATISTICAL_REVIEW_MEMO.md.
 data-raw/
 data-derived/
+
+# Transient run logs; the final run log is force-added on completion
+outputs/logs/*.log
