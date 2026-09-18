@@ -23,4 +23,4 @@ data-raw/
 data-derived/
 
 # Transient run logs; the final run log is force-added on completion
-outputs/logs/*.log
+outputs/logs/
