@@ -1,0 +1,431 @@
+──────── Z0 provenance gate
+[14:29:55] === Z0 provenance gate === 
+[14:29:55] NOTE present but NOT used: IIH_MASTER_cases_and_controls_2.csv 
+[14:29:55] NOTE present but NOT used: MDE_Encounters_controls.csv 
+[14:29:56] case encounter rows 1,199,125 exceed Excel ceiling 1,048,575: untruncated export confirmed 
+[14:29:56] master workbook sheets: Analysis_Cohort, Cases, Controls, Table1_Baseline, Matching_Balance, Excluded_from_analysis, Source_Manifest, Codebook 
+[14:29:56] wrote outputs/tables/Z_T00_provenance.csv (20 rows) 
+                              file    rows       md5_12
+             IIH_MASTER_FINAL.xlsx      NA b314ba066d03
+     MDE_Encounters_types_full.csv 1199125 79ca279ce326
+ MDE_Encounters_controls_typed.csv  995409 84fc9b547c35
+            MDE_Flowsheets_BMI.csv  387125 47e515642d08
+                      SZ_dx_62.csv    2591 91adb958b138
+              SZ_conditions_10.csv     258 e4a35762e95c
+      MDE_Medications_cases_22.csv  236973 fe2b40d81bd8
+        IIH_medications_detail.csv   27354 486ae53d80bf
+       MDE_Diagnosis_carpal_12.csv    2187 7471946e22aa
+                      NC_dx_21.csv     566 e0c55626c6ad
+                      NC_dx_58.csv    5792 e06020569cfc
+                      NC_dx_59.csv    1996 fd9d42816630
+                      NC_dx_60.csv     325 0ced1e4a0adc
+                      NC_dx_61.csv     602 864fb78fb3a6
+                     NC2_dx_13.csv   12157 6751817cebc7
+                     NC2_dx_14.csv    1978 645701e75df5
+                     NC2_dx_16.csv    3392 c4e82743d0a0
+                     NC2_dx_17.csv    1101 184924054785
+                     NC2_dx_18.csv     624 ba29629d257a
+                     NC2_dx_20.csv    2876 e2c154c3f647
+[14:29:56] Z0 provenance gate PASSED 
+──────── F1 import from master workbook
+[14:29:57] === F1 import & audit (FINAL workbook) === 
+[14:29:58] Analysis_Cohort: 11740 rows x 58 cols; excluded sheet: 1603 rows 
+[14:29:58] supplied e3/t3 and e5/t5 reproduce exactly from t_y and event 
+[14:29:58] wrote outputs/tables/F_S1_washout_symmetry.csv (2 rows) 
+           cohort events earliest_event_day latest_event_day
+1             IIH    102                183             7553
+2 Non-IIH control     64                187             5294
+[14:29:58] wrote outputs/tables/F_T2b_matching_ratio.csv (4 rows) 
+[14:29:58] mean controls/case = 3.48 | full 1:4 sets = 61.5% 
+[14:29:58] wrote outputs/tables/F_T2_cohort_flow.csv (7 rows) 
+                                                                                                       step     n
+1                                                                    Patients in the final matched analysis 11740
+2                                                                                                 IIH cases  2618
+3                                                                                  Matched non-IIH controls  9122
+Excluded at washout / no follow-up after day 180 Excluded: Excluded at washout / no follow-up after day 180   734
+No matched counterpart                                                     Excluded: No matched counterpart   869
+11                                                                                 of exclusions, IIH cases   983
+12                                                                                  of exclusions, controls   620
+[14:29:59] wrote outputs/tables/F_S2_data_dictionary.csv (58 rows) 
+[14:29:59] wrote outputs/tables/F_S3_source_manifest.csv (13 rows) 
+[14:29:59] wrote outputs/tables/F_S4_codebook.csv (12 rows) 
+[14:29:59] cohort-specific variables: 26 
+[14:29:59] F1 complete 
+──────── G1 build master dataset
+[14:30:00] === G1 build master dataset === 
+[14:30:06] wrote outputs/tables/G_T01_data_availability.csv (5 rows) 
+                 variable iih_pct control_pct asymmetry
+1         Seizure outcome   100.0       100.0       0.0
+2   Carpal tunnel (dated)   100.0       100.0       0.0
+3       Medication record    83.5        29.1      54.4
+4        Smoking (graded)    76.4        89.8      13.4
+5 >=1 pre-index encounter    99.5        44.3      55.2
+[14:30:06] wrote outputs/tables/G_T02_cohorts.csv (6 rows) 
+                                           cohort     n
+1                             Full matched cohort 11740
+2                                             IIH  2618
+3                                         control  9122
+4 Engagement-restricted (>=1 pre-index encounter)  6643
+5                                             IIH  2606
+6                                         control  4037
+[14:30:07] G1 complete 
+──────── K15 primary, ENC_MODE=visits
+[14:30:08] === K15 FINAL ANALYSIS === 
+[14:30:34] ENC_MODE = visits 
+[14:30:34] encounter-days 476988 across 11740 patients 
+[14:30:45] cases engaged: 2520 of 2618 
+[14:31:37] pass 1: cases 2490 controls 2490 
+[14:32:36] pass 2: cases 2490 controls 4661 
+[14:33:55] pass 3: cases 2490 controls 5548 
+[14:35:19] pass 4: cases 2490 controls 5743 
+[14:35:19] wrote outputs/tables/K_T38_FINAL_results_visits.csv (4 rows) 
+                                    analysis     iih comparator                  HR        p
+ PRIMARY: any seizure code or indefinite ASM 66/2138    63/5743 2.28 (1.62 to 3.22) 2.62e-06
+      Codes only, medication channel removed 56/2138    63/5743 1.93 (1.34 to 2.77) 4.08e-04
+      Epilepsy-specific codes only (G40/345) 26/2138    24/5743 2.30 (1.35 to 3.92) 2.21e-03
+  Restricted to opening pressure >= 25 cmH2O 36/1122    34/2986 2.25 (1.41 to 3.59) 7.12e-04
+[14:35:19] wrote outputs/tables/K_T39_FINAL_secondary_visits.csv (2 rows) 
+        arm with_event recurrent_or_epilepsy single_seizure            pct
+        IIH         66                    41             25 62% (49 to 74)
+ Comparator         63                    32             31 51% (38 to 64)
+[14:35:19] wrote outputs/tables/K_T40_FINAL_flow_visits.csv (6 rows) 
+               quantity   value
+ IIH engaged & eligible 2520.00
+          cases matched 2490.00
+        cases unmatched   30.00
+          controls used 5743.00
+ mean controls per case    2.31
+         tier-1 matches 2172.00
+[14:35:19] wrote outputs/tables/K_T41_FINAL_balance_visits.csv (3 rows) 
+     variable    iih control     smd
+ Age at index 34.950  35.540 -0.0590
+          BMI 36.390  36.180  0.0302
+       Female  0.876   0.866  0.0303
+[14:35:20] K15 complete 
+──────── K15 primary, ENC_MODE=all
+[14:35:21] === K15 FINAL ANALYSIS === 
+[14:35:51] ENC_MODE = all 
+[14:35:52] encounter-days 1008379 across 11740 patients 
+[14:36:06] cases engaged: 2538 of 2618 
+[14:37:04] pass 1: cases 2511 controls 2511 
+[14:38:04] pass 2: cases 2511 controls 4948 
+[14:39:08] pass 3: cases 2511 controls 7112 
+[14:40:34] pass 4: cases 2511 controls 7905 
+[14:40:35] wrote outputs/tables/K_T38_FINAL_results_all.csv (4 rows) 
+                                    analysis     iih comparator                  HR        p
+ PRIMARY: any seizure code or indefinite ASM 65/2507    67/7905 2.79 (1.98 to 3.93) 4.29e-09
+      Codes only, medication channel removed 55/2507    67/7905 2.35 (1.64 to 3.38) 3.21e-06
+      Epilepsy-specific codes only (G40/345) 26/2507    26/7905 2.83 (1.66 to 4.83) 1.39e-04
+  Restricted to opening pressure >= 25 cmH2O 36/1323    36/4155 2.85 (1.78 to 4.56) 1.27e-05
+[14:40:35] wrote outputs/tables/K_T39_FINAL_secondary_all.csv (2 rows) 
+        arm with_event recurrent_or_epilepsy single_seizure            pct
+        IIH         65                    42             23 65% (52 to 76)
+ Comparator         67                    35             32 52% (40 to 65)
+[14:40:35] wrote outputs/tables/K_T40_FINAL_flow_all.csv (6 rows) 
+               quantity   value
+ IIH engaged & eligible 2538.00
+          cases matched 2511.00
+        cases unmatched   27.00
+          controls used 7905.00
+ mean controls per case    3.15
+         tier-1 matches 2215.00
+[14:40:35] wrote outputs/tables/K_T41_FINAL_balance_all.csv (3 rows) 
+     variable    iih control     smd
+ Age at index 34.910  34.960 -0.0052
+          BMI 36.420  36.410  0.0016
+       Female  0.875   0.881 -0.0183
+[14:40:35] K15 complete 
+──────── K17 negative controls, panel 1
+[14:40:36] === K17 negative controls on the rebuilt cohort === 
+[14:40:37] wrote outputs/tables/K_T42_negative_controls.csv (6 rows) 
+              outcome baseline_iih_pct baseline_ctl_pct baseline_ratio balanced events_iih events_ctl
+        Herpes zoster             1.64             0.50           3.24     FAIL         17         12
+ Renal/ureteric stone             4.30             2.11           2.04     FAIL         63         44
+           Gallstones             3.46             2.19           1.58     FAIL         39         40
+   Acute appendicitis             1.03             0.45           2.27     FAIL          4          8
+        Limb fracture             0.14             0.28           0.50     PASS          2          7
+        Carpal tunnel             4.07             1.60           2.54     FAIL         40         29
+            estimate
+ 2.98 (1.41 to 6.32)
+ 3.09 (2.09 to 4.56)
+ 2.00 (1.29 to 3.11)
+ 1.06 (0.32 to 3.50)
+       not estimable
+ 2.84 (1.77 to 4.57)
+[14:40:37] wrote outputs/tables/K_T43_calibration.csv (5 rows) 
+                                        quantity                  value
+                             outcomes in the fit                      5
+            correlation of log ratio with log HR r = 0.282 (p = 0.6460)
+                                           slope         0.48 (SE 0.94)
+ predicted detection-only HR at baseline balance   1.51 (0.07 to 30.83)
+                             observed seizure HR    2.28 (1.62 to 3.22)
+[14:40:37] K17 complete 
+──────── K19 negative controls, panel 2
+[14:40:38] === K19 second negative-control panel === 
+[14:40:39] wrote outputs/tables/K_T45_negative_controls_v2.csv (6 rows) 
+                        outcome baseline_iih_pct baseline_ctl_pct baseline_ratio baseline_p events_iih events_ctl
+    Upper respiratory infection            21.52            10.60           2.03   1.19e-33        173        213
+        Otitis media or externa             6.08             1.65           3.68   1.25e-22         72         51
+               Sprain or strain             5.05             1.78           2.84   5.48e-14         54         47
+       Laceration or open wound             2.85             0.57           4.97   1.64e-14         33         16
+             Contact dermatitis             1.73             0.68           2.55   7.14e-05         18         20
+ Fracture, excluding skull/face             2.25             1.24           1.82   1.71e-03         24         40
+            estimate                        verdict
+ 2.02 (1.65 to 2.48) EXCLUDED - baseline imbalanced
+ 3.09 (2.15 to 4.43) EXCLUDED - baseline imbalanced
+ 2.47 (1.67 to 3.67) EXCLUDED - baseline imbalanced
+ 4.28 (2.37 to 7.75) EXCLUDED - baseline imbalanced
+ 1.85 (0.98 to 3.50) EXCLUDED - baseline imbalanced
+ 1.22 (0.76 to 1.98) EXCLUDED - baseline imbalanced
+[14:40:39] admitted: 0 of 6 
+[14:40:39] K19 complete 
+──────── K20 healthcare contact
+[14:40:40] === K20 healthcare contact === 
+[14:41:06] wrote outputs/tables/K_T46_visit_density.csv (2 rows) 
+        arm visits_pre12_per_patient visits_post_per_patient
+        IIH                     13.3                    34.3
+ Comparator                      5.9                     9.3
+[14:41:07] wrote outputs/tables/K_T47_contact_adjustment.csv (12 rows) 
+                     outcome baseline_ratio events_iih events_ctl          unadjusted            adjusted pct_change
+ Upper respiratory infection           2.03        173        213 2.02 (1.65 to 2.48) 1.49 (1.21 to 1.84)      -26.3
+     Otitis media or externa           3.68         72         51 3.09 (2.15 to 4.43) 1.77 (1.23 to 2.55)      -42.6
+            Sprain or strain           2.84         54         47 2.47 (1.67 to 3.67) 1.63 (1.10 to 2.44)      -33.9
+    Laceration or open wound           4.97         33         16 4.28 (2.37 to 7.75) 3.19 (1.80 to 5.66)      -25.4
+          Contact dermatitis           2.55         18         20 1.85 (0.98 to 3.50) 1.08 (0.54 to 2.16)      -41.5
+  Fracture, excl. skull/face           1.82         24         40 1.22 (0.76 to 1.98) 0.87 (0.52 to 1.45)      -28.7
+               Herpes zoster           3.24         17         12 2.98 (1.41 to 6.32) 1.91 (0.82 to 4.43)      -36.0
+        Renal/ureteric stone           2.04         63         44 3.09 (2.09 to 4.56) 2.48 (1.60 to 3.86)      -19.7
+                  Gallstones           1.58         39         40 2.00 (1.29 to 3.11) 1.45 (0.91 to 2.30)      -27.5
+          Acute appendicitis           2.27          4          8 1.06 (0.32 to 3.50) 0.86 (0.24 to 3.03)      -18.8
+               Carpal tunnel           2.54         40         29 2.84 (1.77 to 4.57) 1.99 (1.19 to 3.34)      -29.8
+         SEIZURE OR EPILEPSY             NA         66         63 2.28 (1.62 to 3.22) 2.57 (1.75 to 3.78)       12.6
+[14:41:07] wrote outputs/tables/K_T48_calibration_v2.csv (8 rows) 
+                                           quantity                  value
+                       negative controls in the fit                     11
+        correlation, log baseline ratio with log HR r = 0.663 (p = 0.0263)
+                                              slope         0.84 (SE 0.31)
+    predicted detection-only HR at baseline balance    1.04 (0.37 to 2.90)
+                    observed seizure HR, unadjusted                   2.28
+              observed seizure HR, contact-adjusted                   2.57
+ median change in negative-control HR on adjustment                 -28.7%
+                 change in seizure HR on adjustment                 +12.6%
+[14:41:07] K20 complete 
+──────── K22 contact robustness
+[14:41:08] === K22 robustness of the contact adjustment === 
+[14:41:36] wrote outputs/tables/K_T49_contact_measures.csv (6 rows) 
+       measure iih_median ctl_median
+    visits_12m  12.000000  4.0000000
+    visits_24m  15.000000  5.0000000
+    months_12m   4.000000  2.0000000
+    visits_all  21.000000  6.0000000
+ history_years   2.565366  0.8405202
+    office_12m   6.000000  1.0000000
+[14:41:38] wrote outputs/tables/K_T50_contact_robustness.csv (7 rows) 
+       measure controls_median_change controls_range controls_moving_up seizure_hr seizure_change seizure_direction
+  (unadjusted)                      -              -                 NA       2.28              -                 -
+    visits_12m                 -27.9%   -42% to -16%                  0       2.46          +7.8%    AWAY from null
+    visits_24m                 -28.1%   -39% to -19%                  0       2.64         +15.6%    AWAY from null
+    months_12m                 -24.1%   -41% to -10%                  0       2.62         +14.8%    AWAY from null
+    visits_all                 -31.8%   -46% to -22%                  0       2.93         +28.6%    AWAY from null
+ history_years                 -11.3%    -21% to -3%                  0       2.69         +18.1%    AWAY from null
+    office_12m                 -32.8%   -43% to -20%                  0       2.57         +12.6%    AWAY from null
+[14:41:38] K22 complete 
+──────── K23 post-index collider
+[14:41:40] === K23 post-index adjustment is a collider === 
+[14:42:06] wrote outputs/tables/K_T51_visits_by_event.csv (2 rows) 
+        arm median_visits_no_event median_visits_with_event
+        IIH                     17                     40.5
+ Comparator                      3                      9.0
+[14:42:07] wrote outputs/tables/K_T52_collider_demonstration.csv (3 rows) 
+                                        outcome          unadjusted       adj_pre_index adj_post_index_COLLIDER
+                            SEIZURE OR EPILEPSY 2.28 (1.62 to 3.22) 2.57 (1.75 to 3.78)     1.25 (0.85 to 1.85)
+                    Fracture (negative control) 1.22 (0.76 to 1.98) 0.87 (0.52 to 1.45)     0.39 (0.23 to 0.67)
+ Upper respiratory infection (negative control) 2.02 (1.65 to 2.48) 1.49 (1.21 to 1.84)     0.75 (0.61 to 0.92)
+[14:42:07] K23 complete 
+──────── K24 SAP completion
+[14:42:08] === K24 SAP completion === 
+[14:42:36] wrote outputs/tables/SAP_T1_baseline.csv (7 rows) 
+                                           variable          IIH   Comparator    SMD
+                     Age at index, years, mean (SD)  34.9 (10.2)   35.5 (9.5) -0.065
+                                             Female 1875 (87.7%) 4972 (86.6%)  0.034
+                              BMI, kg/m2, mean (SD)   36.5 (7.3)   36.2 (6.5)  0.050
+                                  Obese (BMI >= 30) 1712 (80.1%) 4478 (78.0%)  0.052
+                                       Hypertension  473 (22.1%)  940 (16.4%)  0.146
+          Current smoker (not comparable, see note)    16 (0.7%)   433 (7.5%) -0.346
+ Clinical visits, 12 months before index, mean (SD)  20.6 (26.5)   9.2 (15.2)  0.526
+[14:42:36] wrote outputs/tables/SAP_T2_surveillance.csv (3 rows) 
+                                          measure                    IIH          Comparator rate_ratio
+              All clinical visits per person-year 22.56 (22.42 to 22.69) 8.34 (8.28 to 8.40)       2.70
+             Emergency encounters per person-year    0.15 (0.14 to 0.16) 0.03 (0.02 to 0.03)       5.74
+ Hospital or inpatient encounters per person-year    3.05 (3.00 to 3.10) 1.34 (1.32 to 1.37)       2.27
+[14:42:36] wrote outputs/tables/SAP_T3a_period_specific.csv (4 rows) 
+         period                  HR
+  0 to 6 months 2.37 (1.39 to 4.02)
+ 6 to 12 months 2.00 (0.94 to 4.27)
+   1 to 2 years 2.70 (1.32 to 5.52)
+   2 to 3 years 1.81 (0.68 to 4.83)
+[14:42:36] wrote outputs/tables/SAP_T3b_landmark.csv (4 rows) 
+                                                      analysis iih_events ctl_events                  HR
+                                Primary (180-day washout only)         66         63 2.28 (1.62 to 3.22)
+  Landmark: events in the first 30 days after washout excluded         62         53 2.49 (1.73 to 3.58)
+  Landmark: events in the first 90 days after washout excluded         49         44 2.29 (1.54 to 3.41)
+ Landmark: events in the first 180 days after washout excluded         39         35 2.22 (1.40 to 3.51)
+[14:42:37] wrote outputs/tables/SAP_T4_competing_risks.csv (3 rows) 
+                                   estimand            estimate
+       Cause-specific HR, seizure (primary) 2.28 (1.62 to 3.22)
+    Subdistribution HR, seizure (Fine-Gray) 2.28 (1.62 to 3.22)
+ Cause-specific HR, death (competing event) 0.61 (0.29 to 1.29)
+[14:42:37] wrote outputs/tables/SAP_T5_subgroups.csv (6 rows) 
+ subgroup     level iih_events ctl_events                   HR interaction_p
+      Age  Age < 35         31         33  1.90 (1.19 to 3.05)         0.311
+      Age Age >= 35         35         30  2.72 (1.66 to 4.45)         0.311
+      Sex    Female         53         56  1.98 (1.37 to 2.88)         0.055
+      Sex      Male         13          7 5.12 (2.09 to 12.54)         0.055
+      BMI  BMI < 35         32         27  2.86 (1.70 to 4.83)         0.259
+      BMI BMI >= 35         34         36  1.87 (1.18 to 2.98)         0.259
+[14:42:37] wrote outputs/tables/SAP_T6_propensity.csv (7 rows) 
+                                             quantity               value
+                         Propensity model c-statistic                0.72
+                        Propensity overlap, IIH range      0.069 to 0.862
+                 Propensity overlap, comparator range      0.063 to 0.855
+              SMD age, unweighted -> overlap-weighted    -0.065 -> -0.000
+              SMD BMI, unweighted -> overlap-weighted      0.050 -> 0.000
+ SMD pre-index visits, unweighted -> overlap-weighted     0.526 -> -0.073
+                        Overlap-weighted hazard ratio 2.31 (1.56 to 3.43)
+[14:42:37] wrote outputs/tables/SAP_T7_missing.csv (7 rows) 
+         variable missing_iih missing_comparator
+              Age        0.0%               0.0%
+              Sex        0.0%               0.0%
+              BMI        0.0%               0.0%
+     Hypertension        0.0%               0.0%
+             Race      100.0%               0.0%
+ Opening pressure       26.9%             100.0%
+    EEG performed       85.0%             100.0%
+                                                                handling
+                                                                complete
+                                                                complete
+                                                                complete
+                                                                complete
+ NOT USABLE - absent for every IIH case, so could not constrain matching
+      IIH only - used for one sensitivity analysis, never for adjustment
+                                                     IIH only - not used
+[14:42:37] wrote outputs/tables/SAP_T8_events_per_parameter.csv (7 rows) 
+                           quantity value
+                        Events, IIH  66.0
+                 Events, comparator  63.0
+                       Total events 129.0
+    Parameters in the primary model   1.0
+               Events per parameter 129.0
+ Parameters in the propensity model   4.0
+   Events per parameter, propensity  32.2
+[14:42:37] K24 complete 
+──────── K25 controls over time
+[14:42:38] === K25 negative controls over time === 
+[14:42:41] wrote outputs/tables/K_T53_negative_controls_over_time.csv (11 rows) 
+                     outcome 0-6 mo 6-12 mo 1-2 y 2-3 y trend_slope_per_year
+         SEIZURE OR EPILEPSY   2.37    2.00  2.70  1.81               -0.049
+               Carpal tunnel   1.56    4.40  1.08  6.95                0.456
+          Contact dermatitis   1.47    1.45  1.92  2.99                0.337
+  Fracture, excl. skull/face   2.15    1.23  0.98  0.88               -0.363
+                  Gallstones   1.01    2.56  2.60  2.02                0.199
+               Herpes zoster   4.92    1.46  3.91  1.80               -0.289
+    Laceration or open wound   3.07    1.26 11.10  6.43                0.675
+     Otitis media or externa   2.60    2.12  5.81  3.47                0.221
+        Renal/ureteric stone   3.51    2.58  2.46  4.77                0.072
+            Sprain or strain   2.75    2.58  2.27  2.35               -0.083
+ Upper respiratory infection   1.66    2.34  1.24  4.52                0.309
+[14:42:41] negative-control trend slopes: median 0.21  (negative = fading)   seizure -0.049 
+[14:42:41] K25 complete 
+──────── K26 post-index surveillance
+[14:42:42] === K26 post-index surveillance === 
+[14:43:10] wrote outputs/tables/K_T54_post_index_surveillance.csv (10 rows) 
+                             measure               IIH_rate     Comparator_rate          rate_ratio
+                 All clinical visits 22.56 (22.42 to 22.69) 8.34 (8.28 to 8.40) 2.70 (2.68 to 2.73)
+                Emergency encounters    0.15 (0.14 to 0.16) 0.03 (0.02 to 0.03) 5.74 (4.96 to 6.65)
+    Hospital or inpatient encounters    3.06 (3.01 to 3.11) 1.35 (1.32 to 1.37) 2.27 (2.22 to 2.33)
+             Office or clinic visits  10.06 (9.97 to 10.16) 3.44 (3.40 to 3.48) 2.92 (2.88 to 2.97)
+ Procedural or diagnostic encounters    4.25 (4.19 to 4.31) 1.83 (1.80 to 1.86) 2.32 (2.28 to 2.37)
+               Laboratory encounters    0.10 (0.09 to 0.11) 0.09 (0.08 to 0.10) 1.14 (1.02 to 1.28)
+                    Neurology visits          not available       not available       not estimable
+                Ophthalmology visits          not available       not available       not estimable
+                     Brain MRI or CT          not available       not available       not estimable
+                                 EEG          not available       not available       not estimable
+[14:43:12] wrote outputs/tables/K_T55_negative_outcome_rates.csv (12 rows) 
+                               outcome iih_events ctl_events          IIH_per1000py   Comparator_per1000py
+ SEIZURE OR EPILEPSY (primary outcome)         66         63 14.46 (11.19 to 18.40)    6.72 (5.16 to 8.60)
+              Laceration or open wound         33         16   7.36 (5.06 to 10.33)    1.71 (0.98 to 2.77)
+               Otitis media or externa         72         51 16.92 (13.24 to 21.30)    5.53 (4.12 to 7.27)
+                  Renal/ureteric stone         63         44 14.33 (11.01 to 18.34)    4.77 (3.47 to 6.40)
+                         Herpes zoster         17         12    3.73 (2.18 to 5.98)    1.28 (0.66 to 2.23)
+                         Carpal tunnel         40         29   9.04 (6.46 to 12.30)    3.12 (2.09 to 4.48)
+                      Sprain or strain         54         47  12.46 (9.36 to 16.25)    5.10 (3.75 to 6.78)
+                            Gallstones         39         40   8.80 (6.26 to 12.03)    4.35 (3.11 to 5.92)
+           Upper respiratory infection        173        213 51.92 (44.47 to 60.26) 26.01 (22.63 to 29.75)
+                    Contact dermatitis         18         20    3.95 (2.34 to 6.24)    2.14 (1.31 to 3.30)
+            Fracture, excl. skull/face         24         40    5.30 (3.39 to 7.88)    4.31 (3.08 to 5.87)
+                    Acute appendicitis          4          8    0.87 (0.24 to 2.22)    0.85 (0.37 to 1.68)
+          rate_ratio
+ 2.15 (1.52 to 3.04)
+ 4.31 (2.37 to 7.83)
+ 3.06 (2.14 to 4.38)
+ 3.00 (2.04 to 4.42)
+ 2.92 (1.39 to 6.11)
+ 2.90 (1.80 to 4.67)
+ 2.44 (1.65 to 3.61)
+ 2.02 (1.30 to 3.14)
+ 2.00 (1.63 to 2.44)
+ 1.85 (0.98 to 3.49)
+ 1.23 (0.74 to 2.04)
+ 1.02 (0.31 to 3.39)
+[14:43:12] K26 complete 
+──────── K27 E-values
+=== E-values for the primary estimate ===
+  HR point estimate 2.28 -> E-value 3.99
+  CI lower limit    1.62 -> E-value 2.62
+
+=== observed post-index surveillance rate ratios (K26) ===
+  visits       RR 2.70  exceeds the CI-bound threshold only
+  hospital     RR 2.27  below both thresholds
+  ED           RR 5.74  EXCEEDS the E-value threshold
+  laboratory   RR 1.14  below both thresholds
+
+=== interpretation ===
+  To explain away HR 2.28 entirely, an unmeasured mechanism would need to be
+  associated with BOTH IIH status AND seizure ascertainment by >= 3.99-fold each,
+  conditional on the measured covariates. Marginal association at that magnitude is
+  NOT sufficient -- the E-value is a threshold on the conditional associations.
+  To move the CI to include 1 requires >= 2.62-fold on both.
+
+  NOTE: ED contact RR (5.74) exceeds the point-estimate threshold. This is a caveat,
+  not a reassurance: ED contact is a plausible ascertainment channel for seizures and
+  its magnitude is compatible with a substantial detection contribution.
+
+wrote outputs/tables/K_T56_evalue.csv
+NOTE: supersedes T4e_evalue.csv (4.92 / 3.27), computed against an earlier estimate.
+──────── K16 primary figures
+[14:43:13] === K16 final figures === 
+[14:43:14] wrote figure K_F1_cumulative_incidence (.png/.pdf) 
+[14:43:14] wrote outputs/tables/K_S2_numbers_at_risk.csv (2 rows) 
+[14:43:15] wrote figure K_F2_forest_specifications (.png/.pdf) 
+[14:43:15] wrote figure K_F3_recurrent_vs_single (.png/.pdf) 
+[14:43:23] wrote outputs/tables/K_S1_encounter_type_classification.csv (171 rows) 
+[14:43:23] encounter types: 125 counted, 46 excluded 
+[14:43:23] K16 complete 
+──────── K18 additional figures
+[14:43:24] === K18 further figures === 
+[14:43:25] wrote figure K_F4_negative_control_calibration (.png/.pdf) 
+[14:43:26] wrote figure K_F5_timing_of_events (.png/.pdf) 
+[14:43:29] wrote figure K_F6_severity_cascade (.png/.pdf) 
+[14:43:29] wrote outputs/tables/K_T44_severity_cascade.csv (4 rows) 
+[14:43:29] K18 complete 
+──────── K21 contact figure
+[14:43:31] === K21 contact figures === 
+[14:43:31] wrote figure K_F7_contact_adjustment (.png/.pdf) 
+[14:43:32] wrote figure K_F8_calibration_v2 (.png/.pdf) 
+[14:43:32] K21 complete 
+──────── Z2 consolidated final output
+[14:43:33] === Z2 consolidated final output === 
+[14:43:34] freshness gate passed: every table read was written by this run 
+[14:43:34] wrote report/FINAL_RESULTS.md 
+[14:43:34] Z2 complete 
+ALL STEPS COMPLETE — outputs/logs/final_run_20260918_142954.log
