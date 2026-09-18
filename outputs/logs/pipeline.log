@@ -1213,3 +1213,62 @@
 [04:01:22] wrote outputs/tables/K_T54_post_index_surveillance.csv (10 rows) 
 [04:01:23] wrote outputs/tables/K_T55_negative_outcome_rates.csv (12 rows) 
 [04:01:23] K26 complete 
+[14:26:26] === Z0 provenance gate === 
+[14:26:26] NOTE present but NOT used: IIH_MASTER_cases_and_controls_2.csv 
+[14:26:26] NOTE present but NOT used: MDE_Encounters_controls.csv 
+[14:26:32] case encounter rows 1,199,125 exceed Excel ceiling 1,048,575: untruncated export confirmed 
+[14:26:32] master workbook sheets: Analysis_Cohort, Cases, Controls, Table1_Baseline, Matching_Balance, Excluded_from_analysis, Source_Manifest, Codebook 
+[14:26:42] === Z0 provenance gate === 
+[14:26:42] NOTE present but NOT used: IIH_MASTER_cases_and_controls_2.csv 
+[14:26:42] NOTE present but NOT used: MDE_Encounters_controls.csv 
+[14:26:43] case encounter rows 1,199,125 exceed Excel ceiling 1,048,575: untruncated export confirmed 
+[14:26:43] master workbook sheets: Analysis_Cohort, Cases, Controls, Table1_Baseline, Matching_Balance, Excluded_from_analysis, Source_Manifest, Codebook 
+[14:26:43] wrote outputs/tables/Z_T00_provenance.csv (20 rows) 
+[14:26:43] Z0 provenance gate PASSED 
+[14:27:07] === F1 import & audit (FINAL workbook) === 
+[14:27:08] Analysis_Cohort: 11740 rows x 58 cols; excluded sheet: 1603 rows 
+[14:27:08] supplied e3/t3 and e5/t5 reproduce exactly from t_y and event 
+[14:27:08] wrote outputs/tables/F_S1_washout_symmetry.csv (2 rows) 
+[14:27:08] wrote outputs/tables/F_T2b_matching_ratio.csv (4 rows) 
+[14:27:08] mean controls/case = 3.48 | full 1:4 sets = 61.5% 
+[14:27:08] wrote outputs/tables/F_T2_cohort_flow.csv (7 rows) 
+[14:27:09] wrote outputs/tables/F_S2_data_dictionary.csv (58 rows) 
+[14:27:09] wrote outputs/tables/F_S3_source_manifest.csv (13 rows) 
+[14:27:09] wrote outputs/tables/F_S4_codebook.csv (12 rows) 
+[14:27:09] cohort-specific variables: 26 
+[14:27:09] F1 complete 
+[14:27:14] === G1 build master dataset === 
+[14:27:20] wrote outputs/tables/G_T01_data_availability.csv (5 rows) 
+[14:27:20] wrote outputs/tables/G_T02_cohorts.csv (6 rows) 
+[14:27:21] G1 complete 
+[14:27:29] === K15 FINAL ANALYSIS === 
+[14:27:54] ENC_MODE = visits 
+[14:27:55] encounter-days 476988 across 11740 patients 
+[14:28:05] cases engaged: 2520 of 2618 
+[14:28:58] pass 1: cases 2490 controls 2490 
+[14:29:55] === Z0 provenance gate === 
+[14:29:55] NOTE present but NOT used: IIH_MASTER_cases_and_controls_2.csv 
+[14:29:55] NOTE present but NOT used: MDE_Encounters_controls.csv 
+[14:29:56] case encounter rows 1,199,125 exceed Excel ceiling 1,048,575: untruncated export confirmed 
+[14:29:56] master workbook sheets: Analysis_Cohort, Cases, Controls, Table1_Baseline, Matching_Balance, Excluded_from_analysis, Source_Manifest, Codebook 
+[14:29:56] wrote outputs/tables/Z_T00_provenance.csv (20 rows) 
+[14:29:56] Z0 provenance gate PASSED 
+[14:29:57] === F1 import & audit (FINAL workbook) === 
+[14:29:58] Analysis_Cohort: 11740 rows x 58 cols; excluded sheet: 1603 rows 
+[14:29:58] supplied e3/t3 and e5/t5 reproduce exactly from t_y and event 
+[14:29:58] wrote outputs/tables/F_S1_washout_symmetry.csv (2 rows) 
+[14:29:58] wrote outputs/tables/F_T2b_matching_ratio.csv (4 rows) 
+[14:29:58] mean controls/case = 3.48 | full 1:4 sets = 61.5% 
+[14:29:58] wrote outputs/tables/F_T2_cohort_flow.csv (7 rows) 
+[14:29:59] wrote outputs/tables/F_S2_data_dictionary.csv (58 rows) 
+[14:29:59] wrote outputs/tables/F_S3_source_manifest.csv (13 rows) 
+[14:29:59] wrote outputs/tables/F_S4_codebook.csv (12 rows) 
+[14:29:59] cohort-specific variables: 26 
+[14:29:59] F1 complete 
+[14:30:00] === G1 build master dataset === 
+[14:30:06] wrote outputs/tables/G_T01_data_availability.csv (5 rows) 
+[14:30:06] wrote outputs/tables/G_T02_cohorts.csv (6 rows) 
+[14:30:07] G1 complete 
+[14:30:08] === K15 FINAL ANALYSIS === 
+[14:30:34] ENC_MODE = visits 
+[14:30:34] encounter-days 476988 across 11740 patients 
