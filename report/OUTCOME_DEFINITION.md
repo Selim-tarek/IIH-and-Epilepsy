@@ -97,15 +97,21 @@ ascertainment was never the problem.
 
 ## What this definition produces
 
+**Updated to the final re-matched cohort (18 September 2026 run, `K_T38`).**
+The figures previously in this section (HR 1.87) predated the re-match on dated
+encounters and no longer hold.
+
 | Cohort | IIH | Comparators | Hazard ratio |
 |---|---|---|---|
-| Engagement-restricted (primary) | 63 / 2,593 | 48 / 4,017 | **1.87 (1.28 to 2.72)** |
-| Full cohort | 64 / 2,605 | 207 / 9,085 | 1.03 (0.78 to 1.36) |
+| Primary (visits definition) | 66 / 2,138 | 63 / 5,743 | **2.28 (1.62 to 3.22)** |
+| Codes only, medication channel removed | 56 / 2,138 | 63 / 5,743 | 1.93 (1.34 to 2.77) |
+| Epilepsy-specific codes only (G40/345) | 26 / 2,138 | 24 / 5,743 | 2.30 (1.35 to 3.92) |
+| All encounter rows counted as contact | 65 / 2,507 | 67 / 7,905 | 2.79 (1.98 to 3.93) |
+| Complete matched sets only | 66 / 2,138 | 61 / 4,954 | 2.06 (1.46 to 2.92) |
 
-Rates 10.7 against 5.4 per 1,000 person-years; three-year risk 2.73% against
-1.45%; difference 1.28 percentage points; number needed to harm 78.
-
----
+Rates 14.46 against 6.72 per 1,000 person-years (4,563.0 and 9,375.2
+person-years); three-year risk 3.83% against 1.71%; difference 2.12 percentage
+points; number needed to harm 47. Proportional hazards p = 0.94.
 
 ## The one asymmetry that remains, and cannot be fixed by definition
 
