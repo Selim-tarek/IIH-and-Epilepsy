@@ -24,3 +24,7 @@ data-derived/
 
 # Transient run logs; the final run log is force-added on completion
 outputs/logs/
+
+# Node modules for the manuscript builder
+node_modules/
+package-lock.json
