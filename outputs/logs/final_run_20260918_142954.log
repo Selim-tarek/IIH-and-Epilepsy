@@ -1,0 +1,77 @@
+──────── Z0 provenance gate
+[14:29:55] === Z0 provenance gate === 
+[14:29:55] NOTE present but NOT used: IIH_MASTER_cases_and_controls_2.csv 
+[14:29:55] NOTE present but NOT used: MDE_Encounters_controls.csv 
+[14:29:56] case encounter rows 1,199,125 exceed Excel ceiling 1,048,575: untruncated export confirmed 
+[14:29:56] master workbook sheets: Analysis_Cohort, Cases, Controls, Table1_Baseline, Matching_Balance, Excluded_from_analysis, Source_Manifest, Codebook 
+[14:29:56] wrote outputs/tables/Z_T00_provenance.csv (20 rows) 
+                              file    rows       md5_12
+             IIH_MASTER_FINAL.xlsx      NA b314ba066d03
+     MDE_Encounters_types_full.csv 1199125 79ca279ce326
+ MDE_Encounters_controls_typed.csv  995409 84fc9b547c35
+            MDE_Flowsheets_BMI.csv  387125 47e515642d08
+                      SZ_dx_62.csv    2591 91adb958b138
+              SZ_conditions_10.csv     258 e4a35762e95c
+      MDE_Medications_cases_22.csv  236973 fe2b40d81bd8
+        IIH_medications_detail.csv   27354 486ae53d80bf
+       MDE_Diagnosis_carpal_12.csv    2187 7471946e22aa
+                      NC_dx_21.csv     566 e0c55626c6ad
+                      NC_dx_58.csv    5792 e06020569cfc
+                      NC_dx_59.csv    1996 fd9d42816630
+                      NC_dx_60.csv     325 0ced1e4a0adc
+                      NC_dx_61.csv     602 864fb78fb3a6
+                     NC2_dx_13.csv   12157 6751817cebc7
+                     NC2_dx_14.csv    1978 645701e75df5
+                     NC2_dx_16.csv    3392 c4e82743d0a0
+                     NC2_dx_17.csv    1101 184924054785
+                     NC2_dx_18.csv     624 ba29629d257a
+                     NC2_dx_20.csv    2876 e2c154c3f647
+[14:29:56] Z0 provenance gate PASSED 
+──────── F1 import from master workbook
+[14:29:57] === F1 import & audit (FINAL workbook) === 
+[14:29:58] Analysis_Cohort: 11740 rows x 58 cols; excluded sheet: 1603 rows 
+[14:29:58] supplied e3/t3 and e5/t5 reproduce exactly from t_y and event 
+[14:29:58] wrote outputs/tables/F_S1_washout_symmetry.csv (2 rows) 
+           cohort events earliest_event_day latest_event_day
+1             IIH    102                183             7553
+2 Non-IIH control     64                187             5294
+[14:29:58] wrote outputs/tables/F_T2b_matching_ratio.csv (4 rows) 
+[14:29:58] mean controls/case = 3.48 | full 1:4 sets = 61.5% 
+[14:29:58] wrote outputs/tables/F_T2_cohort_flow.csv (7 rows) 
+                                                                                                       step     n
+1                                                                    Patients in the final matched analysis 11740
+2                                                                                                 IIH cases  2618
+3                                                                                  Matched non-IIH controls  9122
+Excluded at washout / no follow-up after day 180 Excluded: Excluded at washout / no follow-up after day 180   734
+No matched counterpart                                                     Excluded: No matched counterpart   869
+11                                                                                 of exclusions, IIH cases   983
+12                                                                                  of exclusions, controls   620
+[14:29:59] wrote outputs/tables/F_S2_data_dictionary.csv (58 rows) 
+[14:29:59] wrote outputs/tables/F_S3_source_manifest.csv (13 rows) 
+[14:29:59] wrote outputs/tables/F_S4_codebook.csv (12 rows) 
+[14:29:59] cohort-specific variables: 26 
+[14:29:59] F1 complete 
+──────── G1 build master dataset
+[14:30:00] === G1 build master dataset === 
+[14:30:06] wrote outputs/tables/G_T01_data_availability.csv (5 rows) 
+                 variable iih_pct control_pct asymmetry
+1         Seizure outcome   100.0       100.0       0.0
+2   Carpal tunnel (dated)   100.0       100.0       0.0
+3       Medication record    83.5        29.1      54.4
+4        Smoking (graded)    76.4        89.8      13.4
+5 >=1 pre-index encounter    99.5        44.3      55.2
+[14:30:06] wrote outputs/tables/G_T02_cohorts.csv (6 rows) 
+                                           cohort     n
+1                             Full matched cohort 11740
+2                                             IIH  2618
+3                                         control  9122
+4 Engagement-restricted (>=1 pre-index encounter)  6643
+5                                             IIH  2606
+6                                         control  4037
+[14:30:07] G1 complete 
+──────── K15 primary, ENC_MODE=visits
+[14:30:08] === K15 FINAL ANALYSIS === 
+[14:30:34] ENC_MODE = visits 
+[14:30:34] encounter-days 476988 across 11740 patients 
+[14:30:45] cases engaged: 2520 of 2618 
+[14:31:37] pass 1: cases 2490 controls 2490 
