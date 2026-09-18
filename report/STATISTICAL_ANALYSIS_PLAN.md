@@ -140,9 +140,21 @@ unchanged at 2.31.
 ### C. Timing (`SAP_T3`, `K_F5`)
 
 Period-specific hazard ratios: **2.37, 2.00, 2.70, 1.81** across 0–6 months,
-6–12 months, 1–2 years and 2–3 years. No downward trend. A detection effect
-driven by the diagnostic encounter should concentrate early and decay; this
-does not.
+6–12 months, 1–2 years and 2–3 years — flat, with a trend of −0.05 per year.
+
+**This does NOT discriminate, and an earlier draft of this document wrongly
+claimed that it did.** The argument was that a detection effect driven by the
+diagnostic encounter should concentrate early and decay, so a flat profile
+argues against detection. Running the same period-specific analysis on the
+negative controls (`K_T53`) refutes it: they do not decay either, their median
+trend being **+0.21 per year**. The detection effect in this cohort is not a
+burst around the index work-up but a sustained difference in observation
+intensity across all three years, and a flat profile is exactly what it
+produces. The seizure result's flatness is therefore uninformative about
+detection. Period estimates are also unstable — carpal tunnel runs 1.56, 4.40,
+1.08, 6.95 — and no individual cell should be interpreted.
+
+The discriminating evidence is the adjustment test in Section 9, not timing.
 
 Landmark analyses excluding the first 30, 90 and 180 days after the washout:
 **2.49, 2.29, 2.22** against 2.28. The 180-day washout already implements a
@@ -294,9 +306,8 @@ survives landmark, competing-risk and propensity analyses.
 Not "substantially mitigated", and not "unresolved".
 
 **Why not unresolved.** Surveillance is grossly unequal (2.70× visits, 5.74× ED
-encounters), yet the estimate does not behave like a detection artefact: it is
-flat across time rather than concentrated after diagnosis; it survives landmark
-exclusions; it survives restriction to epilepsy-specific codes; it survives
+encounters), yet the estimate does not behave like a detection artefact: it
+survives landmark exclusions; it survives restriction to epilepsy-specific codes; it survives
 overlap weighting that removes the contact imbalance; and — most tellingly — of
 twelve outcomes subjected to six adjustments for healthcare-seeking, the eleven
 negative controls moved toward the null in 66 of 66 combinations while the

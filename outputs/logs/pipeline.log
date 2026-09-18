@@ -1205,3 +1205,7 @@
 [16:49:15] wrote outputs/tables/SAP_T7_missing.csv (7 rows) 
 [16:49:15] wrote outputs/tables/SAP_T8_events_per_parameter.csv (7 rows) 
 [16:49:15] K24 complete 
+[03:50:37] === K25 negative controls over time === 
+[03:50:40] wrote outputs/tables/K_T53_negative_controls_over_time.csv (11 rows) 
+[03:50:40] negative-control trend slopes: median 0.21  (negative = fading)   seizure -0.049 
+[03:50:40] K25 complete 
