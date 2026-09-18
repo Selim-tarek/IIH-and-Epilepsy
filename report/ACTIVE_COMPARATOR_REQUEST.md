@@ -1,9 +1,9 @@
 # Active-comparator extraction request
 
 **Study:** Incident Seizures and Epilepsy After Idiopathic Intracranial Hypertension
-**Purpose:** build a third arm — an *active comparator* — so that the seizure hazard is estimated against a group under equivalent specialist surveillance, rather than against a general-population comparator whose contact rate is roughly half that of the IIH arm.
+**Purpose:** build active-comparator arms so the seizure hazard is estimated against groups under specialist surveillance comparable to IIH, rather than only against a general-population comparator whose healthcare-contact rate is roughly half that of the IIH arm.
 
-## 1. Why this arm is needed
+## 1. Why these arms are needed
 
 The current estimate is HR 2.28 (1.62–3.22). The detection-bias assessment classifies the finding as **partially mitigated**, not clean:
 
@@ -11,66 +11,114 @@ The current estimate is HR 2.28 (1.62–3.22). The detection-bias assessment cla
 - all 11 negative-control outcomes are baseline-imbalanced (RR 1.6–5.0, all p<0.01);
 - empirical calibration predicts a detection-only HR of 1.04 (0.37–2.90), whose interval **contains** 2.28.
 
-Adjustment cannot resolve this, because the healthcare-contact variables available post-index are colliders. A comparator matched on *reason for specialist follow-up* equalises surveillance by design instead. That is the one change that would move the verdict from partially to substantially mitigated.
+Adjustment cannot resolve this, because the healthcare-contact variables available post-index are colliders — post-index visits are caused by the outcome. A comparator matched on *reason for specialist follow-up* equalises surveillance by design instead.
 
-## 2. Comparator condition
+## 2. The design problem, stated honestly
 
-**Primary: chronic migraine without IIH.**
-Same neurologists, same brain MRI pathway, comparable clinic cadence, similar age/sex/BMI distribution. Trade-off, stated plainly: migraine is itself associated with epilepsy, so this comparator biases the IIH estimate **toward the null** — it is conservative, and an HR that survives it is hard to attribute to surveillance.
+An ideal active comparator would satisfy two requirements at once:
 
-**Second arm: neuro-ophthalmology mimic cohort — optic disc drusen / pseudopapilledema, without IIH.**
-Referred down the identical diagnostic pathway as IIH — suspected papilledema, brain MRI/MRV, visual fields, OCT, serial neuro-ophthalmology follow-up — but without raised intracranial pressure. This matches the *ophthalmologic* surveillance axis, which migraine does not cover at all and which is a large part of how IIH patients stay in the system. No plausible causal route from disc drusen to seizures, so unlike migraine it does not bias toward the null.
+1. healthcare utilisation and surveillance similar to IIH;
+2. no established or substantial association with seizure risk.
 
-Two constraints on this arm, stated up front:
+**No single condition satisfies both.** Every candidate fails one:
 
-- **Anchor on H47.32 / H47.33 only. Do not include papilledema codes (H47.1x).** Papilledema is itself a sign of raised intracranial pressure; some IIH patients are likely coded H47.1x without ever receiving G93.2, so an H47.1x-anchored cohort would be contaminated with undiagnosed cases and would attenuate the estimate for the wrong reason. Drusen and pseudopapilledema are the explicit mimics, which is what makes the arm clean.
-- **Expected to be small** — plausibly hundreds rather than thousands, even at a referral centre. Against the 66 events available, an arm of ~1,000 detects an HR near 2.0 and nothing smaller. We will therefore report it as a **supportive** arm, corroborating or failing to corroborate the migraine result, never as a standalone confirmation. **Please report the eligible count before running the full extraction** so we can decide whether the arm is worth pulling.
+| Candidate | Surveillance match | Seizure association | Verdict |
+|---|---|---|---|
+| Chronic migraine | Excellent | Established | Fails (2) |
+| Obstructive sleep apnoea | Good | Established, bidirectional; PSG adds a detection channel | Fails (2) |
+| Multiple sclerosis | Excellent | Established | Fails (2) |
+| PCOS | Weak — no neurology, no brain imaging | Documented (partly but not wholly valproate-mediated) | Fails both |
+| IBD | Contact volume only | Weak | Fails (1) |
+| Optic disc drusen / pseudopapilledema | Good on referral pathway | None established | Passes both; too small alone |
+| Chiari I malformation | Good | None established | Passes both; small alone |
+| Pituitary microadenoma / sellar incidentaloma | Good (serial MRI) | None established | Passes both; small alone |
 
-**Third arm (alternative, if volume is preferred over pathway match): PCOS without IIH, or inflammatory bowel disease without IIH.**
-These isolate healthcare-contact *volume* from neurologic *surveillance*: high, regular specialist follow-up with no brain imaging and no seizure association. Much better powered than the drusen arm and a weaker match on any single axis. If the hazard survives both a neurologic match (migraine) and a contact-volume match (PCOS/IBD), a detection-only explanation becomes difficult to sustain. PCOS additionally matches on age, sex and BMI; IBD matches contact frequency better but matches obesity poorly.
+PCOS was proposed in an earlier draft of this request as the seizure-clean option. That was wrong and is withdrawn: the PCOS–epilepsy association is documented, partly valproate-driven but also reported independent of it.
 
-We would analyse each comparator arm separately, never pooled.
+**Approach: bracket the bias with two arms that fail in opposite directions**, and state this explicitly in the manuscript rather than claiming a clean comparator exists.
 
-## 3. Cohort definition (to be applied by the extraction team)
+- **Arm A, surveillance-matched with a known seizure association** → biases toward the null → yields a **conservative lower bound** on the hazard ratio.
+- **Arm B, seizure-clean with a somewhat lower surveillance intensity** → residual surveillance shortfall biases *away* from the null → yields an **upper bound**.
+
+If both brackets exclude 1, the effect is robust to the direction of the residual bias, and a detection-only explanation must hold against both simultaneously.
+
+## 3. The two arms
+
+### Arm A — chronic migraine without IIH (conservative lower bound)
+
+Same neurologists, same brain MRI pathway, comparable clinic cadence, similar age and sex distribution. Migraine is itself associated with epilepsy and generates "spells" workups that carry their own EEG-detection channel; both push the estimate toward the null. This arm is therefore reported as a **lower bound**, not as a clean comparator.
+
+### Arm B — benign neuro-surveillance cohort, pooled (upper bound)
+
+A pooled cohort of three conditions sharing one defining feature: a **benign finding under protocolised serial brain imaging and neurology / neuro-ophthalmology follow-up, in a young, female-predominant population, with no epileptogenic mechanism.**
+
+- optic disc drusen / pseudopapilledema — referred down the *identical* pathway as IIH (suspected papilledema → brain MRI/MRV → visual fields, OCT → serial neuro-ophthalmology follow-up);
+- Chiari I malformation — headache presentation, serial brain MRI, neurosurgery/neurology follow-up;
+- pituitary microadenoma / sellar incidentaloma — protocolised repeat MRI, endocrine and neurosurgical follow-up.
+
+Pooling *these* is defensible because they share that surveillance mechanism; pooling any of them with migraine would not be. Pooling also solves the power problem that sinks each one individually.
+
+**Two weaknesses to handle in advance, not after review:**
+
+- **Chiari contamination.** Tonsillar ectopia can be *acquired* from raised intracranial pressure, so a share of Chiari I patients may be undiagnosed IIH — the same hazard as papilledema codes. Exclude any IIH code at any date, and report the arm both with and without the Chiari component.
+- **Heterogeneity.** Per-component hazard ratios are pre-specified and reported alongside the pooled estimate. If the components disagree, the pooling assumption is wrong and we say so rather than resolving it into a single number.
+
+## 4. Cohort definitions (to be applied by the extraction team)
 
 Include a patient if, at any point in the source period:
-- **≥2 outpatient encounters** carrying a qualifying diagnosis code, on **different dates ≥30 days apart** (single codes are unreliable), OR one inpatient discharge with the code;
-  - chronic migraine: G43.7x (chronic migraine without aura), plus G43.0x/G43.1x/G43.8x/G43.9x if the ≥2-encounter rule is met;
-  - optic disc drusen / pseudopapilledema: H47.32, H47.33 — **and additionally exclude any patient with a papilledema code H47.1x at any date**, since that code indicates raised intracranial pressure and may mark an uncoded IIH case;
-  - PCOS: E28.2;
-  - IBD: K50.x (Crohn) or K51.x (ulcerative colitis);
+
+- **≥2 outpatient encounters** carrying a qualifying diagnosis code, on **different dates ≥30 days apart**, OR one inpatient discharge with the code (single codes are unreliable);
 - age ≥18 at the qualifying date;
 - **no IIH code ever** (G93.2, G97.2 — exclude on any occurrence, any date, including after the index date);
-- not already in the case or comparator files supplied for this study.
+- not already present in the case or comparator files supplied for this study.
 
-Do **not** pre-filter to patients who had seizures, and do **not** drop patients with no outcome. Send everyone who meets the definition. Index-date assignment and washout are ours to apply downstream (protocol §2.3); the extract should carry all dates so we can do that.
+Qualifying codes:
 
-## 4. Size needed
+| Arm | Codes |
+|---|---|
+| A — chronic migraine | G43.7x; also G43.0x / G43.1x / G43.8x / G43.9x where the ≥2-encounter rule is met |
+| B1 — optic disc drusen / pseudopapilledema | H47.32, H47.33 |
+| B2 — Chiari I malformation | Q07.00, Q07.01 (exclude Chiari II/III) |
+| B3 — pituitary microadenoma / sellar incidentaloma | D35.2, E22.1 (prolactinoma), plus benign sellar lesion codes if locally used |
 
-From the events actually available in the IIH arm (2,138 patients × 2.13 person-years × 14.5/1,000 py ≈ 66 events), Schoenfeld:
+**Additional exclusions for Arm B, applied to all three components:**
 
-| Smallest HR to detect (80% power, α=0.05) | 1:1 | 1:2 | 1:3 |
+- any papilledema code **H47.1x** at any date — it indicates raised intracranial pressure and may mark an uncoded IIH case;
+- any intracranial mass or epileptogenic lesion: meningioma (D32.x), glioma and other primary brain tumour (C71.x), brain metastasis (C79.31), pituitary **macro**adenoma with mass effect or chiasmal compression where distinguishable;
+- multiple sclerosis (G35), prior stroke (I60–I63), traumatic brain injury (S06.x), CNS infection (G00–G09), neurosurgical resection or craniotomy.
+
+Do **not** pre-filter to patients who had seizures, and do **not** drop patients with no outcome. Send everyone meeting the definition. Index-date assignment and the 180-day washout are ours to apply downstream (protocol §2.3); the extract must carry all dates so we can do that.
+
+## 5. Size needed
+
+From the events available in the IIH arm (2,138 patients × 2.13 person-years × 14.5/1,000 py ≈ 66 events), Schoenfeld:
+
+| Smallest HR detectable (80% power, α=0.05) | 1:1 | 1:2 | 1:3 |
 |---|---|---|---|
 | 1.50 | ~6,100 | ~7,300 | ~9,200 |
 | 1.75 | ~2,000 | ~2,700 | ~3,900 |
 | 2.00 | already powered at 1:1 | ~500 | ~1,400 |
 | 2.28 (observed) | already powered | already powered | already powered |
 
-**Ask: everyone meeting the definition, up to ~10,000 chronic-migraine patients.** For the drusen/pseudopapilledema arm, take everyone who qualifies — the table above shows what that count will and will not support, and the arm is framed accordingly rather than dropped. At that size we can detect an HR as small as 1.5, which matters because the migraine comparator is expected to attenuate the estimate. If the pull is capped, 3,000–4,000 is still a usable arm (detects ~1.75); below ~2,000 the arm can only confirm or exclude an effect near 2.0 and should be framed as supportive, not confirmatory.
+**Arm A: everyone meeting the definition, up to ~10,000.** The size matters specifically because migraine is expected to attenuate — at ~2,000 the arm can only confirm or exclude an effect near 1.75, and would be framed as supportive rather than confirmatory.
 
-## 5. Required extracts
+**Arm B: everyone who qualifies across all three components.** Pooling is what makes this arm viable; the table above states what the resulting count will and will not support, and the arm is framed accordingly rather than dropped. **Please report the eligible count per component before running the full extraction**, so the pooling and framing decisions can be made on real numbers.
 
-Identical in structure to what was supplied for the existing two arms — same columns, same format, so the pipeline runs unchanged. One set of files per comparator condition. If pulling all arms at once is burdensome, the chronic-migraine arm is the priority; the drusen arm is next and is small; the PCOS/IBD arm can follow.
+## 6. Required extracts
 
-1. **Diagnoses** — MRN, ICD-10 code, code description, diagnosis date. **Unfiltered**: every code, every date, not restricted to seizure/epilepsy codes and not restricted to post-index. Needed for the index anchor, the 180-day washout, comorbidity covariates, and the 11 negative-control outcomes.
-2. **Encounters** — MRN, encounter date, **Encounter Type** (the same field supplied in `MDE_Encounters_types_full.csv`). This is essential: it is what defines cohort engagement, the at-risk clock, and every surveillance measure. Without Encounter Type we cannot strip administrative contacts and the arm is not comparable to the existing two.
+Identical in structure to what was supplied for the existing two arms — same columns, same format, so the pipeline runs unchanged. One set of files per arm; for Arm B, include a column identifying which component (B1/B2/B3) each patient qualified under, since per-component estimates are pre-specified. If pulling both arms at once is burdensome, Arm A is the priority.
+
+1. **Diagnoses** — MRN, ICD-10 code, code description, diagnosis date. **Unfiltered**: every code, every date, not restricted to seizure/epilepsy codes and not restricted to post-index. Needed for the index anchor, the 180-day washout, comorbidity covariates, the exclusions in §4, and the 11 negative-control outcomes.
+2. **Encounters** — MRN, encounter date, **Encounter Type** (the same field supplied in `MDE_Encounters_types_full.csv`). Essential: it defines cohort engagement, the at-risk clock, and every surveillance measure. Without Encounter Type we cannot strip administrative contacts and the arm is not comparable to the existing two.
 3. **BMI flowsheets** — MRN, BMI value, capture date. Dated values only; matching uses the BMI closest in calendar year to the index date.
-4. **Medications** — MRN, drug name, order/start date, stop date, inpatient/outpatient flag. Anti-seizure medications are part of the outcome definition (a patient continued on an ASM counts as a positive event even without a code), so an ASM-only pull is not sufficient — we need the full list to establish indication and duration. If outpatient prescriptions are unavailable for this arm as they were for the cases, say so and we will apply the code-only definition symmetrically across all three arms.
+4. **Medications** — MRN, drug name, order/start date, stop date, inpatient/outpatient flag. Anti-seizure medications are part of the outcome definition (a patient continued on an ASM counts as a positive event even without a code), so an ASM-only pull is not sufficient — the full list is needed to establish indication and duration. If outpatient prescriptions are unavailable for these arms as they were for the cases, say so and we will apply the code-only definition symmetrically across all arms.
 5. **Vital status** — MRN, death date if any. Needed for competing-risk censoring.
 6. **Demographics** — MRN, birth year, sex, race/ethnicity. Matching variables.
 
 Format: CSV, zipped. Please do not export via Excel — the .xlsb exports supplied earlier were silently truncated at Excel's 1,048,576-row ceiling (the case encounter file has 1,199,125 rows). Export from the query tool directly to CSV.
 
-## 6. What we will and will not claim
+## 7. What we will and will not claim
 
-With this arm we can report whether the seizure hazard persists against a group under equivalent neurologic surveillance. We will report the estimate whatever it shows, including a null. Each arm answers a different question — migraine matches neurologic surveillance, drusen matches the diagnostic pathway, PCOS/IBD matches contact volume — and each is reported separately with its own power stated. We will not pool the comparator arms, will not present the active-comparator analysis as proof that surveillance bias is absent, and will not drop the general-population comparator — both are reported side by side.
+We will report whether the seizure hazard persists against a surveillance-matched arm (A) and against a seizure-clean arm (B), with each arm's direction of residual bias stated. Each arm is reported separately with its own power; Arm A and Arm B are never pooled with each other, and the general-population comparator is retained and reported alongside them.
+
+We will report the estimates whatever they show, including a null. We will **not** present the active-comparator analysis as proof that surveillance bias is absent — it narrows the range of explanations, it does not eliminate one.
