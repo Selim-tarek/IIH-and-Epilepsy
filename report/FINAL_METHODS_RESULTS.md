@@ -140,56 +140,102 @@ seizure is to recur once it has happened.
 
 ## Limitations
 
-**Ascertainment.** Comparators are ascertained from codes and medication
-records; the IIH events were additionally chart-confirmed. Coded ascertainment
-over-counts, since a convulsion code may be entered for an episode a reviewer
-would reject, so the comparator count is if anything generous and the hazard
-ratio correspondingly conservative.
+**Surveillance and detection.** The principal limitation is differential
+ascertainment. It was assessed directly rather than assumed away, and it could
+not be excluded.
 
-**Medication capture is not comparable between the arms.** The case medication
-file records inpatient administrations — the commonest agent recorded is
-fosphenytoin, given intravenously for acute seizures — while the comparator file
-records outpatient prescriptions. Outpatient prescribing data for the IIH arm
-was not available. Chronic outpatient therapy in that arm is therefore
-under-captured, and the medication channel contributes ten events. Removing it
-entirely leaves the estimate at 1.93 (1.34 to 2.77).
+Differential ascertainment is demonstrably present in this data source. All
+eleven negative-control outcomes — conditions with no plausible relationship to
+intracranial pressure — were more frequent in the IIH arm before index (ratios
+1.6 to 5.0, all p < 0.01). Post-index, surveillance was higher in every
+clinician-initiated setting: all clinical visits 2.70 (2.68 to 2.73), office or
+clinic 2.92 (2.88 to 2.97), procedural or diagnostic 2.32 (2.28 to 2.37),
+hospital or inpatient 2.27 (2.22 to 2.33), emergency department 5.74 (4.96 to
+6.65). It was not higher in the one setting that is not clinician-initiated —
+laboratory encounters, 1.14 (1.02 to 1.28).
 
-**Healthcare contact.** An outcome defined by benzodiazepine exposure alone,
-requiring no seizure code, yields a hazard ratio of similar magnitude. That
-comparison is itself confounded by the differing medication sources, so its
-magnitude cannot be interpreted, but residual confounding by healthcare contact
-cannot be excluded. Median follow-up was longer in the IIH arm (2.77 against
-1.51 years), reflecting more frequent attendance; rates and the Cox model
-account for person-time, but differential observation remains a plausible
-partial explanation.
+Three observations argue against detection accounting for the whole of the
+association. First, empirical calibration across the eleven controls (r = 0.66,
+p = 0.026; slope 0.84, SE 0.31) predicts a detection-attributable hazard ratio
+at baseline balance of 1.04 — essentially null — with the observed estimate of
+2.28 lying at the extreme upper margin of its interval. Second, and more
+informative than magnitude, the direction of response to healthcare-seeking
+adjustment separates the outcomes cleanly: across six independent contact
+measures, every one of the eleven controls moved toward the null (66 of 66
+outcome-by-measure combinations; median change −29%, range −46% to −3%), while
+the seizure estimate moved away from the null on all six (+7.8% to +28.6%). An
+outcome generated purely by differential detection would be expected to behave as
+the controls did. Third, quantitative bias analysis: an unmeasured mechanism
+would need to be associated with both IIH status and seizure ascertainment by at
+least 3.99-fold each, conditional on the matched and adjusted covariates, to
+reduce the hazard ratio to unity, and by at least 2.62-fold to move the interval
+to include unity. Five of the six measured surveillance channels fall below the
+first threshold.
 
-**Negative controls provide no usable specificity evidence in this dataset.**
-Six candidate outcomes were examined on the rebuilt cohort. Five — herpes
-zoster, renal or ureteric stone, gallstones, acute appendicitis and carpal
-tunnel syndrome — are already more prevalent in the IIH arm before index (ratios
-1.6 to 3.2, all p < 0.01), so their post-index hazard cannot be attributed to
-detection rather than to whatever produced the baseline imbalance. Several are
-plausibly related to IIH or its treatment in any case: acetazolamide and
-topiramate predispose to renal stones, gallstones follow weight loss, and carpal
-tunnel syndrome is associated with obesity. The one outcome that satisfied the
-balance criterion, limb fracture, yielded two and seven events — too few to
-estimate.
+Three observations cut the other way, and we state them rather than omit them.
+The calibration interval is 0.37 to 2.90 and **includes the observed estimate of
+2.28**; on that analysis alone the association cannot be formally distinguished
+from a detection artefact. On unadjusted rate ratios the seizure outcome (2.15,
+1.52 to 3.04) ranks eighth of twelve among the negative-control outcomes rather
+than standing apart from them — laceration 4.31, otitis 3.06, renal stone 3.00,
+herpes zoster 2.92, carpal tunnel 2.90 and sprain 2.44 all exceed it. And
+emergency department contact (5.74) exceeds the E-value threshold, in the setting
+that is the most plausible single route by which a first seizure is ascertained.
+The E-value is a threshold on associations conditional on the measured
+covariates, and emergency attendance in this cohort is substantially driven by
+headache presentations for which the arms were matched — but that is an argument
+from mechanism, not a measurement, and it does not resolve the concern.
 
-The calibration approach used in the submitted manuscript, in which the
-relationship between baseline imbalance and apparent post-index effect is
-extrapolated to perfect balance, does not survive the rebuild. Across the five
-estimable controls that relationship is weak and not significant (r = 0.28,
-p = 0.65; slope 0.48, SE 0.94), and the predicted detection-only hazard ratio at
-baseline balance is 1.51 with an interval of 0.07 to 30.8. We report this rather
-than the earlier figure, which was computed on the arm-asymmetric matching and
-does not carry over.
+Our reading is therefore that detection bias is unlikely to account for the
+entire association but cannot be excluded as a partial contributor. That
+conclusion rests on the directional evidence and the quantitative bias analysis,
+not on the calibration interval, and it is an interpretation rather than a
+demonstration.
 
-We note that several negative controls sit at hazard ratios of 2.0 to 3.1,
-overlapping the primary estimate. Because those outcomes are baseline-imbalanced
-this does not demonstrate that the seizure association is detection-driven, but
-neither can it be excluded. We therefore make no specificity claim.
+**Surveillance could not be characterised where it would matter most.** The
+encounter extract carries no specialty field — none of the 171 encounter types
+names a department — so neurology and ophthalmology visit rates are not
+estimable. Imaging and EEG are likewise unavailable as comparable measures: the
+radiology extract covers comparators only, and EEG is recorded for 393 IIH
+patients and no comparators. The channels most specific to seizure ascertainment
+are the ones we cannot measure.
+
+**Post-index contact was not adjusted for in the primary model.** Post-index
+healthcare contact is a consequence of the outcome as well as a determinant of
+its ascertainment, so conditioning on it induces collider bias. It is reported
+descriptively and as a sensitivity analysis only; contact adjustment raises the
+estimate to 2.57.
+
+**Comparator.** The comparator arm was drawn from the general clinical population
+rather than from a condition under equivalent specialist follow-up. An active
+comparator matched on reason for neurologic and neuro-ophthalmologic surveillance
+would equalise ascertainment by design rather than by adjustment, and is the
+analysis required to resolve the residual uncertainty. No available condition
+satisfies both requirements — comparable surveillance intensity and no
+established seizure association — so such a design would need to bracket the bias
+with two arms failing in opposite directions.
+
+**Ascertainment definition.** Seizure status was defined by diagnosis codes
+together with sustained anti-seizure medication exposure, applied symmetrically
+to both arms. Medication capture is not comparable between the arms: the case
+file records inpatient administrations, the comparator file outpatient
+prescriptions, and outpatient prescribing for the IIH arm was not obtainable.
+Chronic outpatient therapy in the IIH arm is therefore under-captured. Removing
+the medication channel entirely leaves the estimate at 1.93 (1.34 to 2.77).
+Code-based seizure ascertainment is imperfect, and chart validation of
+code-positive comparators has not been completed.
 
 **Design.** This is an observational matched cohort. The association should not
-be read as causal, and residual confounding by factors raising both the
-likelihood of an IIH diagnosis and the likelihood of a seizure diagnosis cannot
-be excluded.
+be read as causal. No mechanism linking raised intracranial pressure to seizure
+generation is established or tested here, and residual confounding by factors
+raising both the likelihood of an IIH diagnosis and the likelihood of a seizure
+diagnosis cannot be excluded.
+
+---
+
+*Supporting tables: K_T38 (primary), K_T45 and K_T42 (negative controls),
+K_T48 (calibration), K_T50 (contact robustness), K_T52 (collider), K_T54
+(post-index surveillance), K_T55 (negative-outcome rates), K_T56 (E-values;
+supersedes T4e, which was computed against an earlier estimate). Full
+pre-specification in `report/STATISTICAL_ANALYSIS_PLAN.md`; drafted manuscript
+text in `report/LIMITATIONS_AND_INTERPRETATION.md`.*

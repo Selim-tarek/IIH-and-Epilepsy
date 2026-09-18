@@ -75,46 +75,60 @@ testing.
 
 ## 4. The negative-control extrapolation may be unfair
 
-**The methodological point is correct and we have adopted it. Measured, it moves
-the result in the opposite direction to the one anticipated.**
+**The methodological point is correct and we have adopted it. The framework has
+since been rebuilt on a larger panel, and the answer it now gives is less
+favourable to us than the one in the submitted manuscript.**
 
 Placing seizure at a prevalence ratio of 1.00 "by design" was an assumption
-rather than a measurement. Computed as it was for the other outcomes, prevalent
-seizure coding before index is 0.31% in the IIH arm and 0.38% among comparators
-— a ratio of **0.80**, not a value above one. The predicted detection-only
-hazard ratio therefore falls from 0.79 (0.28 to 2.24) at a ratio of 1.00 to
-**0.63 (0.21 to 1.91)** at the measured ratio. The manuscript now reports the
-measured ratio.
+rather than a measurement, and we have withdrawn it. The panel was rebuilt from
+six candidate controls to **eleven**, selected as outcomes with no plausible
+relationship to intracranial pressure and extracted on the re-matched cohort.
+Calibration now regresses the observed log hazard ratio on the log baseline
+prevalence ratio across all eleven: r = 0.66 (p = 0.026), slope 0.84 (SE 0.31),
+giving a predicted detection-attributable hazard ratio at baseline balance of
+**1.04, with a 95% interval of 0.37 to 2.90**.
+
+That interval **includes our observed estimate of 2.28**. We report this
+explicitly in the Limitations rather than the single extrapolated point value
+used previously. The r = 0.925 figure in the submitted manuscript was computed on
+the arm-asymmetric matching and does not carry over.
 
 ## 5. Some negative controls are not clean
 
-**Accepted in full, and on re-examination the problem is worse than the reviewer
-suggests. We have withdrawn the specificity claim entirely.**
+**Accepted in full. The specificity claim is withdrawn; what replaces it is a
+weaker, directional argument, and we have been explicit about which parts of our
+conclusion it can and cannot support.**
 
 The reviewer is right about each mechanism: acetazolamide and topiramate
 predispose to renal stones and both treat IIH; gallstones follow weight loss and
 bariatric surgery; carpal tunnel syndrome is associated with obesity.
 
-Recomputing the panel on the rebuilt cohort showed more. Five of six candidate
-controls are already more prevalent in the IIH arm before index — ratios of 1.6
-to 3.2, all p < 0.01 — so none of them can distinguish detection from whatever
-produced that imbalance. The only outcome meeting the balance criterion, limb
-fracture, has two and seven events and cannot be estimated. And the calibration
-extrapolation reported in the submitted manuscript does not replicate: across
-the five estimable controls the relationship between baseline imbalance and
-apparent effect is weak and not significant (r = 0.28, p = 0.65; slope 0.48,
-SE 0.94), giving a predicted detection-only hazard ratio at balance of 1.51 with
-an interval of 0.07 to 30.8. The earlier figure (r = 0.925) was computed on the
-arm-asymmetric matching and does not carry over.
+Re-examination on the rebuilt cohort showed the problem is general rather than
+confined to those three. **All eleven** controls are more prevalent in the IIH arm
+before index — ratios 1.6 to 5.0, all p < 0.01 — so none can distinguish
+detection from whatever produced that imbalance. We therefore make no specificity
+claim anywhere in the manuscript, and the negative-control figure caption states
+what the panel shows: that baseline imbalance is pervasive in this data source.
 
-We also note, because a reader would find it, that several controls sit at
-hazard ratios of 2.0 to 3.1, overlapping the primary estimate. Since those
-outcomes are baseline-imbalanced this does not establish that the seizure
-association is detection-driven, but it cannot be excluded either.
+We also report, because a reader would find it, that on unadjusted rate ratios
+the seizure outcome (2.15) ranks **eighth of twelve** among these outcomes rather
+than standing apart from them. Laceration (4.31), otitis (3.06), renal stone
+(3.00), herpes zoster (2.92), carpal tunnel (2.90) and sprain (2.44) all exceed
+it.
 
-The manuscript therefore makes no specificity claim. The negative-control figure
-is retained and its caption states what it shows: that the approach cannot
-adjudicate specificity in these data.
+What the panel does support is a directional argument, which we advance as an
+interpretation and not a demonstration. Across six independent healthcare-contact
+measures, every one of the eleven controls moved **toward** the null under
+adjustment — 66 of 66 outcome-by-measure combinations, median change −29% — while
+the seizure estimate moved **away** from the null on all six (+7.8% to +28.6%).
+An outcome generated purely by differential detection would be expected to behave
+as the controls did. We have added a quantitative bias analysis alongside it:
+E-values of 3.99 for the point estimate and 2.62 for the confidence limit, against
+measured surveillance rate ratios of 1.14 to 5.74 across six settings.
+
+Our conclusion is stated as: detection bias is unlikely to account for the entire
+association, but cannot be excluded as a partial contributor. We do not claim it
+has been ruled out.
 
 ## 6. Exclusions may have been applied only to comparators
 
@@ -172,13 +186,34 @@ healthcare contact persist after matching.
 
 ## Remaining limitations, stated in the manuscript
 
-Comparators are ascertained from codes while the IIH events were additionally
-chart-confirmed; coded ascertainment over-counts, so the comparator count is if
-anything generous and the estimate conservative. Medication capture is not
-comparable between the arms — inpatient administrations for cases, outpatient
-prescriptions for comparators — and outpatient prescribing data for the IIH arm
-was not obtainable; removing the medication channel entirely leaves the estimate
-at 1.93 (1.34 to 2.77). An outcome defined by benzodiazepine exposure alone
-yields a hazard ratio of similar magnitude, so residual confounding by
-healthcare contact cannot be excluded. Median follow-up was longer in the IIH
-arm (2.77 against 1.51 years).
+The full text is in `report/FINAL_METHODS_RESULTS.md` (Limitations) and
+`report/LIMITATIONS_AND_INTERPRETATION.md`; the pre-specification is in
+`report/STATISTICAL_ANALYSIS_PLAN.md`. In summary:
+
+**Surveillance.** Differential ascertainment is present and was not excluded.
+All eleven negative controls are baseline-imbalanced; post-index surveillance is
+higher in every clinician-initiated setting (2.27 to 5.74) but not in the one
+that is not (laboratory, 1.14); the calibration interval contains our estimate;
+emergency department contact exceeds the E-value threshold. Against this, the
+directional evidence and the E-values argue that detection is unlikely to explain
+the whole association. We state which parts of our conclusion rest on which
+evidence.
+
+**Channels we cannot measure.** The encounter extract carries no specialty field,
+so neurology and ophthalmology rates are not estimable; the radiology extract
+covers comparators only and EEG is recorded for IIH patients only. The channels
+most specific to seizure ascertainment are the ones unavailable to us.
+
+**No active comparator.** The comparator arm is drawn from the general clinical
+population, not from a condition under equivalent specialist follow-up. We have
+specified the design that would resolve this (`report/ACTIVE_COMPARATOR_REQUEST.md`)
+and report it as required future work rather than claiming the present data
+substitute for it.
+
+**Ascertainment definition.** Medication capture differs between the arms —
+inpatient administrations for cases, outpatient prescriptions for comparators —
+and outpatient prescribing for the IIH arm was not obtainable. Removing the
+medication channel entirely leaves the estimate at 1.93 (1.34 to 2.77). Chart
+validation of code-positive comparators is not complete.
+
+**Design.** Observational; no causal claim is made.
