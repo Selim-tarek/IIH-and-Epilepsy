@@ -125,13 +125,13 @@ the absence of focal neurologic deficits are themselves diagnostic requirements.
 Natural-history studies describe headache, transient visual obscurations,
 pulsatile tinnitus, visual loss, and diplopia as the characteristic clinical
 spectrum of IIH, without an established association with seizures or epilepsy
-either at presentation or during long-term follow-up.1--4
+either at presentation or during long-term follow-up.1,3,4,5
 
 This distinction has important diagnostic implications as IIH remains a diagnosis
 of exclusion. Among the most important mimics is cerebral venous thrombosis,
 which can reproduce the headache, papilledema, and sixth-nerve palsy
 characteristic of IIH but frequently presents with seizures or focal neurologic
-deficits due to cortical venous involvement.5,6 Consequently, diagnostic
+deficits due to cortical venous involvement.6,7 Consequently, diagnostic
 paradigms have long distinguished pressure-mediated disease without seizures from
 structural venous pathology in which seizures are common. This leads to the view
 that epilepsy represents evidence against rather than a consequence of IIH.
@@ -143,11 +143,11 @@ encephaloceles through the middle cranial fossa. These structural abnormalities
 have been described in patients with IIH, spontaneous skull-base CSF leaks, and
 drug-resistant temporal lobe epilepsy, suggesting that sustained elevations in
 intracranial pressure could create a substrate for epileptogenesis over time
-rather than precipitating seizures acutely.7 Whether this anatomic association
+rather than precipitating seizures acutely.8 Whether this anatomic association
 translates into an increased population-level risk of incident seizures or
 epilepsy remains unknown. Current prognostic frameworks for IIH therefore remain
 focused on visual outcomes, headache burden, and disease recurrence, with little
-consideration of seizure-related outcomes.8,9
+consideration of seizure-related outcomes.9,10
 
 We conducted a matched retrospective cohort study to determine whether IIH is
 associated with an increased risk of incident seizures or epilepsy compared with
@@ -168,7 +168,7 @@ diagnosis codes, problem lists, medication records, flowsheet vital
 signs, and vital status. Index dates ranged from June 7, 2002, through
 November 11, 2025, and the data were frozen on September 3, 2026.
 
-This report follows the STROBE and RECORD reporting guidelines.10,11 The study was approved by the Mayo Clinic Institutional Review Board,
+This report follows the STROBE and RECORD reporting guidelines.11,12 The study was approved by the Mayo Clinic Institutional Review Board,
 which waived the requirement for informed consent.
 
 ## 2.2 \| Study population
@@ -179,8 +179,8 @@ together with a lumbar puncture record (CPT 62270 or 62328, or an
 electronic lumbar puncture procedure entry). The index date was the date
 of the diagnostic lumbar puncture. IIH diagnoses were not adjudicated
 against the revised diagnostic criteria; opening pressure was abstracted
-when available.12 The complete code list is provided in eTable
-1.Comparators were patients with no IIH diagnosis code at any time in
+when available.2 The complete code list is provided in eTable
+1. Comparators were patients with no IIH diagnosis code at any time in
 the available record.
 
 Eligibility criteria. Patients with a history of ischemic stroke, intracerebral
@@ -665,27 +665,27 @@ those guidelines.
 
 1\. Horton JC. Idiopathic intracranial hypertension. N Engl J Med. 2025;392(10):995-1008. doi:10.1056/NEJMra2404929
 
-2\. Markey KA, Mollan SP, Jensen RH, Sinclair AJ. Understanding idiopathic intracranial hypertension: mechanisms, management, and future directions. Lancet Neurol. 2016;15(1):78-91. doi:10.1016/S1474-4422(15)00298-7
+2\. Friedman DI, Liu GT, Digre KB. Revised diagnostic criteria for the pseudotumor cerebri syndrome in adults and children. Neurology. 2013;81(13):1159--1165.
 
-3\. Patel P, Ross A, Henretig FM, et al. Clinical reasoning: a 12-year-old girl with headache and change in mental status. Neurology. 2018;90(11):e1000-e1004.
+3\. Markey KA, Mollan SP, Jensen RH, Sinclair AJ. Understanding idiopathic intracranial hypertension: mechanisms, management, and future directions. Lancet Neurol. 2016;15(1):78-91. doi:10.1016/S1474-4422(15)00298-7
 
-4\. Olaru C, Langberg S, McCoin NS. A review of the clinical presentation, causes, and diagnostic evaluation of increased intracranial pressure in the emergency department. West J Emerg Med. 2024;25(6):1046-1057.
+4\. Patel P, Ross A, Henretig FM, et al. Clinical reasoning: a 12-year-old girl with headache and change in mental status. Neurology. 2018;90(11):e1000-e1004.
 
-5\. Saposnik G, Bushnell C, Coutinho JM, et al. Diagnosis and management of cerebral venous thrombosis: a scientific statement from the American Heart Association. Stroke. 2024;55(12):e77-e90. doi:10.1161/STR.0000000000000456
+5\. Olaru C, Langberg S, McCoin NS. A review of the clinical presentation, causes, and diagnostic evaluation of increased intracranial pressure in the emergency department. West J Emerg Med. 2024;25(6):1046-1057.
 
-6\. Ropper AH, Klein JP. Cerebral venous thrombosis. N Engl J Med. 2021;385(1):59-64. doi:10.1056/NEJMra2106545
+6\. Saposnik G, Bushnell C, Coutinho JM, et al. Diagnosis and management of cerebral venous thrombosis: a scientific statement from the American Heart Association. Stroke. 2024;55(12):e77-e90. doi:10.1161/STR.0000000000000456
 
-7\. Chen BS, Britton JOT. Expanding the clinical spectrum of idiopathic intracranial hypertension. Curr Opin Neurol. 2023;36(1):80-86.
+7\. Ropper AH, Klein JP. Cerebral venous thrombosis. N Engl J Med. 2021;385(1):59-64. doi:10.1056/NEJMra2106545
 
-8\. Toscano S, Lo Fermo S, Reggio E, et al. An update on idiopathic intracranial hypertension in adults: a look at pathophysiology, diagnostic approach and management. J Neurol. 2021;268(9):3249-3268. doi:10.1007/s00415-020-09943-9
+8\. Chen BS, Britton JOT. Expanding the clinical spectrum of idiopathic intracranial hypertension. Curr Opin Neurol. 2023;36(1):80-86.
 
-9\. Molander LD, Hagen SM, Hansen NS, et al. Patterns of retinal damage and visual long-term consequences in patients with idiopathic intracranial hypertension. Neurology. 2025;104(7):e211234.
+9\. Toscano S, Lo Fermo S, Reggio E, et al. An update on idiopathic intracranial hypertension in adults: a look at pathophysiology, diagnostic approach and management. J Neurol. 2021;268(9):3249-3268. doi:10.1007/s00415-020-09943-9
 
-10\. von Elm E, Altman DG, Egger M, et al. The Strengthening the Reporting of Observational Studies in Epidemiology (STROBE) statement: guidelines for reporting observational studies. Lancet. 2007;370(9596):1453--1457.
+10\. Molander LD, Hagen SM, Hansen NS, et al. Patterns of retinal damage and visual long-term consequences in patients with idiopathic intracranial hypertension. Neurology. 2025;104(7):e211234.
 
-11\. Benchimol EI, Smeeth L, Guttmann A, et al. The REporting of studies Conducted using Observational Routinely-collected health Data (RECORD) statement. PLoS Med. 2015;12(10):e1001885.
+11\. von Elm E, Altman DG, Egger M, et al. The Strengthening the Reporting of Observational Studies in Epidemiology (STROBE) statement: guidelines for reporting observational studies. Lancet. 2007;370(9596):1453--1457.
 
-12\. Friedman DI, Liu GT, Digre KB. Revised diagnostic criteria for the pseudotumor cerebri syndrome in adults and children. Neurology. 2013;81(13):1159--1165.
+12\. Benchimol EI, Smeeth L, Guttmann A, et al. The REporting of studies Conducted using Observational Routinely-collected health Data (RECORD) statement. PLoS Med. 2015;12(10):e1001885.
 
 13\. Fisher RS, Acevedo C, Arzimanoglou A, et al. ILAE official report: a practical clinical definition of epilepsy. Epilepsia. 2014;55(4):475--482.
 
