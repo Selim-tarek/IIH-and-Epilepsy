@@ -131,3 +131,29 @@ f <- ggplot(fl) +
         plot.margin = margin(8, 8, 8, 8))
 save3(f, "ALT_Figure_1_cohort_flow", 165, 95)
 log_msg("Z8 complete")
+
+## ---- eFigure 3: secondary outcome, recurrent vs single ----------------------
+sec <- utils::read.csv(file.path(PATH$tables, "K_T39_FINAL_secondary_visits.csv"),
+                       stringsAsFactors = FALSE)
+ci <- function(k, n) { b <- stats::binom.test(k, n); c(100*k/n, 100*b$conf.int[1], 100*b$conf.int[2]) }
+sd2 <- do.call(rbind, lapply(seq_len(nrow(sec)), function(i) {
+  v <- ci(sec$recurrent_or_epilepsy[i], sec$with_event[i])
+  data.frame(arm = sec$arm[i], pct = v[1], lo = v[2], hi = v[3],
+             lab = sprintf("%d of %d", sec$recurrent_or_epilepsy[i], sec$with_event[i]),
+             stringsAsFactors = FALSE) }))
+sd2$arm <- factor(ifelse(sd2$arm == "IIH", "IIH", "Comparator"), levels = c("Comparator","IIH"))
+
+e3 <- ggplot(sd2, aes(pct, arm, colour = arm)) +
+  geom_errorbarh(aes(xmin = lo, xmax = hi), height = 0, linewidth = 0.7) +
+  geom_point(size = 3.2) +
+  geom_text(aes(label = sprintf("%.0f%%  (%s)", pct, lab)), vjust = -1.25,
+            size = 2.9, fontface = "bold", show.legend = FALSE) +
+  scale_colour_manual(values = c(IIH = IIH_COL, Comparator = CTL_COL)) +
+  scale_x_continuous("Events classified as recurrent seizures or epilepsy (%)",
+                     limits = c(25, 85), breaks = seq(30, 80, 10)) +
+  labs(y = NULL, title = "Proportion of events that were recurrent seizures or epilepsy",
+       subtitle = "Among patients with a primary outcome event. Bars are exact binomial 95% CIs",
+       caption = "Fisher exact p = 0.22. The difference is compatible with chance at this sample size;\nno claim is made that events in the IIH group were more severe.") +
+  th() + theme(panel.grid.major.y = element_blank())
+save3(e3, "ALT_eFigure_3_recurrent", 140, 80)
+log_msg("eFigure 3 written")

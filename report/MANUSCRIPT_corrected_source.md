@@ -11,7 +11,7 @@ Running title: Seizures after idiopathic intracranial hypertension
 
 Correspondence: \[Name, postal address, telephone, email\]
 
-Word count: main text 3,258; abstract 299
+Word count: main text ~4,218; abstract 380
 
 # ABSTRACT
 
@@ -350,7 +350,7 @@ sensitivity parameters rather than as direct tests of detection bias.
 
 ## 3.1 \| Cohort and baseline characteristics
 
-Among 2,520 eligible patients with IIH, 2,490 (98.8%) were matched to
+Among 2,520 eligible patients with IIH, 2,490 (98.8%) were matched (eFigure 1) to
 5,743 comparators, yielding a mean of 2.31 comparators per case.
 Eighty-seven percent of cases were matched at the most stringent tier.
 After the washout and follow-up eligibility criteria were applied, 2,138
@@ -377,7 +377,7 @@ qualifying seizure or epilepsy event. Incidence rates were 14.46 and
 p\<0.001), with no evidence of violation of the proportional hazards
 assumption (p=0.94). Three-year cumulative incidence was 3.83% in the
 IIH group and 1.71% among comparators, an absolute difference of 2.12
-percentage points.
+percentage points (Figure 1).
 
 In chart review, 48 of 50 electronically identified events among
 patients with IIH were confirmed (PPV 96%; 95% CI 86%--100%), compared
@@ -386,7 +386,7 @@ with 50 of 50 among comparators (PPV 100%; 95% CI 93%--100%).
 ## 3.3 \| Sensitivity analyses
 
 The association was similar across alternative outcome and cohort
-definitions (Table 2; eFigure 1). Removing the medication criterion
+definitions (Table 2; Figure 2). Removing the medication criterion
 produced an HR of 1.93 (95% CI 1.34--2.77), while restriction to
 epilepsy-specific codes produced an HR of 2.30 (95% CI 1.35--3.92).
 Restriction to patients with opening pressure of at least 25 cm H₂O
@@ -417,7 +417,7 @@ primary outcome was 2.28 (95% CI 1.62--3.22).
 Among patients with a primary event, 41 of 66 patients with IIH (62%;
 95% CI 49%--74%) and 32 of 63 comparators (51%; 95% CI 38%--64%) met the
 definition of recurrent seizure or epilepsy (Fisher exact p=0.22;
-eFigure 2). No interaction reached statistical significance (eTable 7).
+eFigure 3). No interaction reached statistical significance (eTable 7).
 HRs were 1.90 among patients younger than 35 years and 2.72 among those
 aged 35 years or older (p for interaction=0.31). By BMI, HRs were 2.86
 for BMI \<35 kg/m² and 1.87 for BMI ≥35 kg/m² (p=0.26). By sex, the HR
@@ -444,13 +444,13 @@ unadjusted rate ratio of 2.15, which was lower than the corresponding
 estimates for 6 of the 11 controls. Across the negative controls,
 greater baseline imbalance was associated with larger post-index HRs
 (r=0.66, p=0.026). The empirical calibration model yielded a predicted
-detection-only HR of 1.04 (95% CI 0.37--2.90); importantly, this
+detection-only HR of 1.04 (95% CI 0.37--2.90; eFigure 2); importantly, this
 interval included the observed seizure HR.
 
 Adjustment for each of six measures of pre-index healthcare contact
 moved all 66 negative-control estimates toward the null (median change
 −29%; range −46% to −3%). In contrast, the seizure HR increased under
-each measure, ranging from 2.46 to 2.93. Because adjustment for
+each measure, ranging from 2.46 to 2.93 (Figure 3). Because adjustment for
 healthcare utilization can have complex causal interpretations, these
 findings are supportive but do not establish that differential detection
 was absent.
@@ -723,4 +723,4 @@ those guidelines.
 
 30\. Bidot S, Saindane AM, Peragallo JH, et al. Brain imaging in idiopathic intracranial hypertension. J Neuroophthalmol. 2015;35(4):400--411.
 
-31\. Ben-Menachem E. Weight issues for people with epilepsy: a review. Epilepsia. 2007;48(Suppl 9):42--45. # TABLES AND FIGURE LEGENDS Tables 1--3 and Figure legends should be retained from the source manuscript, with the editorial/statistical revisions noted below. The table values were not independently recomputed from raw data in this editorial revision.
+31\. Ben-Menachem E. Weight issues for people with epilepsy: a review. Epilepsia. 2007;48(Suppl 9):42--45.

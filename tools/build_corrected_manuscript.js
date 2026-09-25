@@ -49,13 +49,15 @@ const note=s=>new Paragraph({spacing:{before:90,after:240},
  children:[new TextRun({text:s,italics:true,font:FONT,size:17,color:'595959'})]});
 
 /* ---- prose ---- */
-const md=fs.readFileSync('/tmp/user_ms_corrected.md','utf8').replace(/\r/g,'').split('\n');
+const md=fs.readFileSync(path.join(ROOT,'report','MANUSCRIPT_corrected_source.md'),'utf8').replace(/\r/g,'').split('\n');
 const ch=[];let i=0;
 while(i<md.length){const t=md[i].trim();
  if(t===''){i++;continue;}
  if(t.startsWith('## ')){ch.push(new Paragraph({heading:HeadingLevel.HEADING_2,
    spacing:{before:300,after:150},children:runs(t.slice(3),{bold:true,size:26})}));i++;continue;}
- if(t.startsWith('# ')){ch.push(new Paragraph({heading:HeadingLevel.HEADING_1,
+ if(t.startsWith('# ')){const h=unesc(t.slice(2));
+   ch.push(new Paragraph({heading:HeadingLevel.HEADING_1,
+   pageBreakBefore:/INTRODUCTION/.test(h),
    spacing:{before:360,after:180},children:runs(t.slice(2),{bold:true,size:28})}));i++;continue;}
  if(t.startsWith('•')||t.startsWith('- ')){ch.push(new Paragraph({spacing:{line:360,after:80},
    indent:{left:360,hanging:220},children:runs(t.replace(/^[-•]\s*/,'•  '))}));i++;continue;}
@@ -114,15 +116,15 @@ ch.push(new Paragraph({children:[new PageBreak()]}));
 ch.push(new Paragraph({heading:HeadingLevel.HEADING_1,spacing:{after:200},
  children:[new TextRun({text:'FIGURES',bold:true,font:FONT,size:28})]}));
 const figs=[
- ['Figure_1_cumulative_incidence','Figure 1','Cumulative incidence of incident seizure or epilepsy after the 180-day washout, by cohort. Estimated with the Aalen-Johansen method treating death as a competing event; shaded bands are 95% confidence intervals. Three-year cumulative incidence was 3.83% in the IIH group and 1.71% among comparators (absolute difference 2.12 percentage points; HR 2.28, 95% CI 1.62-3.22).',540],
- ['Figure_2_forest_specifications','Figure 2','Hazard ratio for incident seizure or epilepsy across outcome definitions, cohort restrictions, follow-up landmarks and analytic models. Points are hazard ratios and horizontal lines 95% confidence intervals, on a logarithmic scale; the diamond marks the primary analysis and the dashed line its point estimate. Point estimates range from 1.93 to 2.79 and every confidence interval excludes 1.',620],
- ['Figure_3A_calibration','Figure 3A','Empirical calibration across 11 negative-control outcomes. Each orange point is one negative control, plotted by its baseline prevalence ratio and its post-index hazard ratio; the line is the fitted relationship (r = 0.66, p = 0.026) and the shaded band its 95% prediction interval. The open circle is the predicted detection-attributable hazard ratio at baseline balance, 1.04 (95% CI 0.37-2.90). The diamond is the observed seizure estimate, which lies inside that interval.',540],
- ['Figure_3B_contact_direction','Figure 3B','Direction of movement of each outcome under adjustment for six independent measures of pre-index healthcare contact. Circles show the median change across the 11 negative-control outcomes; diamonds show the seizure outcome. All 66 control-by-measure combinations moved toward the null, whereas the seizure estimate moved away from the null under all six measures.',540]];
-for(const [f,n,legend,wpx] of figs){
+ ['Figure_1_cumulative_incidence','Figure 1','Cumulative incidence of incident seizure or epilepsy after the 180-day washout, by cohort. Estimated with the Aalen-Johansen method treating death as a competing event; shaded bands are 95% confidence intervals. Three-year cumulative incidence was 3.83% in the IIH group and 1.71% among comparators (absolute difference 2.12 percentage points; hazard ratio 2.28, 95% CI 1.62-3.22).'],
+ ['Figure_2_forest_specifications','Figure 2','Hazard ratio for incident seizure or epilepsy across outcome definitions, cohort restrictions, follow-up landmarks and analytic models. Points are hazard ratios and horizontal lines 95% confidence intervals, on a logarithmic scale; the diamond marks the primary analysis and the dashed line its point estimate. Point estimates range from 1.93 to 2.79 and every confidence interval excludes 1.'],
+ ['ALT_Figure_3_slopegraph','Figure 3','Change in the estimated association for every outcome on adjustment for pre-index healthcare contact. Each line is one outcome, drawn from its unadjusted to its contact-adjusted hazard ratio on a logarithmic scale; orange lines are the 11 negative-control outcomes and the blue line is the primary outcome. Unadjusted, the seizure estimate (2.28) lies among the negative controls. On adjustment all 11 controls move toward the null (-18.8% to -42.6%), whereas the seizure estimate moves away from it (+12.6%). An outcome generated purely by differential detection would be expected to behave as the controls do.'],
+];
+for(const [f,n,legend] of figs){
  const buf=fs.readFileSync(path.join(FG,f+'.png'));
  // 600-dpi source; place at the given display width, preserving aspect.
  const mm={'Figure_1_cumulative_incidence':[140,100],'Figure_2_forest_specifications':[180,115],
-           'Figure_3A_calibration':[140,105],'Figure_3B_contact_direction':[140,100]}[f];
+           'ALT_Figure_3_slopegraph':[150,125]}[f];
  const wpt=Math.min(468,mm[0]/25.4*72), hpt=wpt*(mm[1]/mm[0]);
  ch.push(new Paragraph({spacing:{before:300,after:100},alignment:AlignmentType.CENTER,
   children:[new ImageRun({data:buf,type:'png',transformation:{width:Math.round(wpt),height:Math.round(hpt)}})]}));

@@ -4,8 +4,9 @@
  * Data comes straight from outputs/tables, so neither can drift from the run. */
 const fs=require('fs'), path=require('path'), D=require('docx');
 const {Document,Packer,Paragraph,TextRun,AlignmentType,Table,TableRow,TableCell,
-       WidthType,ShadingType,BorderStyle,Footer,PageNumber,PageOrientation}=D;
-const ROOT=path.resolve(__dirname,'..'), TB=path.join(ROOT,'outputs','tables');
+       WidthType,ShadingType,BorderStyle,Footer,PageNumber,PageOrientation,ImageRun,PageBreak}=D;
+const ROOT=path.resolve(__dirname,'..'), TB=path.join(ROOT,'outputs','tables'),
+      FG=path.join(ROOT,'outputs','figures_publication');
 const FONT='Times New Roman';
 
 function csv(f){const t=fs.readFileSync(path.join(TB,f.endsWith('.csv')?f:f+'.csv'),'utf8').replace(/\r/g,'');
@@ -94,7 +95,7 @@ const main=[head('Tables')];
  main.push(note('All 11 negative-control outcomes were more prevalent in the IIH group before the index date (prevalence ratios 1.6-5.0, all p < 0.01); none met the prespecified balance criterion, so the panel does not support a specificity claim. Eight of 11 had post-index confidence intervals excluding 1. On unadjusted rate ratios the primary outcome (2.15) was lower than 6 of the 11 controls. Empirical calibration: r = 0.66, p = 0.026; predicted detection-only hazard ratio at baseline balance 1.04 (95% CI 0.37-2.90), an interval that includes the observed estimate. Sources: K_T42, K_T45, K_T55, K_T48.'));}
 
 /* ---------------- SUPPLEMENTARY ---------------- */
-const sup=[head('Supplementary Tables')];
+const sup=[head('Supplementary Tables and Figures')];
 const add=(n,t,rows,w,nt)=>{sup.push(cap(n,t));sup.push(tbl(rows,w));if(nt)sup.push(note(nt));};
 
 add('eTable 1','Seizure and epilepsy code list used for the primary outcome, applied identically to both groups.',
@@ -161,10 +162,27 @@ add('eTable 2','Antiseizure medications counted and excluded.',
   [3600,1800,3960],
   'An unmeasured mechanism would need to be associated with both IIH status and seizure ascertainment by at least 3.99-fold each, conditional on the measured covariates, to reduce the hazard ratio to unity. Five of the six measured surveillance channels fall below that threshold; emergency department contact (5.74) exceeds it. Source: K_T56.');}
 
+/* ---- supplementary figures ---- */
+sup.push(new Paragraph({children:[new PageBreak()]}));
+sup.push(head('Supplementary Figures'));
+const efigs=[
+ ['ALT_Figure_1_cohort_flow','eFigure 1','Cohort assembly. Comparators inherited the index date of their matched case; eligibility, the 180-day washout and the prevalent-seizure exclusion were all evaluated at that shared date. Of 2,520 eligible patients with IIH, 2,490 (98.8%) were matched; 2,138 contributed follow-up beyond the washout. The 352 matched sets whose case did not contribute post-washout follow-up retained 789 comparators, addressed by the complete-matched-sets sensitivity analysis.',[165,95]],
+ ['Figure_3A_calibration','eFigure 2','Empirical calibration across 11 negative-control outcomes. Each orange point is one negative control, plotted by its baseline prevalence ratio and its post-index hazard ratio; the line is the fitted relationship (r = 0.66, p = 0.026) and the shaded band its 95% prediction interval. The open circle is the predicted detection-attributable hazard ratio at baseline balance, 1.04 (95% CI 0.37-2.90). The diamond is the observed seizure estimate, which lies inside that interval; empirical calibration therefore does not exclude differential detection.',[140,105]],
+ ['ALT_eFigure_3_recurrent','eFigure 3','Proportion of primary-outcome events classified as recurrent seizures or epilepsy, by cohort, with exact binomial 95% confidence intervals. Fisher exact p = 0.22.',[140,80]],
+];
+for(const [f,n,legend,mm] of efigs){
+ const buf=fs.readFileSync(path.join(FG,f+'.png'));
+ const wpt=Math.min(468,mm[0]/25.4*72), hpt=wpt*(mm[1]/mm[0]);
+ sup.push(new Paragraph({spacing:{before:300,after:100},alignment:AlignmentType.CENTER,
+  children:[new ImageRun({data:buf,type:'png',transformation:{width:Math.round(wpt),height:Math.round(hpt)}})]}));
+ sup.push(new Paragraph({spacing:{after:240},children:[
+  new TextRun({text:n+'. ',bold:true,font:FONT,size:21}),
+  new TextRun({text:legend,font:FONT,size:21})]}));}
+
 Promise.all([
  Packer.toBuffer(new Document({creator:'Selim Tarabeah',title:'Tables',
   styles:{default:{document:{run:{font:FONT,size:20}}}},sections:[sec(main)]})),
- Packer.toBuffer(new Document({creator:'Selim Tarabeah',title:'Supplementary Tables',
+ Packer.toBuffer(new Document({creator:'Selim Tarabeah',title:'Supplementary Material',
   styles:{default:{document:{run:{font:FONT,size:20}}}},sections:[sec(sup)]})),
 ]).then(([a,b])=>{
  fs.writeFileSync(path.join(ROOT,'report','TABLES_main.docx'),a);
