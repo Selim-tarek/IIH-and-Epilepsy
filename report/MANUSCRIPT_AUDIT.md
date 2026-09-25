@@ -6,17 +6,26 @@ the 18 September 2026 run. Three categories: **correct**, **wrong**,
 
 ---
 
-## A. MUST FIX — a Methods claim that describes something that was never done
+## A. RESOLVED — the exclusion is real, but one-sided (authors confirmed)
 
 > §2.2: *"Patients with a history of ischemic stroke, intracerebral or
 > subarachnoid hemorrhage, craniotomy, brain tumor, or traumatic brain injury
 > were excluded because these conditions are independent risk factors for
 > seizures."*
 
-**This exclusion was never applied.** No variable for any of these conditions
-exists in the analysis set, and no script in the pipeline — `F1`, `G1`, `K15`,
-or any downstream — references stroke, haemorrhage, craniotomy, tumour or TBI
-codes. A search of the whole current pipeline returns nothing.
+**Resolution: the authors confirm it was applied to comparators only**, at the
+stage of comparator extraction — which is why no variable for these conditions
+exists in the analysis set and no pipeline script references their codes. My
+original finding (that the analysis never applied it) was correct; the
+inference that it was never applied *at all* was not.
+
+This is worse than a documentation error and better than a fabrication. Removing
+seizure-prone patients from the comparator arm alone lowers the comparator event
+rate and **biases the hazard ratio away from the null** — in the direction that
+flatters the finding. Deleting the sentence would conceal a real deviation;
+describing it as applied "to both groups" is false. The manuscript now states
+the asymmetry, its direction of bias, and that it cannot be quantified without
+an IIH-arm extract.
 
 This is the single most damaging sentence in the manuscript. It is a specific,
 checkable claim about cohort construction, and if a reviewer or editor asks for
@@ -29,8 +38,10 @@ the code it collapses. Two honest options:
    S06.x, C71.x, D32.x and craniotomy procedure codes for **both** arms, which
    is not in `data-raw/`. It would be a new data request and a re-run.
 
-I recommend (1) for this submission and (2) for any future revision. I have not
-changed it without your decision, but it cannot be submitted as written.
+**Applied:** accurate disclosure in Methods §2.2 and a new Limitations
+paragraph. **Outstanding data request:** an IIH-arm diagnosis extract covering
+I60–I63, S06.x, C71.x, D32.x and craniotomy procedure codes with dates, to allow
+a symmetric re-analysis.
 
 ## B. WRONG — numbers that do not match the data
 
@@ -45,7 +56,7 @@ number than 30, but it is 60 of 2,138 IIH patients assessed at all, so the
 conclusion ("too sparse for meaningful analysis") still stands. State it as
 "encephalocele status was assessed in only 60 patients with IIH (43 positive)".
 
-## C. UNVERIFIABLE — real or not, I cannot confirm it
+## C. RESOLVED — chart review confirmed by the authors
 
 > §2.4 and §3.2: chart review of 50 events per group; *"48 of 50 ... confirmed
 > (PPV 96%; 95% CI 86%–100%), compared with 50 of 50 among comparators (PPV
@@ -58,11 +69,12 @@ was that validation had not been done ("I will review later"). The exact
 binomial intervals quoted are arithmetically correct for 48/50 and 50/50, so
 whoever wrote them computed them properly.
 
-If you or a co-author did this review, it is fine — send me the counts and I
-will add the table and cite it. **If it has not been done, it must come out of
-the manuscript entirely**, including the Limitations sentence built on it. I am
-flagging it rather than deleting it because I cannot tell which is the case,
-and it is the kind of claim that must not be guessed at either way.
+**Resolution: the authors confirm the review was performed and the figures check
+out.** It is retained as written. It is recorded here only so that the audit
+trail shows the claim was checked and confirmed externally rather than verified
+from analysis output — no table for it exists in this repository, so if a
+reviewer asks for the validation data it must come from the chart-review
+records, not from `outputs/`.
 
 ## D. CORRECT — verified against the run
 

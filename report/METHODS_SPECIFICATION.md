@@ -102,11 +102,25 @@ Applied to **both arms, evaluated at the shared (inherited) index date**:
 | No follow-up beyond index + 180 days | both arms |
 | No clinical encounter in the 12 months before index | both arms |
 
+| History of ischemic stroke, intracerebral or subarachnoid haemorrhage, craniotomy, brain tumour or TBI | **COMPARATORS ONLY** |
+
+> **This one is asymmetric, and the authors have confirmed it.** The neurologic
+> exclusion was applied at comparator extraction and **not** to the IIH arm, for
+> which the corresponding diagnosis extract does not exist. Because every one of
+> these conditions raises seizure risk, removing them from the comparator arm
+> alone lowers the comparator event rate and **biases the hazard ratio away from
+> the null** — i.e. in favour of the reported finding. It cannot be quantified
+> from held data. A symmetric re-analysis requires an IIH-arm diagnosis extract
+> covering I60–I63, S06.x, C71.x, D32.x and craniotomy procedure codes, with
+> dates. This is disclosed in the manuscript Methods and Limitations rather than
+> described as symmetric.
+
 **There is NO age exclusion.** An earlier version of this document listed
 "age ≥18" as a criterion; that was my inference and it is wrong. The analysis set
 contains **106 patients under 18** (62 IIH, 44 comparators), the youngest aged 13.
 
-**Confirmation.** The washout is symmetric: earliest event day 183 (IIH) and 187
+**Confirmation, with one stated exception (the neurologic exclusion above).**
+The washout is symmetric: earliest event day 183 (IIH) and 187
 (comparator), and `R/F1_import_audit_final.R` asserts at load that no event falls
 inside the 180-day window in either arm. The outcome function `ev_day()` in
 `R/K15_final_analysis.R` is a single function called identically for both arms —
