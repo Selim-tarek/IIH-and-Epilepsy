@@ -34,7 +34,12 @@ while(i<lines.length){const t=lines[i].trim();
  ch.push(new Paragraph({spacing:{line:480,after:0},children:runs(buf.join(' '))}));
  ch.push(new Paragraph({spacing:{after:120},children:[]}));}
 
-const words=(md.slice(md.indexOf('Objective:'),md.indexOf('# KEY POINTS'))||'').split(/\s+/).filter(Boolean).length;
+// Objective through Significance. Keywords are not part of the abstract word count.
+const kwIdx=md.indexOf('*Keywords:');
+const abEnd=kwIdx>0?kwIdx:md.indexOf('# KEY POINTS');
+const words=md.slice(md.indexOf('Objective:'),abEnd)
+  .replace(/^#.*$/gm,'').replace(/\\([.|'\[\]()*_~#+-])/g,'$1').replace(/\*\*|\*/g,'')
+  .split(/\s+/).filter(Boolean).length;
 ch.push(new Paragraph({spacing:{before:300},children:[new TextRun({
  text:`Abstract word count (Objective through Significance): ${words}`,
  italics:true,font:FONT,size:18,color:'595959'})]}));
