@@ -15,7 +15,10 @@ function csv(f){const t=fs.readFileSync(path.join(TB,f.endsWith('.csv')?f:f+'.cs
  if(cur.length||row.length){row.push(cur);rows.push(row);}
  return rows.filter(r=>r.length>1||(r[0]||'').trim()!=='');}
 
-function runs(t,base={}){const out=[];const re=/(\*\*[^*]+\*\*|\*[^*]+\*|\[AUTHOR DECISION REQUIRED\]|\[END AUTHOR DECISION\])/g;
+// pandoc escapes punctuation with backslashes (1\. , 1 \| METHODS, O\'Shea).
+// Strip those before rendering or they appear literally in Word.
+const unesc=t=>t.replace(/\\([.|'\[\]()*_~#+-])/g,'$1');
+function runs(t,base={}){t=unesc(t);const out=[];const re=/(\*\*[^*]+\*\*|\*[^*]+\*|\[AUTHOR DECISION REQUIRED\]|\[END AUTHOR DECISION\])/g;
  let last=0,m;const push=(s,o)=>{if(s)out.push(new TextRun({text:s,font:FONT,size:24,...base,...o}));};
  while((m=re.exec(t))!==null){push(t.slice(last,m.index),{});const k=m[0];
   if(k.startsWith('**'))push(k.slice(2,-2),{bold:true});
