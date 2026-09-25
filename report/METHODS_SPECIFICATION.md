@@ -19,6 +19,12 @@ is **not in the data I hold**, it says so; nothing here is inferred.
   for adjustment or matching.
 - **Study period (index dates): 7 June 2002 to 11 November 2025**, median 31
   January 2021 (IIH). Data freeze 3 September 2026.
+- **Age at index: 13.0 to 59.1 years** (IIH 13.0–59.0; comparators 16.0–59.1).
+  Median 35.1, mean 35.4 (SD 9.7). **No age criterion was applied by this
+  analysis.** The bounds come from the supplied extract: the source master has
+  the same 13–59.1 span, so the cap near 59 was imposed upstream and its reason
+  is not recoverable from any file I hold — **you must state it.** No patient in
+  either arm is 60 or older.
 - **Look-back:** ≥1 dated clinical encounter in the **12 months** before index.
 - **Follow-up:** from index + 180 days to the earliest of outcome, death, last
   attended encounter, or freeze, capped at **3 years** past the washout.
@@ -95,7 +101,10 @@ Applied to **both arms, evaluated at the shared (inherited) index date**:
 | Chronic anti-seizure therapy starting on or before index + 180 days | both arms |
 | No follow-up beyond index + 180 days | both arms |
 | No clinical encounter in the 12 months before index | both arms |
-| Age < 18 at index | both arms |
+
+**There is NO age exclusion.** An earlier version of this document listed
+"age ≥18" as a criterion; that was my inference and it is wrong. The analysis set
+contains **106 patients under 18** (62 IIH, 44 comparators), the youngest aged 13.
 
 **Confirmation.** The washout is symmetric: earliest event day 183 (IIH) and 187
 (comparator), and `R/F1_import_audit_final.R` asserts at load that no event falls

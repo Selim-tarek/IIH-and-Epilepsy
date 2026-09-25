@@ -1,6 +1,6 @@
 # Final results — complete from-scratch run
 
-**Run date:** 2026-09-18 · **Master:** `IIH_MASTER_FINAL.xlsx` · **Freeze:** 3 September 2026 · **Seed:** 20250906
+**Run date:** 2026-09-25 · **Master:** `IIH_MASTER_FINAL.xlsx` · **Freeze:** 3 September 2026 · **Seed:** 20250906
 
 Every number below was produced by a single uninterrupted execution of
 `run_final.sh`, beginning from the raw exports. Derived datasets were deleted

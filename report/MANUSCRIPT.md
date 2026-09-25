@@ -17,8 +17,8 @@
 diagnosis of idiopathic intracranial hypertension (IIH), and to assess whether
 differential healthcare surveillance could account for any association observed.
 
-**Methods.** Matched cohort study in an integrated health-record system. Adults
-with IIH were matched to comparators without IIH on sex, age, body mass index
+**Methods.** Matched cohort study in an integrated health-record system. Patients
+with IIH (aged 13–59 years) were matched to comparators without IIH on sex, age, body mass index
 (BMI) and BMI calendar year, in five relaxing tiers. Comparators inherited the
 index date of the case to whom they were matched; a 180-day washout and a
 prevalent-seizure exclusion were applied to both arms at that shared date. Both
@@ -102,7 +102,7 @@ statement and approval number to be inserted.»
 
 ### Cohort and index date
 
-Adults with a diagnosis of IIH formed the exposed arm. Each case was assigned an
+Patients with a diagnosis of IIH formed the exposed arm. No age criterion was applied by this analysis; ages at index ranged from 13.0 to 59.1 years (median 35.1), the bounds being a property of the supplied extract rather than of the study design. Each case was assigned an
 index date at diagnosis. Comparators were patients without any IIH code at any
 date.
 
@@ -267,6 +267,7 @@ The estimate was stable across every specification examined (Figure 2):
 | Fine–Gray subdistribution | 2.28 (1.62–3.22) |
 | Overlap-weighted | 2.31 (1.56–3.43) |
 | Adjusted for OSA, hypertension and PCOS | 2.11 (1.48–3.01) |
+| Restricted to age ≥18 at index | 2.26 (1.59–3.20) |
 
 Two of these warrant comment. The **complete-sets** analysis addresses a
 structural feature of the matching: comparators were required at selection to

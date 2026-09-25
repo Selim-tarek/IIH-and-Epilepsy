@@ -1,0 +1,7 @@
+"stage","n","min_age","max_age","under18"
+"Source master (all supplied patients)",11740,13,59.1,201
+"  of which IIH",2618,13,59,92
+"  of which comparators",9122,16,59.1,109
+"Final analysis set",7881,13,59.1,106
+"  of which IIH",2138,13,59,62
+"  of which comparators",5743,16,59.1,44

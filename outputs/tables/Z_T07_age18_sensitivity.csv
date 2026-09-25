@@ -1,0 +1,4 @@
+"analysis","iih","comparator","HR","p"
+"Primary (no age restriction; ages 13.0-59.1)","66/2138","63/5743","2.28 (1.62 to 3.22)",2.62e-06
+"Restricted to age >= 18 at index","64/2076","63/5699","2.26 (1.59 to 3.20)",4.82e-06
+"Age >= 18, complete matched sets only","64/2073","58/4828","2.10 (1.47 to 3.00)",4.19e-05
