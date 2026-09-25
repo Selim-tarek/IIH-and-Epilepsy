@@ -112,12 +112,20 @@ encephaloceles prospectively.
 
 # 1 \| INTRODUCTION
 
-[MISSING FROM SCREENSHOTS - OPENING PARAGRAPH(S) REQUIRED] The supplied screenshots
-begin mid-Introduction, at "This distinction has important diagnostic
-implications". The opening paragraph or paragraphs, which define IIH and set up
-the distinction referred to and which carry citations 1-4 (Horton, Markey, Patel,
-Olaru), are not visible in any screenshot and have not been reconstructed. Please
-send that text; it has deliberately not been written for you. [END MISSING]
+Idiopathic intracranial hypertension (IIH) is a disorder characterized by
+elevated cerebrospinal fluid (CSF) pressure in the absence of an identifiable
+secondary cause. It occurs predominantly in women of reproductive age with
+obesity, and its incidence continues to rise in parallel with the global obesity
+epidemic.1 According to the revised Friedman criteria, IIH is defined by
+papilledema or abducens nerve palsy, elevated lumbar puncture opening pressure,
+normal CSF composition, a normal neurologic examination apart from cranial nerve
+abnormalities, and neuroimaging demonstrating no space-occupying lesion,
+hydrocephalus, or cerebral venous sinus thrombosis.2 A normal mental status and
+the absence of focal neurologic deficits are themselves diagnostic requirements.
+Natural-history studies describe headache, transient visual obscurations,
+pulsatile tinnitus, visual loss, and diplopia as the characteristic clinical
+spectrum of IIH, without an established association with seizures or epilepsy
+either at presentation or during long-term follow-up.1--4
 
 This distinction has important diagnostic implications as IIH remains a diagnosis
 of exclusion. Among the most important mimics is cerebral venous thrombosis,
