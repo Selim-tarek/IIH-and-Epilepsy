@@ -68,7 +68,9 @@ Pooling *these* is defensible because they share that surveillance mechanism; po
 Include a patient if, at any point in the source period:
 
 - **≥2 outpatient encounters** carrying a qualifying diagnosis code, on **different dates ≥30 days apart**, OR one inpatient discharge with the code (single codes are unreliable);
-- age ≥18 at the qualifying date;
+- **age 13–59 at the qualifying date** — matching the existing cohort, which spans
+  13.0 to 59.1 years and applies no age criterion of its own. Do **not** restrict
+  to adults: an arm limited to ≥18 would not be comparable to the IIH cohort;
 - **no IIH code ever** (G93.2, G97.2 — exclude on any occurrence, any date, including after the index date);
 - not already present in the case or comparator files supplied for this study.
 
