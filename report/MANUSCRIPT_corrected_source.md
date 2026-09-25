@@ -11,7 +11,7 @@ Running title: Seizures after idiopathic intracranial hypertension
 
 Correspondence: \[Name, postal address, telephone, email\]
 
-Word count: main text ~4,218; abstract 380
+Word count: main text 4,181; abstract 367; key points 122; references 31
 
 # ABSTRACT
 
